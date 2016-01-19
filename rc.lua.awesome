@@ -1,7 +1,9 @@
 --[[
                                 
      Holo Awesome WM config 2.0 
-     github.com/copycat-killer  
+     github.com/copycat-killer 
+
+     path: ~/.config/awesome/rc.lua
                                 
 --]]
 
