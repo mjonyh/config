@@ -1,7 +1,9 @@
+" pathogen
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" for nerdtree short cut
 map <C-n> :NERDTreeToggle<CR>
 
 " set guifont=Inconsolata\ for\ Powerline:h15
@@ -13,6 +15,7 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
+" Powerline fonts
 let g:airline_powerline_fonts = 1
 
   if !exists('g:airline_symbols')
@@ -60,19 +63,26 @@ let g:airline_powerline_fonts = 1
   let g:airline_symbols.linenr = '⭡'
 
 
+" Configuration for the llstartpreview  
 autocmd Filetype tex setl updatetime=1
 autocmd Filetype tex set tw=79
 let g:livepreview_previewer = 'open -a Preview'
 
+" for vim-latex-suite
 let g:Tex_EnvLabelprefix_equation = "eq:"
 let g:Tex_EnvLabelprefix_figure = "fig:"
 let g:Tex_EnvLabelprefix_table = "table:"
 
+" default spell check
 set spell!
-set relativenumber
-set number
 
+" Display line number
+set relativenumber  	" for relative number"
+set number 		" for current line number"
+
+" Color scheme
 colorscheme molokai
 autocmd Filetype python colorscheme dracula
 
+" Automatic savings
 let g:auto_save = 1  " enable AutoSave on Vim startup
