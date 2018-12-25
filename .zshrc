@@ -65,7 +65,16 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+<<<<<<< HEAD
   git fast-syntax-highlighting
+=======
+  git
+  zsh-autosuggestions
+  osx
+  brew
+  fast-syntax-highlighting
+  z
+>>>>>>> ac5db95ff78b1077c5185e85de5511ae7df8dff5
 )
 
 source $ZSH/oh-my-zsh.sh
