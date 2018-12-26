@@ -4,6 +4,8 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+set encoding=utf-8
+
 " for nerdtree short cut
 map <C-n> :NERDTreeToggle<CR>
 
@@ -96,9 +98,9 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:neosnippet#disable_runtime_snippets = 1
 
 " To use python version 2.x: >
- let g:UltiSnipsUsePythonVersion = 2
+" let g:UltiSnipsUsePythonVersion = 2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<C-c>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
