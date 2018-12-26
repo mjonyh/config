@@ -100,7 +100,7 @@ let g:neosnippet#disable_runtime_snippets = 1
 " To use python version 2.x: >
 " let g:UltiSnipsUsePythonVersion = 2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-c>"
+let g:UltiSnipsExpandTrigger="<C-m>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
