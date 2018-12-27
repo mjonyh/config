@@ -115,3 +115,6 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:UltiSnipsExpandTrigger="<C-w>"
 "  let g:UltiSnipsJumpForwardTrigger="<C-w>"
 "  let g:UltiSnipsJumpBackwardTrigger="<C-e>"
+"
+" autopairs
+let g:AutoPairsFlyMode = 1
