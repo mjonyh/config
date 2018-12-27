@@ -95,14 +95,23 @@ autocmd Filetype python colorscheme dracula
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 " disable neosnippet
-let g:neosnippet#disable_runtime_snippets = 1
+" let g:neosnippet#disable_runtime_snippets = 1
 
 " To use python version 2.x: >
 " let g:UltiSnipsUsePythonVersion = 2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-m>"
+" let g:UltiSnipsExpandTrigger="<C-m>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+" let g:ulti_expand_or_jump_res = 0 "default value, just set once
+" function! Ulti_ExpandOrJump_and_getRes()
+"     call UltiSnips#ExpandSnippetOrJump()
+"     return g:ulti_expand_or_jump_res
+" endfunction
+" 
+" inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<C-w>"
+"  let g:UltiSnipsJumpForwardTrigger="<C-w>"
+"  let g:UltiSnipsJumpBackwardTrigger="<C-e>"
