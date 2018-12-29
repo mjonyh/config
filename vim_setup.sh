@@ -178,6 +178,18 @@ else
 	git clone https://github.com/chiel92/vim-autoformat
 fi
 
+# vim-fugitive installation
+file="$HOME/.vim/bundle/vim-fugitive"
+if [ -d "$file" ]
+then
+	echo "$file found."
+else
+	echo "Installing vim-fugitive..."
+
+	cd $HOME/.vim/bundle
+	git clone https://github.com/tpope/vim-fugitive
+fi
+
 
 
 
