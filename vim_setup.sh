@@ -190,6 +190,32 @@ else
 	git clone https://github.com/tpope/vim-fugitive
 fi
 
+# Titlecase installation
+file="$HOME/.vim/bundle/vim-titlecase"
+if [ -d "$file" ]
+then
+	echo "$file found."
+else
+	echo "Installing Titlecase..."
+
+	cd $HOME/.vim/bundle
+	git clone https://github.com/christoomey/vim-titlecase
+fi
+
+# # vimproc installation
+# file="$HOME/.vim/bundle/vimproc.vim"
+# if [ -f "$file" ]
+# then
+# 	echo "$file found."
+# else
+# 	echo "Installing vimproc..."
+
+	# cd $HOME/.vim/bundle
+	# git clone https://github.com/shougo/vimproc.vim
+	# cd vimproc.vim
+	# make
+# fi
+
 
 
 
