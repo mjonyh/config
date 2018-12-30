@@ -20,6 +20,7 @@ let g:tex_flavor='latex'
 let g:Tex_EnvLabelprefix_equation = "eq:"
 let g:Tex_EnvLabelprefix_figure = "fig:"
 let g:Tex_EnvLabelprefix_table = "table:"
+let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics[width=0.75\\textwidth]{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}\<cr><++>"
 
 " default spell check
 set spell!
