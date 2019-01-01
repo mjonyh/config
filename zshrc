@@ -136,4 +136,5 @@ OS_ICON=$POWERLEVEL9K_APPLE_ICON
 POWERLEVEL9K_USER_ICON="\uF415"
 
 
+export PATH=/usr/local/mysql/bin:$PATH
 source ~/config/P9K_my_theme.sh
