@@ -203,18 +203,16 @@ else
 fi
 
 # # vimproc installation
-# file="$HOME/.vim/bundle/vimproc.vim"
-# if [ -f "$file" ]
-# then
-# 	echo "$file found."
-# else
-# 	echo "Installing vimproc..."
+ file="$HOME/.vim/bundle/django-plus.vim"
+if [ -f "$file" ]
+then
+	echo "$file found."
+else
+	echo "Installing django-plus..."
 
-	# cd $HOME/.vim/bundle
-	# git clone https://github.com/shougo/vimproc.vim
-	# cd vimproc.vim
-	# make
-# fi
+	cd $HOME/.vim/bundle
+	git clone https://github.com/tweekmonster/django-plus.vim
+fi
 
 
 
