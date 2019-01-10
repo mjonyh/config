@@ -203,7 +203,7 @@ else
 fi
 
 # # vimproc installation
- file="$HOME/.vim/bundle/django-plus.vim"
+file="$HOME/.vim/bundle/django-plus.vim"
 if [ -f "$file" ]
 then
 	echo "$file found."
@@ -212,6 +212,18 @@ else
 
 	cd $HOME/.vim/bundle
 	git clone https://github.com/tweekmonster/django-plus.vim
+fi
+
+# # highlight installation
+file="$HOME/.vim/bundle/highlight_current_line.vim"
+if [ -f "$file" ]
+then
+	echo "$file found."
+else
+	echo "Installing highlight_current_line..."
+
+	cd $HOME/.vim/bundle
+	git clone https://github.com/vim-scripts/highlight_current_line.vim
 fi
 
 
