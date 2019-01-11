@@ -1,5 +1,7 @@
 #!/bin/sh
 
 sh vim_setup.sh
-ln -s ~/.dotfiles/new_zshrc ~/.zshrc
-ln -s ~/.dotfiles/vimrc ~/.vimrc
+mv ~/.zshrc ~/.zshrc.bak
+ln -s new_zshrc ~/.zshrc
+mv ~/.vimrc ~/.vimrc.bak
+ln -s vimrc ~/.vimrc
