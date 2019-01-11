@@ -61,11 +61,43 @@ echo "Please go to the below to to obtain NERD fonts \n"
 echo "https://nerdfonts.com \n"
 read -p "Press [Enter] key after this..."
 
+# Some settings for mac
+#"Setting screenshot format to PNG"
+defaults write com.apple.screencapture type -string "png"
 
+# for Safari
+#"Hiding Safari's bookmarks bar by default"
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+#"Hiding Safari's sidebar in Top Sites"
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+#"Disabling Safari's thumbnail cache for History and Top Sites"
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+#"Enabling Safari's debug menu"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+#"Making Safari's search banners default to Contains instead of Starts With"
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+#"Removing useless icons from Safari's bookmarks bar"
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+#"Allow hitting the Backspace key to go to the previous page in history"
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+
+#"Enabling the Develop menu and the Web Inspector in Safari"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+
+illall Finder
 
 
 echo "Changing Shell..."
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 
 
+echo "Done!"
 
