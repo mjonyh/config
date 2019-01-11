@@ -116,9 +116,9 @@ fi
  	cd $HOME/.vim/bundle
  	git clone https://github.com/airblade/vim-gitgutter
  
- 	echo "Installing vim-dugitive..."
+ 	echo "Installing vim-fugitive..."
  	cd $HOME/.vim/bundle
- 	git clone https://github.com/tpope/vim-dugitive
+ 	git clone https://github.com/tpope/vim-fugitive
  fi
  
  # auto-pairs installation

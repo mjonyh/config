@@ -138,4 +138,4 @@ POWERLEVEL9K_USER_ICON="\uF415"
 
 
 export PATH=/usr/local/mysql/bin:$PATH
-source ~/config/P9K_my_theme.sh
+source ~/.dotfiles/P9K_my_theme.sh
