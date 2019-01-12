@@ -22,7 +22,8 @@ brew update
 echo "Installing Git..."
 brew install git
 
-
+echo "Installing Python with other packages..."
+pip3 install numpy scipy matplotlib django pymysql cryptography
 
 echo "Git config"
 

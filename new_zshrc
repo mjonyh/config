@@ -210,6 +210,7 @@ alias egrep='() { $(whence -p egrep) --color=auto $@ }'
 alias ccat='highlight -O ansi'
 alias rm='rm -v'
 alias md='mkdir -p'
+alias djpyman="python3 manage.py"
 
 # Directory management
 alias la='ls -a'
