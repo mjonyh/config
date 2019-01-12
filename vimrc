@@ -24,6 +24,8 @@ let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegra
 
 " default spell check
 set spell!
+imap <C-f> <C-g>u<Esc>[s1z=`]a<C-g>u
+nmap <C-f> [s1z=<C-o>
 
 " Display line number
 set relativenumber  	" for relative number"
@@ -34,7 +36,7 @@ set tw=79
 
 " Color scheme
 colorscheme molokai
-autocmd Filetype python colorscheme dracula
+"autocmd Filetype python colorscheme dracula
 
 " Automatic savings
 let g:auto_save = 1  " enable AutoSave on Vim startup
