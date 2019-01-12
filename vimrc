@@ -68,7 +68,17 @@ let g:airline_right_sep="\uE0B6"
 let g:airline_right_alt_sep="\uE0B7"
 let g:airline#extensions#branch#enabled = 1
 
-" Tabbing window
+" Tabbing windows
 nnoremap <C-k> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
+" gitgutter settings
+" let g:gitgutter_highlight_lines = 1
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_removed_first_line = '^^'
+let g:gitgutter_sign_modified_removed = 'ww'
+
+
+let mapleader=","
