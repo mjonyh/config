@@ -60,3 +60,15 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 " mouse on
 set mouse=a
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep="\uE0B4"
+let g:airline_left_alt_sep="\uE0B5"
+let g:airline_right_sep="\uE0B6"
+let g:airline_right_alt_sep="\uE0B7"
+let g:airline#extensions#branch#enabled = 1
+
+" Tabbing window
+nnoremap <C-k> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+
