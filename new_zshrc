@@ -558,3 +558,5 @@ zplug load
 #ZLE_RPROMPT_INDENT=0
 
 # vim: ft=zsh
+
+source ~/.dotfiles/src/*
