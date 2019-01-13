@@ -17,14 +17,14 @@ This script is used to check the powerline font in terminal.
 ## Script for the New Mac setup
 
 ### via curl
-'''
+```
 sh -c "$(curl -fsSL
 https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh)"
-'''
+```
 ### via wget
-'''
+```
 sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh -0 -)"
-'''
+```
 
 ## Fonts
 Nerd-Fonts Required
