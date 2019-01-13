@@ -20,11 +20,11 @@ This script is used to check the powerline font in terminal.
 <code>
 sh -c "$(curl -fsSL
 https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh)"
-<\code>
+</code>
 ### via wget
 <code>
 sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh -0 -)"
-<\code>
+</code>
 
 ## Fonts
 Nerd-Fonts Required
