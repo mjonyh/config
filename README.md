@@ -14,5 +14,17 @@ This repo contains the config file that I usually use.
 This script is used to check the powerline font in terminal.
 <$ ./check.sh>
 
+## Script for the New Mac setup
+
+### via curl
+<code>
+sh -c "$(curl -fsSL
+https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh)"
+<\code>
+### via wget
+<code>
+sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh -0 -)"
+<\code>
+
 ## Fonts
 Nerd-Fonts Required
