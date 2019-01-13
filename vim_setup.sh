@@ -9,163 +9,163 @@ then
 else
 	echo "Installing pathogen..."
 	mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
-	curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-fi
+		curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+		fi
 
  # NERD tree installation
  file="$HOME/.vim/bundle/nerdtree"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing NERD tree..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/scrooloose/nerdtree
+	 echo "Installing NERD tree..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/scrooloose/nerdtree
  fi
- 
+
  # vim airline installation
  file="$HOME/.vim/bundle/vim-airline"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing vim-airline..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/bling/vim-airline
-	git clone https://github.com/vim-airline/vim-airline-themes
+	 echo "Installing vim-airline..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/bling/vim-airline
+	 git clone https://github.com/vim-airline/vim-airline-themes
  fi
- 
- 
+
+
  # molokai installation
  file="$HOME/.vim/bundle/molokai"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing molokai..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/fatih/molokai
+	 echo "Installing molokai..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/fatih/molokai
  fi
- 
+
  # dracula theme installation
  file="$HOME/.vim/bundle/vim"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing dracula theme..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/dracula/vim
+	 echo "Installing dracula theme..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/dracula/vim
  fi
- 
+
  # ultisnips installation
  file="$HOME/.vim/bundle/ultisnips"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing ultisnips..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/sirver/ultisnips
- 	git clone https://github.com/honza/vim-snippets
+	 echo "Installing ultisnips..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/sirver/ultisnips
+	 git clone https://github.com/honza/vim-snippets
  fi
- 
+
  # vim-latex-suite installation
  file="$HOME/.vim/bundle/vim-latex-suite"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing vim-latex-suite..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/gerw/vim-latex-suite
+	 echo "Installing vim-latex-suite..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/gerw/vim-latex-suite
  fi
- 
+
  # vim-live-latex-preview installation
  file="$HOME/.vim/bundle/vim-latex-live-preview"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing vim-live-latex-preview..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/xuhdev/vim-latex-live-preview
+	 echo "Installing vim-live-latex-preview..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/xuhdev/vim-latex-live-preview
  fi
- 
- 
+
+
  #  youcompleteme installation
  file="$HOME/.vim/bundle/youcompleteme"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing youcompleteme..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/valloric/youcompleteme
- 	cd youcompleteme
- 	git submodule update --init --recursive
- 	./install.py
+	 echo "Installing youcompleteme..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/valloric/youcompleteme
+	 cd youcompleteme
+	 git submodule update --init --recursive
+	 ./install.py
  fi
- 
+
  # git helper installation
  file="$HOME/.vim/bundle/vim-gitgutter"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing vim-gitgutter..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/airblade/vim-gitgutter
- 
- 	echo "Installing vim-fugitive..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/tpope/vim-fugitive
+	 echo "Installing vim-gitgutter..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/airblade/vim-gitgutter
+
+	 echo "Installing vim-fugitive..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/tpope/vim-fugitive
  fi
- 
+
  # auto-pairs installation
  file="$HOME/.vim/bundle/auto-pairs"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing auto-pairs..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/jiangmiao/auto-pairs
+	 echo "Installing auto-pairs..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/jiangmiao/auto-pairs
  fi
- 
- 
+
+
  # ctrlp installation
  file="$HOME/.vim/bundle/ctrlp.vim"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing ctrlp..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/kien/ctrlp.vim
+	 echo "Installing ctrlp..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/kien/ctrlp.vim
  fi
  # commentry airline installation
  file="$HOME/.vim/bundle/vim-commentary"
  if [ -d "$file" ]
  then
- 	echo "$file found."
+	 echo "$file found."
  else
- 	echo "Installing commentry..."
- 	cd $HOME/.vim/bundle
- 	git clone https://github.com/tpope/vim-commentary
+	 echo "Installing commentry..."
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/tpope/vim-commentary
  fi
  # commentry airline installation
  file="$HOME/.vim/bundle/vim-easymotion"
  if [ -d "$file" ]
  then
- 	echo "$file found."
-else
-	echo "Installing easymotion..."
+	 echo "$file found."
+ else
+	 echo "Installing easymotion..."
 
-	cd $HOME/.vim/bundle
-	git clone https://github.com/easymotion/vim-easymotion
+	 cd $HOME/.vim/bundle
+	 git clone https://github.com/easymotion/vim-easymotion
 
-fi
+ fi
 
 # commentry airline installation
 file="$HOME/.vim/bundle/vim-autoformat"
