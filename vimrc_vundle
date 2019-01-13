@@ -1,3 +1,6 @@
+" Check if bundle directory exists.
+[ -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
+
 " Check if Vundle installed
 [ -d ~/.vim/bundle/Vundle.vim ] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -16,9 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -35,9 +35,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 " I am interested in the bellows plugin
-
+"""""""""""""""""""""""""""""""""""""""
 " 1. Sidebar
 Plugin 'scrooloose/nerdtree'
 " Ctrl + n: NERDTreeToggle will be used
@@ -58,8 +58,39 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'gerw/vim-latex-suite'
 " Along with snippets this package provide a lot of useful snippets
 
+" 5. Auto complete words and others
+Plugin 'valloric/youcompleteme'
 
+" 6. Git's plugin
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+" ToDo: Write the descriptions and keymaps 
 
+" 7. Parentheses completion 
+Plugin 'chun-yang/auto-pairs'
+
+" 8. File management / search
+Plugin 'kien/ctrlp.vim'
+" ToDo: Write description and use
+
+" 9. Using Comment's for different file extensions
+Plugin 'tpope/vim-commentary'
+" gcgc: comments in / out in selected lines
+
+" 10. Word search plugin
+Plugin 'easymotion/vim-easymotion'
+" ToDo: Write description and usage 
+"
+" 11. Format documents
+Plugin 'chiel92/vim-autoformat'
+" ToDo: Write description and usages
+
+" 12. Title Case (First letter capitalization)
+Plugin 'christoomey/vim-titlecase'
+" ToDo: Write description and usages
+
+" 13. Highlight Current line
+Plugin 'highlight_current_line.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
