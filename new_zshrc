@@ -560,12 +560,5 @@ zplug load
 
 # vim: ft=zsh
 
-# Check if bundle directory exists.
-[ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
-
-# Check if Vundle installed
-[ ! -d ~/.vim/bundle/Vundle.vim ] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-
 
 source ~/.dotfiles/src/*
