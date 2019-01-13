@@ -11,3 +11,8 @@ ln -s new_zshrc ~/.zshrc
 mv ~/.vimrc ~/.vimrc.bak
 ln -s vimrc_vundle ~/.vimrc
 vim +PluginInstall +qall
+
+cd ~/.vim/bundle/youcompleteme
+./install.sh
+
+cd ~
