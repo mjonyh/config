@@ -27,4 +27,4 @@ sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_set
 ```
 
 ## Fonts
-Nerd-Fonts Required
+[Nerd-Fonts] (https://nerdfonts.com) Required. 
