@@ -90,6 +90,7 @@ zplug "plugins/web-search",        from:oh-my-zsh
 zplug "plugins/z",                 from:oh-my-zsh
 zplug "plugins/fancy-ctrl-z",      from:oh-my-zsh
 zplug "plugins/osx",      	   from:oh-my-zsh
+zplug "plugins/django",      	   from:oh-my-zsh
 
 # Supports oh-my-zsh plugins and the like
 if [[ $OSTYPE = (linux)* ]]; then
