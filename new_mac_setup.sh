@@ -59,6 +59,13 @@ cd .dotfiles
 sh symdotfiles.sh
 cd ~
 
+echo "brew cleanup"
+brew cleanup
+brew update
+brew upgrade
+brew cleanup
+
+
 echo "Please go to the below to to obtain NERD fonts \n"
 echo "https://nerdfonts.com \n"
 read -p "Press [Enter] key after this..."
