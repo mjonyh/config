@@ -7,7 +7,7 @@
 [ ! -d ~/.vim/bundle/Vundle.vim ] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 mv ~/.zshrc ~/.zshrc.bak
-ln -s ~/.dotfiles/new_zshrc ~/.zshrc
+ln -s ~/.dotfiles/zshrc ~/.zshrc
 mv ~/.vimrc ~/.vimrc.bak
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 vim +PluginInstall +qall
