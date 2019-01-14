@@ -68,7 +68,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chun-yang/auto-pairs'
 
 " 8. File management / search
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " ToDo: Write description and use
 
 " 9. Using Comment's for different file extensions
