@@ -62,7 +62,8 @@ Plugin 'valloric/youcompleteme'
 " 6. Git's plugin
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-" ToDo: Write the descriptions and keymaps 
+" Gcommit %: for commit
+" Gdiff: for difference in stages
 
 " 7. Parentheses completion 
 Plugin 'chun-yang/auto-pairs'
