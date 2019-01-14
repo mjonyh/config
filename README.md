@@ -8,7 +8,6 @@ This repo contains the config file that I usually use.
 * awesome wm
 * termit terminal
 * tmux
-* my powerline theme for zsh (P9K_my_theme)
 
 ## Check.sh
 This script is used to check the powerline font in terminal.
