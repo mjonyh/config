@@ -65,11 +65,6 @@ brew update
 brew upgrade
 brew cleanup
 
-
-echo "Please go to the below to to obtain NERD fonts \n"
-echo "https://nerdfonts.com \n"
-read -p "Press [Enter] key after this..."
-
 ## Some settings for mac
 ##"Setting screenshot format to PNG"
 #defaults write com.apple.screencapture type -string "png"
