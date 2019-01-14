@@ -35,7 +35,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " 1. Sidebar
 Plugin 'scrooloose/nerdtree'
 " Ctrl + n: NERDTreeToggle will be used
-"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " For icon and highlight in NERDTree
 Plugin 'ryanoasis/vim-devicons'
 
@@ -68,8 +68,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chun-yang/auto-pairs'
 
 " 8. File management / search
-Plugin 'kien/ctrlp.vim'
-" ToDo: Write description and use
+Plugin 'ctrlpvim/ctrlp.vim'
+" todo: write description and use
+" Ctrl + p: will search for file in both normal and insert mode
 
 " 9. Using Comment's for different file extensions
 Plugin 'tpope/vim-commentary'
@@ -78,6 +79,8 @@ Plugin 'tpope/vim-commentary'
 " 10. Word search plugin
 Plugin 'easymotion/vim-easymotion'
 " ToDo: Write description and usage 
+" <leader><leader>s for search word
+" type one word then chose one word
 "
 " 11. Format documents
 Plugin 'chiel92/vim-autoformat'
@@ -121,8 +124,18 @@ set relativenumber  	" for relative number"
 set number 		" for current line number"
 
 " Number of text in a line
-set tw=79
+" set tw=79
 
+" Automatic savings
+let g:auto_save = 1  " enable AutoSave on Vim startup
+" mouse on
+set mouse=a
+
+" Tabbing windows
+nnoremap <C-k> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+
+let mapleader=","
 
 """"""""""""""""""""""""""""""""""""""
 " 1. nerdtree short cut
@@ -181,7 +194,19 @@ colorscheme molokai
 "autocmd Filetype python colorscheme dracula
 
 
+""""""""""""""""""""""""""""""""""""""
+" 3. Snippets
+" UltiSnips trigger since contradict with youcomplete me
+let g:UltiSnipsExpandTrigger="<C-w>"
+let g:ultisnips_python_style="doxygen"
 
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
+
+
+""""""""""""""""""""""""""""""""""""""
+" 4. latex plugins
 " Configuration for the llstartpreview  
 autocmd Filetype tex setl updatetime=1
 autocmd Filetype tex set tw=79
@@ -194,34 +219,18 @@ let g:Tex_EnvLabelprefix_figure = "fig:"
 let g:Tex_EnvLabelprefix_table = "table:"
 let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics[width=0.75\\textwidth]{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}\<cr><++>"
 
-" Automatic savings
-let g:auto_save = 1  " enable AutoSave on Vim startup
 
-" UltiSnips trigger since contradict with youcomplete me
-let g:UltiSnipsExpandTrigger="<C-w>"
-
-let g:ultisnips_python_style="doxygen"
-"
-" autopairs
-let g:AutoPairsFlyMode = 1
-
-autocmd FileType python set sw=4
-autocmd FileType python set ts=4
-autocmd FileType python set sts=4
-
+""""""""""""""""""""""""""""""""""""""
+" 5. YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 
-" mouse on
-set mouse=a
 
-" Tabbing windows
-nnoremap <C-k> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-
+""""""""""""""""""""""""""""""""""""""
+" 6. Git Plugins
 " gitgutter settings
 " let g:gitgutter_highlight_lines = 1
 let g:gitgutter_sign_added = '++'
@@ -231,4 +240,37 @@ let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = 'ww'
 
 
-let mapleader=","
+""""""""""""""""""""""""""""""""""""""
+" 7. Auto Parentheses
+let g:AutoPairsFlyMode = 1
+
+
+""""""""""""""""""""""""""""""""""""""
+" 8. File management / search
+" Ctrl+p will search for files in both normal and insert mode
+imap <C-p> <Esc> :CtrlP<CR>
+
+
+""""""""""""""""""""""""""""""""""""""
+" 9. Using Comment's for different file extensions
+
+
+
+""""""""""""""""""""""""""""""""""""""
+" 10. Word search plugin
+
+
+"
+""""""""""""""""""""""""""""""""""""""
+" 11. Format documents
+
+
+
+""""""""""""""""""""""""""""""""""""""
+" 12. Title Case (First letter capitalization)
+
+
+
+
+
+
