@@ -108,5 +108,9 @@ echo "Changing Shell..."
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 
 
+echo "Installing Bangla Keyboard Layout Probhat"
+curl https://raw.githubusercontent.com/mdminhazulhaque/probhat-osx/master/install.sh | sudo bash
+echo "To Configure Go to https://github.com/mdminhazulhaque/probhat-osx"
+read -p "Press [Enter] key after this..."
 echo "Done!"
 
