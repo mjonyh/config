@@ -134,6 +134,10 @@ set mouse=a
 " Tabbing windows
 nnoremap <C-k> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
+imap <C-k> <Esc>:tabprevious<CR>
+imap <C-l> <Esc>:tabnext<CR>
+imap <C-e> <Esc> :tabe  
+nmap <C-e> :tabe 
 
 let mapleader=","
 
