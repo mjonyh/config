@@ -35,11 +35,15 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " 1. Sidebar
 Plugin 'scrooloose/nerdtree'
 " Ctrl + n: NERDTreeToggle will be used
+"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+" For icon and highlight in NERDTree
+Plugin 'ryanoasis/vim-devicons'
 
 " 2. Theme
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomasr/molokai'
+" Customized icons are used
 
 " 3. Snippets : Let the vim write for you
 Plugin 'sirver/ultisnips'
@@ -102,26 +106,10 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""
 " From earlier vimrc 
 """"""""""""""""""""""""""""""""""""""
-"
+" Default Settings
+""""""""""""""""""""""""""""""""""""""
 syntax on
-
 set encoding=utf-8
-
-" for nerdtree short cut
-imap <C-n> :NERDTreeToggle<CR>
-nmap <C-n> :NERDTreeToggle<CR>
-
-" Configuration for the llstartpreview  
-autocmd Filetype tex setl updatetime=1
-autocmd Filetype tex set tw=79
-let g:livepreview_previewer = 'open -a Preview'
-
-" for vim-latex-suite
-let g:tex_flavor='latex'
-let g:Tex_EnvLabelprefix_equation = "eq:"
-let g:Tex_EnvLabelprefix_figure = "fig:"
-let g:Tex_EnvLabelprefix_table = "table:"
-let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics[width=0.75\\textwidth]{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}\<cr><++>"
 
 " default spell check
 set spell!
@@ -135,9 +123,76 @@ set number 		" for current line number"
 " Number of text in a line
 set tw=79
 
+
+""""""""""""""""""""""""""""""""""""""
+" 1. nerdtree short cut
+imap <C-n> <Esc>:NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+" NERDTree will open if no file is selected
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" NERDTree close
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Sign
+" let g:NERDTreeDirArrowExpandable = '\uf35a'
+" let g:NERDTreeDirArrowCollapsible = '\uf358'
+
+
+""""""""""""""""""""""""""""""""""""""
+" 2. Theme customization
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" my symbols
+let g:airline_left_sep="\uE0B4"
+let g:airline_left_alt_sep="\uE0B5"
+let g:airline_right_sep="\uE0B6"
+let g:airline_right_alt_sep="\uE0B7"
+
 " Color scheme
 colorscheme molokai
 "autocmd Filetype python colorscheme dracula
+
+
+
+" Configuration for the llstartpreview  
+autocmd Filetype tex setl updatetime=1
+autocmd Filetype tex set tw=79
+let g:livepreview_previewer = 'open -a Preview'
+
+" for vim-latex-suite
+let g:tex_flavor='latex'
+let g:Tex_EnvLabelprefix_equation = "eq:"
+let g:Tex_EnvLabelprefix_figure = "fig:"
+let g:Tex_EnvLabelprefix_table = "table:"
+let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics[width=0.75\\textwidth]{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}\<cr><++>"
 
 " Automatic savings
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -162,14 +217,6 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 
 " mouse on
 set mouse=a
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep="\uE0B4"
-let g:airline_left_alt_sep="\uE0B5"
-let g:airline_right_sep="\uE0B6"
-let g:airline_right_alt_sep="\uE0B7"
-let g:airline#extensions#branch#enabled = 1
 
 " Tabbing windows
 nnoremap <C-k> :tabprevious<CR>
