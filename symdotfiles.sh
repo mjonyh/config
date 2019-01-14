@@ -9,7 +9,7 @@
 mv ~/.zshrc ~/.zshrc.bak
 ln -s ~/.dotfiles/new_zshrc ~/.zshrc
 mv ~/.vimrc ~/.vimrc.bak
-ln -s ~/.dotfiles/vimrc_vundle ~/.vimrc
+ln -s ~/.dotfiles/vimrc ~/.vimrc
 vim +PluginInstall +qall
 
 cd ~/.vim/bundle/youcompleteme
