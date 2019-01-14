@@ -11,7 +11,7 @@ This repo contains the config file that I usually use.
 
 ## Check.sh
 This script is used to check the powerline font in terminal.
-<$ ./check.sh>
+`$ ./check.sh`
 
 ## Setup for zshrc and vimrc
 ### via curl
