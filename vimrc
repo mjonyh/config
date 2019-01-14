@@ -1,14 +1,115 @@
-" pathogen
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+"""""""""""""""""""""""""""""""""""""""
+" I am interested in the bellows plugin
+"""""""""""""""""""""""""""""""""""""""
+" 1. Sidebar
+Plugin 'scrooloose/nerdtree'
+" Ctrl + n: NERDTreeToggle will be used
+
+" 2. Theme
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tomasr/molokai'
+
+" 3. Snippets : Let the vim write for you
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+" Ctrl + w: complete the snippets
+
+" 4. Latex plugin
+Plugin 'xuhdev/vim-latex-live-preview'
+" LLStartPreview will be used to view
+Plugin 'gerw/vim-latex-suite'
+" Along with snippets this package provide a lot of useful snippets
+
+" 5. Auto complete words and others
+Plugin 'valloric/youcompleteme'
+
+" 6. Git's plugin
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+" ToDo: Write the descriptions and keymaps 
+
+" 7. Parentheses completion 
+Plugin 'chun-yang/auto-pairs'
+
+" 8. File management / search
+Plugin 'kien/ctrlp.vim'
+" ToDo: Write description and use
+
+" 9. Using Comment's for different file extensions
+Plugin 'tpope/vim-commentary'
+" gcgc: comments in / out in selected lines
+
+" 10. Word search plugin
+Plugin 'easymotion/vim-easymotion'
+" ToDo: Write description and usage 
+"
+" 11. Format documents
+Plugin 'chiel92/vim-autoformat'
+" ToDo: Write description and usages
+
+" 12. Title Case (First letter capitalization)
+Plugin 'christoomey/vim-titlecase'
+" ToDo: Write description and usages
+
+" 13. Highlight Current line
+Plugin 'highlight_current_line.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" vim +PluginInstall +qall 	- Install plugins from command line
+"
+""""""""""""""""""""""""""""""""""""""
+" From earlier vimrc 
+""""""""""""""""""""""""""""""""""""""
+"
 syntax on
-filetype plugin on
-filetype plugin indent on
 
 set encoding=utf-8
 
 " for nerdtree short cut
-map <C-n> :NERDTreeToggle<CR>
-
+imap <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 " Configuration for the llstartpreview  
 autocmd Filetype tex setl updatetime=1
