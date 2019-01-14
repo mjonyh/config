@@ -79,7 +79,6 @@ Plugin 'tpope/vim-commentary'
 
 " 10. Word search plugin
 Plugin 'easymotion/vim-easymotion'
-" ToDo: Write description and usage 
 " <leader><leader>s for search word
 " type one word then chose one word
 "
@@ -89,10 +88,11 @@ Plugin 'chiel92/vim-autoformat'
 
 " 12. Title Case (First letter capitalization)
 Plugin 'christoomey/vim-titlecase'
-" ToDo: Write description and usages
+" <leader> gT: will make the title case
 
 " 13. Highlight Current line
 Plugin 'highlight_current_line.vim'
+" This plugin will highlight currentline
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
