@@ -98,6 +98,7 @@ brew cleanup
 
 #killall Finder
 
+touch .hushlogin
 
 echo "Changing Shell..."
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
