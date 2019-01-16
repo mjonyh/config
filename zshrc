@@ -11,10 +11,10 @@ powerlevel9k_random_color(){
 
 zsh_wifi_signal(){
 	local signal=$(nmcli -t device wifi | grep '^*' | awk -F':' '{print $6}')
-    local color="yellow"
-    [[ $signal -gt 75 ]] && color="green"
-    [[ $signal -lt 50 ]] && color="red"
-    echo -n "%F{$color}\uf1eb" # \uf1eb is 
+    	local color="yellow"
+    	[[ $signal -gt 75 ]] && color="green"
+    	[[ $signal -lt 50 ]] && color="red"
+    	echo -n "%F{$color}\uf1eb" # \uf1eb is 
 }
 
 # =============================================================================
@@ -50,7 +50,6 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
 # 	use:"*${(L)$(uname -s)}*amd64*"
 # zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
-# 
 # # Enhanced cd
 # zplug "b4b4r07/enhancd", use:init.sh
 
