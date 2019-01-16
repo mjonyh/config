@@ -45,7 +45,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Miscellaneous commands
 #zplug "andrewferrier/fzf-z"
-zplug "k4rthik/git-cal",  as:command
+#zplug "k4rthik/git-cal",  as:command
 zplug "peco/peco",        as:command, from:gh-r
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
 	use:"*${(L)$(uname -s)}*amd64*"
