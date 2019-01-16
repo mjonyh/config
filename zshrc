@@ -46,13 +46,13 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # Miscellaneous commands
 #zplug "andrewferrier/fzf-z"
 #zplug "k4rthik/git-cal",  as:command
-zplug "peco/peco",        as:command, from:gh-r
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
-	use:"*${(L)$(uname -s)}*amd64*"
-zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
-
-# Enhanced cd
-zplug "b4b4r07/enhancd", use:init.sh
+# zplug "peco/peco",        as:command, from:gh-r
+# zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
+# 	use:"*${(L)$(uname -s)}*amd64*"
+# zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
+# 
+# # Enhanced cd
+# zplug "b4b4r07/enhancd", use:init.sh
 
 # Bookmarks and jump
 zplug "jocelynmallon/zshmarks"
@@ -75,7 +75,7 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "plugins/common-aliases",    from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 #zplug "plugins/colorize",          from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
+#zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/copydir",           from:oh-my-zsh
 zplug "plugins/copyfile",          from:oh-my-zsh
 zplug "plugins/cp",                from:oh-my-zsh
@@ -84,12 +84,12 @@ zplug "plugins/encode64",          from:oh-my-zsh
 zplug "plugins/extract",           from:oh-my-zsh
 zplug "plugins/history",           from:oh-my-zsh
 zplug "plugins/tmux",              from:oh-my-zsh
-zplug "plugins/tmuxinator",        from:oh-my-zsh
-zplug "plugins/urltools",          from:oh-my-zsh
+#zplug "plugins/tmuxinator",        from:oh-my-zsh
+#zplug "plugins/urltools",          from:oh-my-zsh
 zplug "plugins/web-search",        from:oh-my-zsh
 zplug "plugins/z",                 from:oh-my-zsh
 zplug "plugins/fancy-ctrl-z",      from:oh-my-zsh
-zplug "plugins/osx",      	   from:oh-my-zsh
+#zplug "plugins/osx",      	   from:oh-my-zsh
 zplug "plugins/django",      	   from:oh-my-zsh
 
 # Supports oh-my-zsh plugins and the like
@@ -106,20 +106,20 @@ if [[ $OSTYPE = (darwin)* ]]; then
 fi
 
 zplug "plugins/git",               from:oh-my-zsh, if:"(( $+commands[git] ))"
-zplug "plugins/golang",            from:oh-my-zsh, if:"(( $+commands[go] ))"
-zplug "plugins/svn",               from:oh-my-zsh, if:"(( $+commands[svn] ))"
+#zplug "plugins/golang",            from:oh-my-zsh, if:"(( $+commands[go] ))"
+#zplug "plugins/svn",               from:oh-my-zsh, if:"(( $+commands[svn] ))"
 zplug "plugins/node",              from:oh-my-zsh, if:"(( $+commands[node] ))"
 zplug "plugins/npm",               from:oh-my-zsh, if:"(( $+commands[npm] ))"
-zplug "plugins/bundler",           from:oh-my-zsh, if:"(( $+commands[bundler] ))"
-zplug "plugins/gem",               from:oh-my-zsh, if:"(( $+commands[gem] ))"
-zplug "plugins/rbenv",             from:oh-my-zsh, if:"(( $+commands[rbenv] ))"
-zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
+#zplug "plugins/bundler",           from:oh-my-zsh, if:"(( $+commands[bundler] ))"
+#zplug "plugins/gem",               from:oh-my-zsh, if:"(( $+commands[gem] ))"
+#zplug "plugins/rbenv",             from:oh-my-zsh, if:"(( $+commands[rbenv] ))"
+#zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
 zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
 zplug "plugins/sudo",              from:oh-my-zsh, if:"(( $+commands[sudo] ))"
 zplug "plugins/gpg-agent",         from:oh-my-zsh, if:"(( $+commands[gpg-agent] ))"
 zplug "plugins/systemd",           from:oh-my-zsh, if:"(( $+commands[systemctl] ))"
-zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
-zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
+#zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
+#zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
 
 #zplug "djui/alias-tips"
 zplug "hlissner/zsh-autopair", defer:2
