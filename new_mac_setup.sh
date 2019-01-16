@@ -98,6 +98,7 @@ brew cleanup
 
 #killall Finder
 
+# disable last login message in terminal
 touch .hushlogin
 
 echo "Changing Shell..."
