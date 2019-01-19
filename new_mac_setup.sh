@@ -21,6 +21,7 @@ brew update
 
 echo "Installing Git..."
 brew install git
+brew install tmux
 
 echo "Installing Python with other packages..."
 pip3 install numpy scipy matplotlib django pymysql cryptography
