@@ -94,6 +94,9 @@ Plugin 'christoomey/vim-titlecase'
 Plugin 'highlight_current_line.vim'
 " This plugin will highlight currentline
 
+" 14. vim tmux plugin
+Plugin 'tmux-plugins/vim-tmux'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
