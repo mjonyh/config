@@ -207,12 +207,6 @@ fi
 alias grep='() { $(whence -p grep) --color=auto $@ }'
 alias egrep='() { $(whence -p egrep) --color=auto $@ }'
 
-# Custom helper aliases
-alias ccat='highlight -O ansi'
-alias rm='rm -v'
-alias md='mkdir -p'
-alias djpyman="python3 manage.py"
-
 # Directory management
 alias la='ls -a'
 alias ll='ls -l'
@@ -561,5 +555,12 @@ zplug load
 
 # vim: ft=zsh
 
+# Custom helper aliases
+alias ccat='highlight -O ansi'
+alias rm='rm -vr'
+alias md='mkdir -p'
+alias djpyman="python3 manage.py"
 
 source ~/.dotfiles/src/*
+
+
