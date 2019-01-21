@@ -11,7 +11,6 @@ This repo contains the config file that I usually use.
 	* [plugins from zsh](https://github.com/robbyrussell/oh-my-zsh)
 * zsh history fix
 * vimrc
-* vimrc setup
 * awesome wm
 * termit terminal
 * tmux
