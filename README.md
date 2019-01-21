@@ -1,5 +1,13 @@
 # Configuration files
+### zsh
 ![zsh](screenshots/zsh.png)
+
+### vim
+![vim](screenshots/vim.png)
+
+## tmux
+![tmux](screenshots/tmux.png)
+
 This repo contains the config file that I usually use.
 
 * zshrc
