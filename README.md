@@ -2,7 +2,7 @@
 This repo contains the config file that I usually use.
 
 * zshrc
-	* zshmarks
+	* [zshmarks](https://github.com/jocelynmallon/zshmarks)
 * zsh history fix
 * vimrc
 * vimrc setup
