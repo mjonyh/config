@@ -1,4 +1,5 @@
 # Configuration files
+![zsh](screenshots/zsh.png)
 This repo contains the config file that I usually use.
 
 * zshrc
