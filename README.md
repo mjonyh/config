@@ -3,6 +3,12 @@ This repo contains the config file that I usually use.
 
 * zshrc
 	* [zshmarks](https://github.com/jocelynmallon/zshmarks)
+	* [k](https://github.com/supercrabtree/k)
+	* [zsh-bd](https://github.com/Tarrasch/zsh-bd)
+	* [calc.plugin.zsh](https://github.com/arzzen/calc.plugin.zsh)
+	* [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
+	* [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+	* [plugins from zsh](https://github.com/robbyrussell/oh-my-zsh)
 * zsh history fix
 * vimrc
 * vimrc setup
