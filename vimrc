@@ -256,7 +256,7 @@ let g:AutoPairsFlyMode = 1
 """"""""""""""""""""""""""""""""""""""
 " 8. File management / search
 " Ctrl+p will search for files in both normal and insert mode
-imap <C-p> <Esc> :CtrlP<CR>
+autocmd Filetype python imap <C-p> <Esc> :CtrlP<CR>
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -279,6 +279,6 @@ imap <C-p> <Esc> :CtrlP<CR>
 
 
 
-
-
+" Run interactive python3
+imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
