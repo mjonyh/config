@@ -561,8 +561,6 @@ alias rm='rm -vr'
 alias md='mkdir -p'
 alias djpyman="python3 manage.py"
 
-alias zscan="python3 ~/git/nlolab/zscan/zscan/main.py "
-
 source ~/.dotfiles/src/*
 
 
