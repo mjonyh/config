@@ -67,6 +67,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " 7. Parentheses completion 
 Plugin 'chun-yang/auto-pairs'
+Plugin 'tpope/vim-surround'
 
 " 8. File management / search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -96,6 +97,13 @@ Plugin 'highlight_current_line.vim'
 
 " 14. vim tmux plugin
 Plugin 'tmux-plugins/vim-tmux'
+
+" 15. syntax
+Plugin 'scrooloose/syntastic'
+
+" 16. supertab 
+Plugin 'ervandew/supertab'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -205,7 +213,7 @@ colorscheme molokai
 """"""""""""""""""""""""""""""""""""""
 " 3. Snippets
 " UltiSnips trigger since contradict with youcomplete me
-let g:UltiSnipsExpandTrigger="<C-w>"
+" let g:UltiSnipsExpandTrigger="<C-w>"
 let g:ultisnips_python_style="doxygen"
 
 autocmd FileType python set sw=4
@@ -282,3 +290,13 @@ imap <C-p> <Esc> :CtrlP<CR>
 " Run interactive python3
 autocmd Filetype python imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
+" 16. Supertab for compatibility problem
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+" (via http://stackoverflow.com/a/22253548/1626737)
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
