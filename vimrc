@@ -43,6 +43,11 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'ap/vim-css-color'
+" Plugin 'pseewald/vim-anyfold'
+Plugin 'tmhedberg/simpylfold'
 " Customized icons are used
 
 " 3. Snippets : Let the vim write for you
@@ -100,10 +105,16 @@ Plugin 'tmux-plugins/vim-tmux'
 
 " 15. syntax
 Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 
 " 16. supertab 
 Plugin 'ervandew/supertab'
 
+" 17. multiple cursor
+" Plugin 'terryma/vim-multiple-cursors'
+
+" 18. Unix command
+Plugin 'tpope/vim-eunuch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -207,8 +218,16 @@ let g:airline_right_alt_sep="\uE0B7"
 
 " Color scheme
 colorscheme molokai
+autocmd FileType c colorscheme jelleybeans
+autocmd FileType cpp colorscheme jelleybeans
+
 "autocmd Filetype python colorscheme dracula
 
+" autocmd Filetype * AnyFoldActivate
+" let g:anyfold_fold_comments=1
+" set foldlevel=0
+
+let g:SimpylFold_docstring_preview = 1
 
 """"""""""""""""""""""""""""""""""""""
 " 3. Snippets
