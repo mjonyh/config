@@ -560,7 +560,7 @@ alias ccat='highlight -O ansi'
 alias rm='rm -vr'
 alias md='mkdir -p'
 alias djpyman="python3 manage.py"
-
+alias convert="~/.dotfiles/convert.sh "
 source ~/.dotfiles/src/*
 
 

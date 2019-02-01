@@ -25,6 +25,7 @@ brew install tmux
 
 echo "Installing Python with other packages..."
 pip3 install numpy scipy matplotlib django pymysql cryptography
+pip3 install unidecode
 
 echo "Git config"
 
