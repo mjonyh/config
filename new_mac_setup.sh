@@ -57,10 +57,8 @@ brew cask install mactex
 
 echo "Copying dotfiles from Github"
 cd ~
-git clone https://github.com/mjonyh/config.git .dotfiles
-cd .dotfiles
-sh symdotfiles.sh
-cd ~
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
+
 
 echo "brew cleanup"
 brew cleanup
