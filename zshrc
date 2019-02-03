@@ -564,3 +564,4 @@ alias convert="~/.dotfiles/convert.sh "
 source ~/.dotfiles/src/*
 
 
+fpath=(~/.zsh.d/ $fpath)
