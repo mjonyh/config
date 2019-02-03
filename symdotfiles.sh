@@ -4,6 +4,10 @@ echo "https://nerdfonts.com \n"
 echo "And configure the font for terminal"
 read -p "Press [Enter] key after this..."
 
+echo "Copying dotfiles ..."
+cd ~
+git clone https://github.com/mjonyh/config.git .dotfiles
+
 # zshrc 
 mv ~/.zshrc ~/.zshrc.bak
 ln -s ~/.dotfiles/zshrc ~/.zshrc
