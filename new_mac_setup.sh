@@ -60,13 +60,6 @@ cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
 cd ~
 
-echo "Cheat Sheet (cht.sh)"
-mkdir -p ~/bin/
-curl https://cht.sh/:cht.sh > ~/bin/cht.sh
-chmod +x ~/bin/cht.sh
-mkdir -p ~/.zsh.d
-curl https://cheat.sh/:zsh > ~/.zsh.d/_cht 
-
 echo "brew cleanup"
 brew cleanup
 brew update

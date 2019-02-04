@@ -8,6 +8,14 @@ echo "Copying dotfiles ..."
 cd ~
 git clone https://github.com/mjonyh/config.git .dotfiles
 
+echo "Cheat Sheet (cht.sh)"
+mkdir -p ~/bin/
+curl https://cht.sh/:cht.sh > ~/bin/cht.sh
+chmod +x ~/bin/cht.sh
+mkdir -p ~/.zsh.d
+curl https://cheat.sh/:zsh > ~/.zsh.d/_cht 
+
+
 # zshrc 
 mv ~/.zshrc ~/.zshrc.bak
 ln -s ~/.dotfiles/zshrc ~/.zshrc
