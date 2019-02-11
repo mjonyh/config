@@ -106,6 +106,17 @@ Plugin 'tmux-plugins/vim-tmux'
 " 15. syntax
 Plugin 'scrooloose/syntastic'
 Plugin 'w0rp/ale'
+Plugin 'dbeniamine/cheat.sh-vim'
+" K get answer on the word under the cursor or the selection on a pager (this feature requires vim >= 7.4.1833, you can check if have the right version with : :echo has("patch-7.4.1833"))
+" <leader>KK same as K but works on lines or visual selection (not working on neovim, because they killed interactive commands with :!)
+" <leader>KB get the answer on a special buffer
+" <leader>KR Replace your question by the answer
+" <leader>KP Past the answer below your question
+" <leader>KC Replay last query, toggling comments
+" <leader>KE Send first error to cht.sh
+" <leader>C Toggle showing comments by default see configuration
+" <leader>KL Replay last query
+
 
 " 16. supertab 
 Plugin 'ervandew/supertab'
@@ -309,6 +320,65 @@ imap <C-p> <Esc> :CtrlP<CR>
 " Run interactive python3
 autocmd Filetype python imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
+" 15. cht.sh
+let g:CheatSheetFrameworks = {
+			\ 'python' : ['python', 'django', ],
+			\ 'php' : ['php', 'symphony', 'yii', 'zend'],
+			\}
+let g:CheatSheetFrameworkDetectionMethods = {
+			\'django' : { 'type' : 'file', 'value' : 'manage.py' },
+			\'jquery' : {'type' :'search', 'value' : 'jquery.*\.js'},
+			\}
+
+let  g:CheatSheetProviders = ['syntastic']
+" Vim command used to open new buffer
+let g:CheatSheetReaderCmd='new"'
+
+" Cheat sheet file type
+let g:CheatSheetFt='markdown'
+
+" Program used to retrieve cheat sheet with its arguments
+let g:CheatSheetUrlGetter='curl --silent'
+
+" Flag to add cookie file to the query
+let g:CheatSheetUrlGetterIdFlag='-b'
+
+" cheat sheet base url
+let g:CheatSheetBaseUrl='https://cht.sh'
+
+" cheat sheet settings do not include style settings neiter comments, 
+" see other options below
+let g:CheatSheetUrlSettings='q'
+
+" cheat sheet pager
+let g:CheatPager='less -R'
+
+" pygmentize theme used for pager output, see :CheatPager :styles-demo
+" let g:CheatSheetPagerStyle=rrt
+
+" Show comments in answers by default
+" (setting this to 0 means giving ?Q to the server)
+let g:CheatSheetShowCommentsByDefault=1
+
+" cheat sheet buffer name
+let g:CheatSheetBufferName="_cheat"
+
+" Default selection in normal mode (line for whole line, word for word under cursor)
+let g:CheatSheetDefaultSelection="line"
+
+" Default query mode
+" 0 => buffer
+" 1 => replace (do not use or you might loose some lines of code)
+" 2 => pager
+" 3 => paste after query
+" 4 => paste before query
+let g:CheatSheetDefaultMode=2
+
+" Path to cheat sheet cookie
+let g:CheatSheetIdPath=expand('~/.cht.sh/id')
+
+
+
 " 16. Supertab for compatibility problem
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 " (via http://stackoverflow.com/a/22253548/1626737)
@@ -317,5 +387,6 @@ let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
