@@ -41,4 +41,7 @@ set wildmenu
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+set backupdir=~/.cache/vim 	" Directory to store backup files.
+set dir=~/.cache/vim 	" Directory to store swap files.
+set history=1000 	"" Increase the undo limit.
 

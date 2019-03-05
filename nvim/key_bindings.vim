@@ -71,7 +71,7 @@ let g:ycm_complete_in_strings = 1  "Completion in string
 """"""""""""""""""""""""""""""""""""""
 "  6. Git Plugins
 "  gitgutter settings
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0 
 let g:gitgutter_sign_added = '++'
 let g:gitgutter_sign_modified = '~~'
 let g:gitgutter_sign_removed = '--'
