@@ -3,14 +3,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vim-plug is used to load plugins
-source ~/.config/nvim/vim_plug.vim
+source ~/.dotfiles/nvim/vim_plug.vim
 
 " general settings contain default neovim setup
-source ~/.config/nvim/general_settings.vim
+source ~/.dotfiles/nvim/general_settings.vim
 
 " key bindings or modified bindings
-source ~/.config/nvim/key_bindings.vim
+source ~/.dotfiles/nvim/key_bindings.vim
 
 " colorscheme, theme, and statusline
-source ~/.config/nvim/status_line.vim
+source ~/.dotfiles/nvim/status_line.vim
 
