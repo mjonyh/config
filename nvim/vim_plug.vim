@@ -101,5 +101,7 @@ Plug 'ervandew/supertab'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-eunuch'
 
+"19. Multicursor
+Plug 'terryma/vim-multiple-cursors'
 " Initialize plugin system
 call plug#end()
