@@ -40,7 +40,7 @@ autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
 "
-"
+let g:deoplete#enable_at_startup = 1"
 """"""""""""""""""""""""""""""""""""""
 "  4. latex plugins
 "  Configuration for the llstartpreview

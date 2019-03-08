@@ -34,6 +34,8 @@ Plug 'gerw/vim-latex-suite'
 " 5. Auto complete words and others
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'valloric/youcompleteme'
+Plug 'shougo/deoplete.nvim'
+
 
 " 6. Git's plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
