@@ -1,5 +1,7 @@
-let mapleader=","
+let mapleader = "\<Space>"
 
+""let mapleader=","
+"map <Space> <leade>
 " default spell check
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell!
@@ -176,7 +178,8 @@ let g:CheatSheetIdPath=expand('~/.cht.sh/id')
 " 16. Supertab for compatibility problem
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 "  (via http://stackoverflow.com/a/22253548/1626737)
-let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabDefaultCompletionType    = '<tab>'
+"let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
@@ -203,3 +206,8 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+
+" reload nvim config
+imap <C-r> <Esc>:source ~/.config/nvim/init.vim <Cr>
+

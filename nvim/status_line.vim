@@ -37,3 +37,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 "
 
 " status line themeing
+""  Color scheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme molokai
+autocmd FileType c colorscheme jellybeans
+autocmd FileType cpp colorscheme jellybeans
+"
