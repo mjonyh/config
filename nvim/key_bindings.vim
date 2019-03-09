@@ -207,7 +207,23 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-
 " reload nvim config
-imap <C-r> <Esc>:w <Cr> :source ~/.config/nvim/init.vim <Cr>
+imap <C-r> <Esc>:w <Cr> :source ~/.config/nvim/init.vim <Cr>i
 
+" Disable Arrow keys in Escape mode
+map <up> <Esc>dd2kp
+map <down> <Esc>ddp
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <Esc>dd2kpi
+imap <down> <Esc>ddpi
+imap <left> <nop>
+imap <right> <nop> 
+
+" Disable Arrow keys in Insert mode
+vmap <up> <nop>
+vmap <down> <nop>
+vmap <right> <nop>
+vmap <left> <nop>

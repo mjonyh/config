@@ -14,3 +14,6 @@ source ~/.dotfiles/nvim/key_bindings.vim
 " colorscheme, theme, and statusline
 source ~/.dotfiles/nvim/status_line.vim
 
+" iabbrev 
+source ~/.dotfiles/nvim/iabbrev.vim
+
