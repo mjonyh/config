@@ -19,11 +19,6 @@ nmap <C-e> :tabe
 " 1. nerdtree short cut
 imap <C-t> <Esc>:NERDTreeToggle<CR>
 nmap <C-t> :NERDTreeToggle<CR>
-" i NERDTree will open if no file is selected
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"  NERDTree close
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "  Sign
 "  let g:NERDTreeDirArrowExpandable = '\uf35a'
 "  let g:NERDTreeDirArrowCollapsible = '\uf358'
