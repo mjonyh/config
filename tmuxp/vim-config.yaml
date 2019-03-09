@@ -1,0 +1,11 @@
+session_name: nvim-config
+windows:
+- focus: 'true'
+  layout: fb5b,204x48,0,0[204x35,0,0,0,204x12,0,36,1]
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim general_settings.vim
+  - gst
+  start_directory: /Users/mjonyh/.dotfiles/nvim
+  window_name: nvim
