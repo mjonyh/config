@@ -1,0 +1,11 @@
+session_name: phy-229
+windows:
+- focus: 'true'
+  layout: ad5b,204x48,0,0[204x33,0,0,0,204x14,0,34,1]
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  - gst
+  start_directory: /Users/mjonyh/git/lecture/phy_229
+  window_name: nvim
