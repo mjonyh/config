@@ -222,3 +222,6 @@ vmap <up> <nop>
 vmap <down> <nop>
 vmap <right> <nop>
 vmap <left> <nop>
+
+" mapping compilation and run
+autocmd Filetype tex map <leader>l <Esc>:LLStartPreview <Cr> i
