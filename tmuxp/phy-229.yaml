@@ -7,5 +7,5 @@ windows:
   - focus: 'true'
     shell_command: nvim
   - gst
-  start_directory: /Users/mjonyh/git/lecture/phy_229
+  start_directory: ~/git/lecture/phy_229
   window_name: nvim

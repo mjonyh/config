@@ -7,5 +7,5 @@ windows:
   - focus: 'true'
     shell_command: nvim general_settings.vim
   - gst
-  start_directory: /Users/mjonyh/.dotfiles/nvim
+  start_directory: ~/.dotfiles/nvim
   window_name: nvim
