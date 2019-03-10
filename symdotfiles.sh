@@ -15,6 +15,7 @@ chmod +x ~/bin/cht.sh
 mkdir -p ~/.zsh.d
 curl https://cheat.sh/:zsh > ~/.zsh.d/_cht 
 
+ln -s ~/.dotfiles/tmuxp .tmuxp
 
 # zshrc 
 mv ~/.zshrc ~/.zshrc.bak
