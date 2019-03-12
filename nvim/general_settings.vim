@@ -10,9 +10,11 @@ set hlsearch  " Highlight the current search term
 set incsearch  " Incremental searching
 set ignorecase 	" Insensitive search"
 set smartcase 	" Sensitive search in case of capital letters"
-set colorcolumn=80
+" set colorcolumn=80
 set cursorline " Highlight the line the cursor is on
 
+highlight ColorColumn ctermbg=magenta "set to whatever you like
+call matchadd('ColorColumn', '\%81v', 80) "set column number
 " Display line number
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set relativenumber  	" for relative number"
