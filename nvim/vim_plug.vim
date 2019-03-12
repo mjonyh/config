@@ -20,6 +20,9 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-css-color'
 Plug 'tmhedberg/simpylfold'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-vividchalk'
 
 " 3. Snippets : Let the vim write for you
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -12,10 +12,13 @@ set ignorecase 	" Insensitive search"
 set smartcase 	" Sensitive search in case of capital letters"
 " set colorcolumn=80
 set cursorline " Highlight the line the cursor is on
+set scrolloff=5
 
 highlight ColorColumn ctermbg=magenta "set to whatever you like
 call matchadd('ColorColumn', '\%81v', 80) "set column number
-" Display line number
+
+" let &colorcolumn="80,".join(range(120,999),",")
+" " Display line number
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set relativenumber  	" for relative number"
 set number 		" for current line number"
