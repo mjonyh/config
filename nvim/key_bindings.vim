@@ -184,13 +184,6 @@ let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 "
 
-" easymotion map
-imap ,w <C-o><leader><leader>w
-imap ,b <C-o><leader><leader>b
-
-imap ,p <C-x><C-p>
-imap ,l <C-x><C-l>
-
 " 18 Multicursor
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
@@ -224,4 +217,20 @@ vmap <right> <nop>
 vmap <left> <nop>
 
 " mapping compilation and run
-autocmd Filetype tex map <leader>l <Esc>:LLStartPreview <Cr> i
+autocmd Filetype tex map <leader>l <Esc>:LLStartPreview <Cr>i
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" comma seperated mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" easymotion map
+imap ,w <C-o><leader><leader>w
+imap ,b <C-o><leader><leader>b
+imap ,s <C-o><leader><leader>s
+
+imap ,p <C-x><C-p>
+imap ,l <C-x><C-l>
+
+imap ,x <Esc>:w<Cr>i
+imap ,q <Esc>:x<Cr>
+
