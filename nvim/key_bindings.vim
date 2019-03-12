@@ -42,7 +42,7 @@ let g:deoplete#enable_at_startup = 1"
 "  4. latex plugins
 "  Configuration for the llstartpreview
 autocmd Filetype tex setl updatetime=1
-autocmd Filetype tex set tw=79
+" autocmd Filetype tex set tw=79
 " let g:livepreview_previewer = 'open -a Preview'
 let g:livepreview_previewer = 'evince'
 "
