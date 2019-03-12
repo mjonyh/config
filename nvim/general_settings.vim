@@ -46,4 +46,5 @@ set dir=~/.cache/vim 	" Directory to store swap files.
 set history=1000 	"" Increase the undo limit.
 
 
-
+" vertically split ultisnips edit window
+let g:UltiSnipsEditSplit="vertical"
