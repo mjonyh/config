@@ -51,5 +51,8 @@ set dir=~/.cache/vim 	" Directory to store swap files.
 set history=1000 	"" Increase the undo limit.
 
 
+let g:UltiSnipsUsePythonVersion=3
 " vertically split ultisnips edit window
 let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetDirectories=["custom_snippets", "UltiSnips"]
+" let g:UltiSnipsSnippetsDir="~/.vim/snippet_custom/"
