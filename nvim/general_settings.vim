@@ -56,3 +56,10 @@ let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsSnippetDirectories=["custom_snippets", "UltiSnips"]
 " let g:UltiSnipsSnippetsDir="~/.vim/snippet_custom/"
+
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+
+
+

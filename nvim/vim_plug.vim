@@ -23,6 +23,8 @@ Plug 'tmhedberg/simpylfold'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-vividchalk'
+Plug 'tpope/vim-markdown'
+Plug 'vim-scripts/SyntaxRange'
 
 " 3. Snippets : Let the vim write for you
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,5 +110,11 @@ Plug 'tpope/vim-eunuch'
 
 "19. Multicursor
 Plug 'terryma/vim-multiple-cursors'
+"
+"
+" 20. vim presentation
+Plug 'sotte/presenting.vim'
+"
+"
 " Initialize plugin system
 call plug#end()
