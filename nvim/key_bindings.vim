@@ -43,8 +43,8 @@ let g:deoplete#enable_at_startup = 1"
 "  Configuration for the llstartpreview
 autocmd Filetype tex setl updatetime=1
 " autocmd Filetype tex set tw=79
-" let g:livepreview_previewer = 'open -a Preview'
-let g:livepreview_previewer = 'evince'
+let g:livepreview_previewer = 'open -a Preview'
+" let g:livepreview_previewer = 'evince'
 "
 "  for vim-latex-suite
 let g:tex_flavor='latex'
