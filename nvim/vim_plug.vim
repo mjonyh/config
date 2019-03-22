@@ -115,6 +115,7 @@ Plug 'terryma/vim-multiple-cursors'
 " 20. vim presentation
 Plug 'sotte/presenting.vim'
 "
-"
+
+
 " Initialize plugin system
 call plug#end()

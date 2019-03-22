@@ -217,9 +217,10 @@ vmap <right> <nop>
 vmap <left> <nop>
 
 " mapping compilation and run
-autocmd Filetype tex map <leader>l <Esc>:LLStartPreview <Cr>i
+autocmd Filetype tex nnoremap <leader>l <Esc>:w <Cr> :!make <Cr>
 
-
+" Toggle Goyo
+nnoremap <Leader>r :Goyo<CR> 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " comma seperated mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,4 +234,15 @@ imap ,l <C-x><C-l>
 
 imap ,x <Esc>:w<Cr>i
 imap ,q <Esc>:x<Cr>
+
+
+" Default title case key bindings conflict with tab control
+" let g:titlecase_map_keys = 0
+" nmap <leader>gt <Plug>Titlecase
+" vmap <leader>gt <Plug>Titlecase
+" nmap <leader>gT <Plug>TitlecaseLine
+
+
+
+
 
