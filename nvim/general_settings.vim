@@ -60,6 +60,21 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
+" Setup plugins for editing prose
+let g:airline_section_x = '%{PencilMode()}'
+" let g:lexical#spell = 0
+nnoremap <silent> <leader>s :NextWordy<cr>
+let g:pencil#wrapModeDefault = 'soft'
+let g:pencil#concealcursor = 'nc'
+let g:pencil#conceallevel = 0
+augroup pencil
+	autocmd!
+	autocmd FileType pandoc,markdown,mkd,text,tex,sile,usfm
+		" \  call lexical#init()
+		\| call textobj#sentence#init()
+		\| call textobj#quote#init({'educate': 0})
+		\| call pencil#init()
+augroup END
 
 
 

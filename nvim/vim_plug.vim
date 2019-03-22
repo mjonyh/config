@@ -114,7 +114,13 @@ Plug 'terryma/vim-multiple-cursors'
 "
 " 20. vim presentation
 Plug 'sotte/presenting.vim'
-"
+
+
+" 21. line number
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
+" 22. pencil a smart wrapper
+Plug 'reedes/vim-pencil'
 
 
 " Initialize plugin system
