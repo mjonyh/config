@@ -217,7 +217,7 @@ vmap <right> <nop>
 vmap <left> <nop>
 
 " mapping compilation and run
-autocmd Filetype tex nnoremap <leader>l <Esc>:w <Cr> :!make <Cr>
+autocmd Filetype tex nnoremap <leader>l <Esc>:w <Cr> :!make target FILENAME=%:r <Cr>
 
 " Toggle Goyo
 nnoremap <Leader>r :Goyo<CR> 
