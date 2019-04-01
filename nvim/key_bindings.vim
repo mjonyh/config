@@ -80,6 +80,7 @@ let g:gitgutter_sign_modified_removed = 'ww'
 """""""""""""""""""""""""""""""""""""""
 " 7. Auto Parentheses
 let g:AutoPairsFlyMode = 1
+autocmd Filetype tex let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'",'"':'"', '```':'```', '"""':'"""', "'''":"'''"}
 "
 "
 """"""""""""""""""""""""""""""""""""""
@@ -238,10 +239,20 @@ imap ,q <Esc>:x<Cr>
 
 
 " Default title case key bindings conflict with tab control
-" let g:titlecase_map_keys = 0
-" nmap <leader>gt <Plug>Titlecase
-" vmap <leader>gt <Plug>Titlecase
-" nmap <leader>gT <Plug>TitlecaseLine
+let g:titlecase_map_keys = 0
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
+
+" Custom mappings
+" ================
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+map <Leader>a ggVG  " select all
+
+
+" for presentaion in vim
+nmap <Leader>s :PresentingStart <CR>
 
 
 
