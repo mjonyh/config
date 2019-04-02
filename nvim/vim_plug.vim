@@ -122,6 +122,14 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " 22. pencil a smart wrapper
 Plug 'reedes/vim-pencil'
 
+" 23. Markdown
+" Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
+Plug 'kannokanno/previ'
+
+
+"24. orgmode
+Plug 'jceb/vim-orgmode'
 
 " Initialize plugin system
 call plug#end()
