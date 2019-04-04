@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'majutsushi/tagbar'
 
 " 2. Theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -84,6 +85,7 @@ Plug 'christoomey/vim-titlecase'
 " 15. syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'dbeniamine/cheat.sh-vim'
 " K get answer on the word under the cursor or the selection on a pager (this feature requires vim >= 7.4.1833, you can check if have the right version with : :echo has("patch-7.4.1833"))
@@ -125,7 +127,7 @@ Plug 'reedes/vim-pencil'
 " 23. Markdown
 " Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-markdown'
-Plug 'kannokanno/previ'
+Plug 'kannokanno/previm'
 
 
 "24. orgmode
