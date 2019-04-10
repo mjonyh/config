@@ -80,7 +80,7 @@ Plug 'christoomey/vim-titlecase'
 " This plugin will highlight currentline
 
 " 14. vim tmux plugin
-" Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 
 " 15. syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
