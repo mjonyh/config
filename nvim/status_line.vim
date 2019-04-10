@@ -29,11 +29,17 @@ let g:airline_symbols.whitespace = 'Ξ'
  let g:airline_symbols.readonly = ''
  let g:airline_symbols.linenr = ''
 "
+" "  my symbols
+"  let g:airline_left_sep="\uE0B4"
+"  let g:airline_left_alt_sep="\uE0B5"
+"  let g:airline_right_sep="\uE0B6"
+"  let g:airline_right_alt_sep="\uE0B7"
+"
 "  my symbols
- let g:airline_left_sep="\uE0B4"
- let g:airline_left_alt_sep="\uE0B5"
- let g:airline_right_sep="\uE0B6"
- let g:airline_right_alt_sep="\uE0B7"
+ let g:airline_left_sep="\uE0C0"
+ let g:airline_left_alt_sep="\uE0C1"
+ let g:airline_right_sep="\uE0C2 "
+ let g:airline_right_alt_sep="\uE0C3 "
 "
 
 " status line themeing
