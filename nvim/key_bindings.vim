@@ -1,7 +1,7 @@
 let mapleader = "\<Space>"
 
-""let mapleader=","
-"map <Space> <leade>
+""let ma pleader=","
+"map <Space> <lade>
 " default spell check
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell!
@@ -186,7 +186,7 @@ let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 "
 
-" 18 Multicursor
+" 18 Multi cursor
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
 let g:multi_cursor_select_all_word_key = '<A-n>'
@@ -197,7 +197,7 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" reload nvim config
+" reload Vim con fig
 imap <C-r> <Esc>:w <Cr> :source ~/.config/nvim/init.vim <Cr>i
 
 " Disable Arrow keys in Escape mode
@@ -221,12 +221,12 @@ vmap <left> <nop>
 " mapping compilation and run
 autocmd Filetype tex nnoremap <leader>l <Esc>:w <Cr> :!~/git/lecture/compile_tex.sh %:r <Cr>
 
-" Toggle Goyo
+" Toggle Goya
 nnoremap <Leader>r :Goyo<CR> 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" comma seperated mapping
+" comma separated mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" easymotion map
+" easy motion map
 imap ,w <C-o><leader><leader>w
 imap ,b <C-o><leader><leader>b
 imap ,s <C-o><leader><leader>s
@@ -251,8 +251,17 @@ vnoremap > >gv  " better indentation
 map <Leader>a ggVG  " select all
 
 
-" for presentaion in vim
+" for presentation in Vim
 nmap <Leader>s :PresentingStart <CR>
+
+
+" navigation and split"
+nnoremap <leader>s <C-w>s
+nnoremap <leader>v <C-w>v
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 
 

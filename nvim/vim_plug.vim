@@ -133,5 +133,8 @@ Plug 'kannokanno/previm'
 "24. orgmode
 Plug 'jceb/vim-orgmode'
 
+" 25. hardmode
+Plug 'wikitopian/hardmode'
+
 " Initialize plugin system
 call plug#end()
