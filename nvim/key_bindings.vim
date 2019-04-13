@@ -258,11 +258,13 @@ nmap <Leader>s :PresentingStart <CR>
 " navigation and split"
 nnoremap <leader>s <C-w>s
 nnoremap <leader>v <C-w>v
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+" nnoremap <leader>h <C-w>h
+" nnoremap <leader>j <C-w>j
+" nnoremap <leader>k <C-w>k
+" nnoremap <leader>l <C-w>l
 
+"Undotree""
+nnoremap <leader>u :UndotreeToggle<cr>
 
 
 

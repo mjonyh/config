@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
 
 " 2. Theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +27,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-vividchalk'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/SyntaxRange'
+Plug 'flazz/vim-colorschemes'
 
 " 3. Snippets : Let the vim write for you
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,7 +82,8 @@ Plug 'christoomey/vim-titlecase'
 " This plugin will highlight currentline
 
 " 14. vim tmux plugin
-Plug 'tmux-plugins/vim-tmux'
+" Plug 'tmux-plugins/vim-tmux'
+Plug 'christoomey/vim-tmux-navigator'
 
 " 15. syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

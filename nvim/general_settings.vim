@@ -82,3 +82,10 @@ let g:presenting_statusline = '%l, %c of %{b:presenting_page_current}/%{b:presen
 let g:presenting_top_margin = 2
 
 let g:previm_open_cmd = 'open -a Safari'
+
+" save the undo tree
+set undodir=~/.vim/undodir
+set undofile 
+
+
+
