@@ -9,12 +9,14 @@ imap <C-f> <C-g>u<Esc>[s1z=`]a<C-g>u
 nmap <C-f> [s1z=<C-o>
 
 " Tabbing windows
-nnoremap <C-k> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-imap <C-k> <Esc>:tabprevious<CR>
-imap <C-l> <Esc>:tabnext<CR>
-imap <C-e> <Esc> :tabe
-nmap <C-e> :tabe
+nnoremap <leader>h :tabprevious<CR>
+nnoremap <leader>l :tabnext<CR>
+nnoremap <leader>e :tabe 
+" imap <C-k> <Esc>:tabprevious<CR>
+" imap <C-l> <Esc>:tabnext<CR>
+" imap <C-e> <Esc> :tabe
+" nmap <C-e> :tabe
+
 
 " 1. nerdtree short cut
 imap <C-t> <Esc>:NERDTreeToggle<CR>
