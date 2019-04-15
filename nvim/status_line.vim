@@ -37,10 +37,10 @@ let g:airline_symbols.linenr = ''
 let g:airline_left_sep="\uE0C0"
 let g:airline_left_alt_sep="\uE0C1"
 
-if has('unix')
-	let g:airline_right_sep="\uE0C2"
-else
+if has('macunix')
 	let g:airline_right_sep="\uE0C2 "
+else
+	let g:airline_right_sep="\uE0C2"
 endif
 let g:airline_right_alt_sep="\uE0C3 "
 "

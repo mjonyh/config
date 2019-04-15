@@ -43,10 +43,10 @@ let g:deoplete#enable_at_startup = 1"
 "  Configuration for the llstartpreview
 autocmd Filetype tex setl updatetime=1
 " autocmd Filetype tex set tw=79
-if has("unix")
-	let g:livepreview_previewer = 'zathura'
-else
+if has('macunix')
 	let g:livepreview_previewer = 'open -a Preview'
+else
+	let g:livepreview_previewer = 'zathura'
 endif
 " let g:livepreview_previewer = 'evince'
 "
