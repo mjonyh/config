@@ -1,0 +1,8 @@
+1. Terminal: termite
+2. Browser: qutebrowser
+3. Text editor: vim
+4. PDF viewer: zathura
+5. YOUTUBE: mps-youtube
+6. Filebrowser: vifm!
+
+
