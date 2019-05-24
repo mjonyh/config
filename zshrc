@@ -569,6 +569,7 @@ alias rm='rm -vr'
 alias md='mkdir -p'
 alias djpyman="python3 manage.py"
 alias convert="~/.dotfiles/convert.sh "
+alias finalquestion="cp ~/git/lecture/{question_template.tex,sustlogo.png} . && mv question_template.tex "
 source ~/.dotfiles/src/*
 
 
