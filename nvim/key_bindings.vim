@@ -32,7 +32,7 @@ let g:SimpylFold_docstring_preview = 1
 """"""""""""""""""""""""""""""""""""""
 "  3. Snippets
 "  UltiSnips trigger since contradict with youcomplete me
-let g:UltiSnipsExpandTrigger="<C-w>"
+" let g:UltiSnipsExpandTrigger="<C-w>"
 let g:ultisnips_python_style="doxygen"
 "
 autocmd FileType python set sw=4
