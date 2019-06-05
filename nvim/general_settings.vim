@@ -83,6 +83,8 @@ let g:presenting_top_margin = 2
 
 let g:previm_open_cmd = 'open -a Safari'
 
+set foldmethod=indent
+
 " save the undo tree
 set undodir=~/.vim/undodir
 set undofile 
