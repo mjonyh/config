@@ -270,6 +270,9 @@ nnoremap <leader>v <C-w>v
 
 "Undotree""
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <leader>c :read !doi2bib 
+
+
 
 
 
