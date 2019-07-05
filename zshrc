@@ -129,7 +129,7 @@ zplug "zsh-users/zsh-autosuggestions"
 # zsh-syntax-highlighting must be loaded after executing compinit command
 # and sourcing other plugins
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-history-substring-search", from:oh-my-zsh 		#, defer:3
 
 # =============================================================================
 #                                   Options
@@ -154,9 +154,9 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
 setopt autocd                   # Allow changing directories without `cd`
-setopt append_history           # Dont overwrite history
-setopt extended_history         # Also record time and duration of commands.
-setopt share_history            # Share history between multiple shells
+# setopt append_history           # Dont overwrite history
+# setopt extended_history         # Also record time and duration of commands.
+# setopt share_history            # Share history between multiple shells
 setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
 setopt hist_find_no_dups        # Dont display duplicates during searches.
 setopt hist_ignore_dups         # Ignore consecutive duplicates.
@@ -225,7 +225,7 @@ alias 9='pu -9'
 alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
 alias po='() { popd &> /dev/null; dirs -v; }'
 
-zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+# zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # =============================================================================
 #                                Key Bindings
@@ -241,8 +241,8 @@ bindkey "^d" delete-char
 bindkey "^y" accept-and-hold
 bindkey "^w" backward-kill-word
 bindkey "^u" backward-kill-line
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^F" history-incremental-pattern-search-forward
+# bindkey "^R" history-incremental-pattern-search-backward
+# bindkey "^F" history-incremental-pattern-search-forward
 
 # Do not require a space when attempting to tab-complete.
 bindkey "^i" expand-or-complete-prefix
@@ -342,6 +342,9 @@ if zplug check "seebi/dircolors-solarized"; then
 	  eval $(dircolors ~/.zplug/repos/seebi/dircolors-solarized/dircolors.256dark)
 fi
 
+KEYTIMEOUT=1
+bindkey -v
+
 if zplug check "zsh-users/zsh-history-substring-search"; then
 	zmodload zsh/terminfo
 	bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -379,12 +382,12 @@ if zplug check "b4b4r07/enhancd"; then
 	ENHANCD_DISABLE_HOME=0
 fi
 
-if zplug check "b4b4r07/zsh-history-enhanced"; then
-	ZSH_HISTORY_FILE="$HISTFILE"
-    ZSH_HISTORY_FILTER="fzf:peco:percol"
-    ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
-    ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
-fi
+# if zplug check "b4b4r07/zsh-history-enhanced"; then
+# 	ZSH_HISTORY_FILE="$HISTFILE"
+#     ZSH_HISTORY_FILTER="fzf:peco:percol"
+#     ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
+#     ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+# fi
 
 if zplug check "bhilburn/powerlevel9k"; then
     # Easily switch primary foreground/background colors
@@ -574,3 +577,4 @@ source ~/.dotfiles/src/*
 
 
 fpath=(~/.zsh.d/ $fpath)
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
