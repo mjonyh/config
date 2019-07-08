@@ -189,6 +189,11 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+set rtp+=~/.dotfiles/nvim  
+"...
+let g:UltiSnipsSnippetsDir = "~/.dotfiles/nvim/snips"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+let g:UltiSnipsEditSplit= "context"
 "
 
 " 18 Multi cursor

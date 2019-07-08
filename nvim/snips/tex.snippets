@@ -1,0 +1,46 @@
+snippet ques1 "one question" b
+\question[${1:marks}] ${2:question description}
+\droppoints
+$0
+endsnippet
+
+snippet ques2 "more than one question" b
+\question ${1:if story available}
+\begin{parts}
+	\part[${2:martks}]
+	${3:question description}
+	\droppoints
+	$0
+\end{parts}
+endsnippet
+
+snippet qpart "parted question" b
+\part[${1:martks}]
+${2:question description}
+\droppoints
+$0
+endsnippet
+
+snippet qmultichoice "multiple choice question" b
+\question[${1:marks}] ${2:question description}
+\droppoints
+\begin{oneparchoices}
+	\choice ${3:choice}
+	\choice ${4:choice}
+	\choice ${5:choice}
+	\choice ${6:choice}
+\end{oneparchoices}
+$0
+endsnippet
+
+snippet qcheckbox "checkbox question" b
+\question[${1:marks}] ${2:question description}
+\droppoints
+\begin{checkboxes}
+	\choice ${3:choice}
+	\choice ${4:choice}
+	\choice ${5:choice}
+	\choice ${6:choice}
+\end{checkboxes}
+$0
+endsnippet
