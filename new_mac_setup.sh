@@ -48,6 +48,11 @@ brew install node
 brew install vim --without-python --with-python3
 brew install zsh
 
+echo "Installing nvim"
+brew install neovim
+pip3 install pynvim
+
+
 echo "Cask installation"
 brew cask install iterm2
 brew cask install spectacle

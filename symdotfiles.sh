@@ -52,3 +52,7 @@ tmux new-session -d
 # killing the server is not required, I guess
 tmux kill-server
 
+# nvim config
+mkdir ~/.config/nvim
+cp ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
