@@ -114,6 +114,10 @@ sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 echo "Installing Bangla Keyboard Layout Probhat"
 curl https://raw.githubusercontent.com/mdminhazulhaque/probhat-osx/master/install.sh | sudo bash
 echo "To Configure Go to https://github.com/mdminhazulhaque/probhat-osx"
+echo "To configure beamer theme..."
+echo "md -p Library/texmf/tex/latex/beamer/themes/"
+echo "cp git/lecture/course_template/*.sty Library/texmf/tex/latex/beamer/themes"
+echo "cp -r git/lecture/course_template/AAUgraphics  Library/texmf/tex/latex/beamer/themes"
 read -p "Press [Enter] key after this..."
 echo "Done!"
 
