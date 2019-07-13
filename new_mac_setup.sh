@@ -110,6 +110,9 @@ touch .hushlogin
 echo "Changing Shell..."
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 
+echo "Installing doi2bib..."
+sudo pip3 install bibcure
+
 
 echo "Installing Bangla Keyboard Layout Probhat"
 curl https://raw.githubusercontent.com/mdminhazulhaque/probhat-osx/master/install.sh | sudo bash
