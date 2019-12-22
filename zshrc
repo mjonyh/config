@@ -566,6 +566,8 @@ zplug load
 
 # vim: ft=zsh
 
+alias open='xdg-open'
+
 # Custom helper aliases
 alias ccat='highlight -O ansi'
 alias rm='rm -vr'
