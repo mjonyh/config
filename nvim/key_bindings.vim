@@ -115,7 +115,9 @@ imap <C-p> <Esc> :CtrlP<CR>
 "
 "
 "  Run interactive python3
-autocmd Filetype python imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
+" autocmd Filetype python imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 "
 " 15. cht.sh
 let g:CheatSheetFrameworks = {
