@@ -581,3 +581,4 @@ source ~/.dotfiles/src/*
 
 fpath=(~/.zsh.d/ $fpath)
 # source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# test
