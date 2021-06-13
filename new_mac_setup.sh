@@ -3,6 +3,7 @@ ssh-keygen -t rsa
 
 echo "Please add this public key to Github \n"
 echo "https://github.com/account/ssh \n"
+open https://github.com/account/ssh
 read -p "Press [Enter] key after this..."
 
 echo "Installing xcode-stuff"
@@ -26,12 +27,6 @@ brew install tmux
 echo "Installing Python with other packages..."
 pip3 install numpy scipy matplotlib django pymysql cryptography
 pip3 install unidecode tmuxp
-
-echo "Git config"
-
-git config --global user.name "mjonyh"
-git config --global user.email mjonyh@gmail.com
-
 
 echo "Installing brew git utilities..."
 brew install git-extras
@@ -112,6 +107,13 @@ sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 
 echo "Installing doi2bib..."
 sudo pip3 install bibcure
+
+echo "Git config"
+git config --global user.name "mjonyh"
+git config --global user.email mjonyh@gmail.com
+
+echo "Git Credentials..."
+ssh-add -K ~/.ssh/id_rsa
 
 
 echo "Installing Bangla Keyboard Layout Probhat"
