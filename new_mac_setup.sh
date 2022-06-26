@@ -53,7 +53,7 @@ brew cask install iterm2
 brew cask install spectacle
 brew cask install cmake
 brew cask install google-chrome
-brew cask install mactex
+#brew cask install mactex
 
 echo "Copying dotfiles from Github"
 cd ~
