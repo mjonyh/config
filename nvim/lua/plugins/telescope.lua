@@ -45,3 +45,5 @@ return {
                 keymap.set("n", "<leader>fc", "<cmd>Telescope git commits<cr>", { desc = "Find todos" })
         end,
     }
+
+
