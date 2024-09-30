@@ -33,8 +33,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'gerw/vim-latex-suite'
 
 " 5. Auto complete words and others
-	Plug 'valloric/youcompleteme'
+	"Plug 'valloric/youcompleteme'
 	" Plug 'shougo/deoplete.nvim'
+	Plug 'Exafunction/codeium.vim'
 
 " 6. Git's plugin
 	Plug 'tpope/vim-fugitive'
