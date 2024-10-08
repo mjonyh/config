@@ -23,3 +23,5 @@ o.inccommand = "split"
 o.splitright = true
 o.splitbelow = true
 o.termguicolors = true
+
+vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})

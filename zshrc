@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/mjonyh/.zsh/completions:"* ]]; then export FPATH="/home/mjonyh/.zsh/completions:$FPATH"; fi
 export TERM="xterm-256color"
 # =============================================================================
 #                                   Functions
@@ -554,6 +556,7 @@ fi
 zplug load
 
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.dotfiles/scripts" ] && export PATH="$HOME/.dotfiles/scripts:$PATH"
 
 # Source defined functions.
 [[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
@@ -620,3 +623,5 @@ _fzf_comprun() {
     *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
+
+export PATH=$PATH:$HOME/.dotfiles/scripts/
