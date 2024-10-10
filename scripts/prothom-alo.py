@@ -36,7 +36,7 @@ if response.status_code == 200:
     rofi_input = "\n".join(entries)
 
     # Call rofi with the input headlines
-    result = subprocess.run(['rofi', '-dmenu', '-font "SolaimanLipi 14"', '-p', 'Latest Headlines from Prothom Alo'], input=rofi_input, text=True, capture_output=True)
+    result = subprocess.run(['rofi', '-dmenu', '-font "SolaimanLipi 24"', '-p', 'Latest Headlines from Prothom Alo'], input=rofi_input, text=True, capture_output=True)
 
     # Check the selected entry
     selected_entry = result.stdout.strip()
