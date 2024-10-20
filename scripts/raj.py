@@ -4,18 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 import subprocess
 
-categories = "HD Porn, Amateur, Anal, Ass, Audio Stories, Aunty, BBW, Bhabhi, Big Boobs, Big Cock, Blowjob, Bollywood, Cartoon, College, Dildo, Gay, Group Sex, Hardcore, Hidden cam, Home Sex, House Wife, Lesbian, Maid, Mallu, Masturbation, Mature, MMS Scandals, Mom Sex, NRI, Office Sex, Outdoor, POV, Punjabi, Saree, Sex toys, Shemale, Shower, Sister, Teen, Threesome, Village ".split(",")
-
-# Join all entries into a single string separated by newlines
-rofi_input = "\n".join(categories)
-
-# Call rofi with the input headlines
-result = subprocess.run(['rofi', '-dmenu', '-p', 'Choice the category'], input=rofi_input, text=True, capture_output=True)
+search_query = subprocess.run('echo "" | rofi -dmenu -theme tokyonight -p "Enter Search Query"', shell=True, text=True, capture_output=True)
 
 # url = "https://rajwap.cc/"
-url = "https://rajwap.cc/category/"+result.stdout.strip().lower().replace(" ", "-")+"/"
-
-print(url)
+url = "https://rajwap.cc/?s="+search_query.stdout.strip().lower().replace(" ", "+")
+# url = "https://rajwap.cc/?s="+result.stdout.strip().lower().replace(" ", "+")+"/"
 
 
 # Send a request to fetch the webpage content
@@ -45,7 +38,7 @@ if response.status_code == 200:
     rofi_input = "\n".join(entries)
 
     # Call rofi with the input headlines
-    result = subprocess.run(['rofi', '-dmenu', '-p', 'Select the video'], input=rofi_input, text=True, capture_output=True)
+    result = subprocess.run(['rofi', '-dmenu', '-p', 'Select the video', '-theme', 'tokyonight'], input=rofi_input, text=True, capture_output=True)
 
     # Check the selected entry
     selected_entry = result.stdout.strip()
