@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import subprocess
 
-search_query = subprocess.run('echo "" | rofi -dmenu -theme tokyonight -p "Enter Search Query"', shell=True, text=True, capture_output=True)
+search_query = subprocess.run('echo "" | rofi -dmenu -theme ~/tokyonight -p "Enter Search Query"', shell=True, text=True, capture_output=True)
 
 # url = "https://rajwap.cc/"
 url = "https://rajwap.cc/?s="+search_query.stdout.strip().lower().replace(" ", "+")
