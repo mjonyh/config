@@ -1,0 +1,3 @@
+2024-10-10 00:25:32.817 [info] update#setState disabled
+2024-10-10 00:25:32.817 [info] update#ctor - updates are disabled as there is no update URL
+2024-10-10 00:25:33.258 [warning] [storage main] detected slow close() operation: Time: 2627ms, DB size: 172032b, Large Keys: iconThemeData:94400, colorThemeData:7018, workbench.activity.placeholderViewlets:3305, workbench.view.extensions.state.hidden:1674, memento/customEditors:1294
