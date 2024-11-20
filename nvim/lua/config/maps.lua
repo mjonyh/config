@@ -38,4 +38,24 @@ map("n", "<C-Down>", "<C-w>-")
 
 
 -- Run python code
-map("n", "<leader>rp", "<CMD>!python %<CR>")
+map("n", "<leader>rp", ":w<CR><CMD>!python %<CR>")
+
+
+-- Disable arrows keys
+map("n", "<Up>", "dd2kp")
+map("n", "<Down>", "ddp")
+map("n", "<Left>", "<Nop>")
+map("n", "<Right>", "<Nop>")
+
+map("i", "<Up>", "<Esc>dd2kpi")
+map("i", "<Down>", "<Esc>ddpi")
+map("i", "<Left>", "<Nop>")
+map("i", "<Right>", "<Nop>")
+
+map("v", "<Up>", "<Nop>")
+map("v", "<Down>", "<Nop>")
+map("v", "<Left>", "<Nop>")
+map("v", "<Right>", "<Nop>")
+
+
+

@@ -23,3 +23,13 @@ o.inccommand = "split"
 o.splitright = true
 o.splitbelow = true
 o.termguicolors = true
+o.undofile = true
+o.undodir = vim.fn.stdpath("data") .. "~/.vim/undodir"
+o.hlsearch = true
+o.incsearch = true
+o.ignorecase = true
+o.smartcase = true
+o.smartindent = true
+o.wrap = false
+
+vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})

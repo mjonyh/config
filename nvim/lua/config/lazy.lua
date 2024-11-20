@@ -24,9 +24,49 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
     { import = "plugins" },
     { import = "plugins.lsp" },
+    {
+      "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
+      config = function()
+          vim.cmd.colorscheme("kanagawa")
+      end,
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      opts = {
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+        highlight = { enable = true },
+      },
+      config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+      end,
+    },
+    {
+      "nvim-neorg/neorg",
+      lazy = false,
+      version = "*",
+      config = function()
+        require("neorg").setup {
+          load = {
+            ["core.defaults"] = {},
+            ["core.concealer"] = {},
+            ["core.dirman"] = {
+              config = {
+                workspaces = {
+                  notes = "~/notes",
+                },
+                default_workspace = "notes",
+              },
+            },
+          },
+        }
+  
+        vim.wo.foldlevel = 99
+        vim.wo.conceallevel = 2
+      end,
+    },   -- import your plugins
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

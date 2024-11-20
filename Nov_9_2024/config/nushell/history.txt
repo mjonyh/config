@@ -1,0 +1,612 @@
+ls
+l
+cd git/data_representation/food_color_green/figure_8/
+ls
+cd
+whereis nu
+cd .config/nushell/
+ls
+nvim config.nu
+nvim env.nu
+cat history.txt
+starship init nu | save -f ~/.cache/starship/init.nu
+nvim .config/nushell/config.nu
+exit
+ls
+eza
+l
+eza --long
+chsh nu
+chsh -l
+whereis nu
+chsh -s /usr/bin/nu
+echo $SHELL
+echo $env.SHELL
+bat .config/hypr/hyprland.conf
+echo $env.SHELL
+fbterm
+cp /usr/share/doc/kitty/kitty.conf .config/kitty/
+z kitty
+cd .config/kitty/
+ls
+nvim kitty.conf
+z kitty
+kitty
+cd .config/kitty/
+nvim kitty.conf
+../hypr/hyprland.conf
+../hypr/
+nvim hyprland.conf
+ls
+exit
+cd
+cd git/dotfiles/
+ls
+yay wezterm
+wezterm 
+wezterm-gui 
+wezterm --always-new-process
+ls
+cd nushell/
+ls
+nvim config.nu
+~/.config/nushell/
+nvim env.nu
+ps
+ps | where cpu > 0
+$in
+$nu.config-path
+$nu.os-info
+file
+file config.nu
+bat config.nu
+bat ~/test.py
+nu --version
+cargo --version
+nmtui
+btop
+bat /etc/locale.conf
+btop --utf-force
+cd
+df
+df | table
+cd git/data_representation/food_color_green/figure_8/
+python figure_8.py
+nvim figure_8.py
+poweroff
+cd
+exit
+cd .config/nushell/
+nvim config.nu
+ls
+cd
+ls
+./raj.py
+nvim raj.py
+cd
+./.dotfiles/scripts/raj.py
+ping google.com
+ping google
+http google.com
+http https://www.google.com
+exit
+exit
+exit
+exit
+cd
+cd .config/hypr/
+ls
+hyprctl monitors all
+yay hyprlock
+hyprlock
+nvim ~/.config/hypr/hyprlock.conf
+hyprlock
+nvim ~/.config/hypr/hyprlock.conf
+nvim ~/.config/hypr/mocha.conf
+nvim ~/.config/hypr/hyprlock.conf
+ls Downloads/*png
+cp Downloads/gray0_ctp_on_line.png .face
+cd
+cd .config/hypr/
+cd
+cd git
+git clone https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true
+git clone https://github.com/catppuccin/vivaldi
+cd vivaldi/
+ls
+make
+ls assets/
+bat Makefile
+yay deno
+make
+bat Makefile
+ls
+ls build.ts
+./build.ts
+git checkout .
+ls
+./build.ts
+mpv build.ts
+make
+nvim uuid_map.json
+ls
+..
+nvim ~/.config/hypr/hyprlock.conf
+cd
+cd .config/hypr/
+nvim hyprland.conf
+cd
+yay tofi
+tofi-drun 
+tofi-drun --drun-launch=true
+tofi-run 
+md .config/tofi
+mkcd .config/tofi
+mkdir .config/tofi
+cd .config/tofi/
+tofi-run 
+nvim config
+cd
+nvim .config/nushell/config.nu
+ls
+cd git/dotfiles/
+ls
+yay stow
+ls
+cd
+cd .config/nushell/
+ls
+nvim config.nu
+nvim env.nu
+ls nushell/
+nvim nushell/config.nu
+stow nushell
+nvim config.nu
+ls
+..
+ls
+cd nushell/
+ls
+../hypr/
+nvim hyprpaper.conf
+feh ~/Downloads/wallpaper.jpg
+feh ~/Downloads/wallpaper_1.png
+nvim hyprland.conf
+cd
+cd .config/hypr/
+cd
+xprop
+xprop min
+krunner
+hyprctl clients -j 
+hyprctl clients -j | jq
+nvim hyprland.conf
+../tofi/
+nvim config
+nvim ../hypr/hyprland.conf
+..
+nvim hypr
+cp ~/Downloads/mocha.webp ~/.face
+ls
+cd hypr
+ls
+hyprctl clients -j | jq | less
+cd Downloads/
+ls
+l
+ls | grep cat
+ranger
+xranger
+ls
+extract Catppuccin.Frappe.Maroon.zip
+unzip Catppuccin.Frappe.Maroon.zip
+ls
+open background.jpg
+ls ~/git/dotfiles/
+yazi
+../Music/
+../Documents/
+cd
+ls
+cd .config
+ls
+yay opera
+yay -Syu
+light --version
+nvim hypr/hyprland.conf
+yay -R light-git apvlv
+yay -R light-git
+yay -Syu
+yay -R macbook-lighter
+bash <(curl -L https://zellij.dev/launch)
+kitty
+yay zellij
+nvim hypr/hyprland.conf
+exit
+zellij 
+exit
+nvim kitty/kitty.conf
+cp -r ~/git/dotfiles/zellij .
+ls
+zellij 
+cd
+cd .config/zellij/themes/
+ls
+yt
+nvim zellij/config.kdl
+exit
+zellij 
+nvim kitty/kitty.conf
+cd projects/video_join/
+ls
+mpv output.mp4
+zellij 
+cd
+ls
+cd git/dotfiles/
+ls
+yay wl-copy
+nvim zellij/config.kdl
+cb
+yay clipboard
+cliphist list | fzf --no-sort | cliphist decode | wl-copy
+cliphist 
+cd .config/hypr/
+yazi
+nvim hyprland.conf
+zellij 
+../zellij/
+ls
+zellij 
+history
+259!
+exit
+zellij
+cd
+yt
+poweroff
+cd
+yt
+cd .config/nushell/
+ls
+nvim config.nu
+../starship/
+ls
+nvim starship.toml
+cd
+../hypr
+nvim hyprland.conf
+cd
+Hyprland 
+ddd
+cd .config/nushell/
+cd git/dotfiles/
+bat nushell/ | grep alias
+bat nushell/* | grep alias
+bat nushell/config.nu | grep alias
+eza -la
+ls
+eza
+ls
+eza -la
+eza -l
+cd
+cd Downloads/
+ls *zip
+open Catppuccin.Frappe.Maroon.zip
+cd
+tutor
+tutor list
+tutor beging
+tutor begin
+tutor tables
+ls | select 2
+tutor cells
+ls | select 2 | get name
+(ls).4.name
+(ls).2.name
+(ls).:.name
+tutor shorthands
+$env.PWD
+cargo install nu_plugin_compress
+plugin add ~/.cargo/bin/nu_plugin_compress
+rustup update stable
+cargo install cargo
+cargo install nu_plugin_compress
+plugin add ~/.cargo/bin/nu_plugin_compress
+cargo install nu_plugin_compress --force
+plugin add ~/.cargo/bin/nu_plugin_compress
+cargo remove nu_plugin_compress
+cargo uninstall nu_plugin_compress
+cargo install nu_plugin_compress
+cargo add nu-plugin-engine@=0.99.1
+yay rust
+cargo install nu_plugin_compress
+cargo uninstall nu_plugin_compress
+cargo install nu_plugin_compress
+htop
+plugin add ~/.cargo/bin/nu_plugin_compress
+poweroff
+ls
+mkdir .config/zellij
+zellij setup --dump-config > ~/.config/zellij/config.kdl
+cd .config/zellij/
+ls
+nvim config.kdl
+cd themes/
+ls
+nvim catppuccin.kdl
+nvim catppuccin.yaml
+..
+l
+ls
+z dotfiles
+cd ~/git/dotfiles/
+ls zellij/
+nvim config.kdl
+cd
+yt
+poweroff
+ls
+nmtui
+yt
+poweroff
+ls
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+l
+btop
+atuin init nu | save ~/.local/share/atuin/init.nu
+nvim .config/nushell/config.nu
+source ~/.local/share/atuin/init.nu
+8
+atuin import autor
+atuin import auto
+atuin import auto -f
+atuin import nu
+yay -Syu
+ls
+atuin doctor
+atuin history list --format "{time} - {duration} - {command}"
+yay dust
+^du 
+dust
+zoxide init nushell | save -f ~/.zoxide.nu
+nvim .config/nushell/config.nu
+source ~/.zoxide.nu
+z dotfiles
+cd
+nvim .config/nushell/config.nu
+cd
+yay helix
+exit
+helix
+z test
+ls
+helix calculator.py
+exit
+zellij
+leftwm
+yay coolwm
+yay cool
+cd test
+hx .
+hx
+helix .
+yt
+yay leftwm
+yay way-cool
+yay -Rs leftwm i3
+yay -Rs leftwm-git i3
+ratpoison 
+yay -Rs ratpoison
+helix .xinitrc
+yay -Rs xinit
+z figure_8
+helix figure_8.py
+atuin history list --format "{time} - {duration} - {command}"
+cd
+exit
+zellij
+btop
+sudo pacman -Qqtd
+yay -RS zsh-theme-powerlevel10k-git-debug
+sesh 
+ses l
+sesh l
+hyprctl clients -j | jq | less
+sudo pacman -Qqtd
+ls
+cd Documents/
+ls
+md markdown
+mkdir markdown
+cd markdown
+helix first.md
+nvim first.md
+yazi
+cd
+helix hyprland.conf
+mv hyprland.conf hyprland.conf.bak
+yazi
+rm hyprland.conf.bak
+yazi
+mkdir -p .config/yazi
+mkdir .config/yazi
+helix .config/yazi/yazi.toml
+helix .config/nushell/config.nu
+yazi
+helix .config/nushell/config.nu
+yazi
+helix .config/nushell/config.nu
+helix .config/nushell/env.nu
+yazi
+raj.py 
+wofi 
+tofi-drun
+helix .config/nushell/env.nu
+echo $PATH
+echo $env.SHELL
+echo $env.PATH
+echo $env.EDITOR
+helix .config/nushell/env.nu
+yazi | helix
+echo $env.APPDATA
+helix .config/nushell/env.nu
+nvim .config/nushell/config.nu
+ls
+nvim .config/nushell/config.nu
+ls
+helix .config/nushell/env.nu
+/usr/bin/nvim ~/.config/nushell/env.nu
+reboot
+Hyprland 
+sudo pacman -Qqtd | grep "broad"
+sudo pacman -Qqtd 
+yay -Rs apvlv-debug
+yay -Rs zoom yasm yarn yaft-debug xorg-server-xvfb
+sudo pacman -Qqtd 
+tere
+yay -Rs swaylock-effects-git-debug sway
+yay -Rs aura-debug cbindgen chrono-date cups-pdf dmenu dolphin fbterm-debug git-prompt.zsh gpt4all-chat-debug grimblast-git hyde-cli-git id3tool id3tool-debug
+jfview
+yay -Rs jfbview jfbview-debug leftwm-git-debug mediainfo nodejs-xml2json nodejs-xml2json-debug 
+yay -Rs python-pyqt6*
+yay -Rs python-pyqt6-3d python-pyqt6-charts python-pyqt6-datavisualization python-pyqt6-networkauth qt6ct
+yay -Rs ratpoison-debug
+sudo pacman -Qqtd
+yay -Rs swaybg swaylock-effects-git 
+sudo systemctl status
+Hyprland 
+Hyprland
+yay hyprland
+ls
+sudo systemd-analyze
+sudo systemd-analyze blame
+sudo systemctl disable ldconfig 
+sudo systemctl disable ldconfig.service
+sudo systemctl stop ldconfig.service
+sudo systemctl disable ldconfig.service
+strace ldconfig
+sudo systemd-analyze blame
+man ldconfig
+sudo pacman -Q | wc -l
+sudo pacman -Sc
+sudo systemd-analyze blame
+sudo systemd-analyze
+sudo pacman -Q | wc -l
+sudo pacman -Sc
+/var/cache/pacman/pkg/
+ls
+ls | grep sway
+ls
+cd
+sudo systemd-analyze blame
+cat /etc/fstab
+cat /etc/fstab |grep swap
+disk -l
+swapon -s
+sudo swapoff /dev/zram0
+sudo mkswap /dev/zram0
+sudo swapon /dev/zram0
+Error: pool timed out while waiting for an open connection<\n><\n>Location:<\n>    crates/atuin/src/command/client.rs:126:18
+sudo systemd-analyze blame
+helix /etc/modprobe.d/hid_apple.conf
+ls
+cd .config/helix/
+ls
+nvim config.toml
+helix config.toml
+nvim config.toml
+helix config.toml
+ls
+dust
+cd
+z scripts
+ls
+helix raj.py
+cd .config/rofi
+cd .config/rofi.mjonyh/
+ls
+..
+mv rofi.mjonyh/ rofi
+raj.py 
+ls
+ls rofi/
+ls rofi/themes/
+cp ~/Downloads/tokyonight.rasi .
+raj.py 
+prothom-alo.py 
+ls
+nvim raj.sh
+head raj.py
+nvim raj.sh
+chmod +x raj.sh
+./raj.sh
+nvim raj.sh
+./raj.sh
+./raj.py
+nmtui
+./raj.py
+raj.py
+helix raj.sh
+tofi-drun
+raj.py
+rm raj.sh
+cd
+raj.py
+ls
+helix raj.py
+raj.py
+exit
+zellij
+ping google.com
+cd
+ls
+uname -a
+uname
+raj.py
+cp ~/Downloads/tokyonight.rasi .
+raj.py
+cp ~/Downloads/config.py .config/qutebrowser/config.py
+cd .config/qutebrowser/
+helix config.py
+nvim config.py
+rm config.py
+nvim config.py
+rm config.py
+yt
+raj.py
+cd git
+git clone git@github.com:mainmatter/100-exercises-to-learn-rust.git
+gc https://github.com/mainmatter/100-exercises-to-learn-rust
+git clone https://github.com/mainmatter/100-exercises-to-learn-rust
+yay pdf-rs
+cd 100-exercises-to-learn-rust/
+ls
+cd book/
+ls
+cd src/
+ls
+helix 01_intro/00_welcome.md
+cd
+yay pdf
+yay pdfrs
+yay orbital
+cargo install --locked rustic-reader
+rustic-reader Downloads/100-exercises-to-learn-rust.pdf
+whereis rustic-reader
+yay cosmic
+yay cosmic-session-git
+sudo pacman -Sc
+yay -Scc
+yay -Ps
+yay -Rs julia
+sudo pacman -Rcns qt6-webengine
+yay -Ps
+date
+today
+date today
+date now
+cd .dotfiles/
+mkdir Nov_9_2024
+cp ~/.config/ Nov_9_2024/

@@ -1,5 +1,5 @@
-let mapleader = "\<Space>"
 
+let mapleader = "\<Space>"
 ""let ma pleader=","
 "map <Space> <lade>
 " default spell check

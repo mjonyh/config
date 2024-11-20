@@ -1,0 +1,6 @@
+2024-10-21 15:06:33.321 [info] update#setState disabled
+2024-10-21 15:06:33.321 [info] update#ctor - updates are disabled as there is no update URL
+2024-10-21 15:06:41.331 [error] [UtilityProcessWorker]: terminated unexpectedly with code 18446744072277852000, signal: unknown
+2024-10-21 15:06:43.571 [info] Extension host with pid 14374 exited with code: 0, signal: unknown.
+2024-10-21 15:06:43.925 [warning] [storage main] detected slow close() operation: Time: 2633ms, DB size: 24576b, Large Keys: workbench.view.extensions.state:1984, __$__targetStorageMarker:1169, terminal.integrated.environmentVariableCollectionsV2:1093, workbench.view.debug.state:593, workbench.activity.viewletsWorkspaceState:453
+2024-10-21 15:06:44.231 [warning] [storage main] detected slow close() operation: Time: 2940ms, DB size: 172032b, Large Keys: iconThemeData:94400, colorThemeData:7018, workbench.view.extensions.state.hidden:1674, workbench.activity.placeholderViewlets:1599, memento/customEditors:1294
