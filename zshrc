@@ -106,6 +106,7 @@ if [[ $OSTYPE = (darwin)* ]]; then
     zplug "plugins/osx",           from:oh-my-zsh
     zplug "plugins/brew",          from:oh-my-zsh, if:"(( $+commands[brew] ))"
     zplug "plugins/macports",      from:oh-my-zsh, if:"(( $+commands[port] ))"
+    alias python=python3
 fi
 
 zplug "plugins/git",               from:oh-my-zsh, if:"(( $+commands[git] ))"
