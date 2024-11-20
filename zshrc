@@ -786,15 +786,15 @@ _fzf_comprun() {
   esac
 }
 
-# <<<<<<< HEAD
 # export PATH="$PATH:/home/mjonyh/scripts"
 
-. "$HOME/.atuin/bin/env"
+# . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
 # =======
 export PATH=$PATH:$HOME/.dotfiles/scripts/
 
 if [ -e /home/mjonyh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mjonyh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-# >>>>>>> refs/remotes/origin/master
+
+export EDITOR="nvim"
