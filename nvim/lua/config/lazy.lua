@@ -25,7 +25,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     { import = "plugins" },
-    { import = "plugins.lsp" },
+    -- { import = "plugins.lsp" },
     {
       "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
       config = function()
