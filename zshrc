@@ -799,3 +799,5 @@ export PATH=$PATH:$HOME/.dotfiles/scripts/
 if [ -e /home/mjonyh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mjonyh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export EDITOR="nvim"
+
+. "$HOME/.local/bin/env"

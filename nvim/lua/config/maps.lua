@@ -38,7 +38,7 @@ map("n", "<C-Down>", "<C-w>-")
 
 
 -- Run python code
-map("n", "<leader>rp", ":w<CR><CMD>!python %<CR>")
+map("n", "<leader>rp", ":w<CR><CMD>!python3 %<CR>")
 
 
 -- Disable arrows keys
