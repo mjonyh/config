@@ -26,12 +26,12 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
     -- { import = "plugins.lsp" },
-    {
-      "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
-      config = function()
-          vim.cmd.colorscheme("kanagawa")
-      end,
-    },
+    -- {
+    --   "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
+    --   config = function()
+    --       vim.cmd.colorscheme("kanagawa")
+    --   end,
+    -- },
     {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
