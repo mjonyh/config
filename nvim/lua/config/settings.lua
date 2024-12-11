@@ -30,6 +30,12 @@ o.incsearch = true
 o.ignorecase = true
 o.smartcase = true
 o.smartindent = true
-o.wrap = false
+-- o.wrap = false
+
+vim.o.textwidth = 0
+vim.o.wrapmargin = 0
+-- visual wrap (no real line cutting is made)
+vim.o.wrap = true
+vim.o.linebreak = true -- breaks by word rather than character
 
 vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
