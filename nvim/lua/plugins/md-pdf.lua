@@ -4,7 +4,7 @@ return {
     lazy = true,
     keys = {
         {
-            "<leader>.",
+            "<leader>;",
             function() require("md-pdf").convert_md_to_pdf() end,
             desc = "Markdown preview",
         },
