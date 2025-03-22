@@ -1,128 +1,210 @@
-echo "Creating an SSH key for you..."
-ssh-keygen -t rsa
+#!/bin/bash
 
-echo "Please add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
-open https://github.com/account/ssh
-read -p "Press [Enter] key after this..."
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-echo "Installing xcode-stuff"
-xcode-select --install
+# Logging functions
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
 
-# Check for Homebrew,
-# Install if we don't have it
-if test ! $(which brew); then
-  echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Check if running with sudo
+if [ "$EUID" -eq 0 ]; then 
+    log_error "Please do not run this script with sudo"
+    exit 1
 fi
 
-# Update homebrew recipes
-echo "Updating homebrew..."
-brew update
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
 
-echo "Installing Git..."
-brew install git
-brew install tmux
+# Function to install Homebrew if not present
+install_homebrew() {
+    if ! command_exists brew; then
+        log_info "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        if [ $? -ne 0 ]; then
+            log_error "Failed to install Homebrew"
+            exit 1
+        fi
+        log_success "Homebrew installed successfully"
+    else
+        log_info "Homebrew is already installed"
+    fi
+}
 
-echo "Installing Python with other packages..."
-pip3 install numpy scipy matplotlib django pymysql cryptography
-pip3 install unidecode tmuxp
+# Function to install packages via Homebrew
+install_brew_packages() {
+    local packages=(
+        "git"
+        "tmux"
+        "git-extras"
+        "legit"
+        "git-flow"
+        "tree"
+        "wget"
+        "trash"
+        "svn"
+        "mackup"
+        "node"
+        "vim"
+        "zsh"
+        "neovim"
+    )
+    
+    for package in "${packages[@]}"; do
+        log_info "Installing $package..."
+        brew install "$package" || log_warning "Failed to install $package"
+    done
+}
 
-echo "Installing brew git utilities..."
-brew install git-extras
-brew install legit
-brew install git-flow
+# Function to install Python packages
+install_python_packages() {
+    local packages=(
+        "numpy"
+        "scipy"
+        "matplotlib"
+        "django"
+        "pymysql"
+        "cryptography"
+        "unidecode"
+        "tmuxp"
+        "pynvim"
+        "bibcure"
+    )
+    
+    for package in "${packages[@]}"; do
+        log_info "Installing Python package: $package..."
+        pip3 install "$package" || log_warning "Failed to install $package"
+    done
+}
 
-echo "Installing other brew stuff..."
-brew install tree
-brew install wget
-brew install trash
-brew install svn
-brew install mackup
-brew install node
-brew install vim --without-python --with-python3
-brew install zsh
+# Function to install Cask applications
+install_cask_applications() {
+    local applications=(
+        "iterm2"
+        "spectacle"
+        "cmake"
+        # "google-chrome"
+    )
+    
+    for app in "${applications[@]}"; do
+        log_info "Installing $app..."
+        brew install --cask "$app" || log_warning "Failed to install $app"
+    done
+}
 
-echo "Installing nvim"
-brew install neovim
-pip3 install pynvim
+# Function to setup Git configuration
+setup_git() {
+    log_info "Setting up Git configuration..."
+    git config --global user.name "mjonyh"
+    git config --global user.email "mjonyh@gmail.com"
+    
+    # Add SSH key to SSH agent
+    if [ -f ~/.ssh/id_rsa ]; then
+        ssh-add -K ~/.ssh/id_rsa
+    else
+        log_warning "SSH key not found at ~/.ssh/id_rsa"
+    fi
+}
 
+# Function to setup SSH key
+setup_ssh() {
+    if [ ! -f ~/.ssh/id_rsa ]; then
+        log_info "Creating SSH key..."
+        ssh-keygen -t rsa -b 4096 -C "mjonyh@gmail.com"
+        
+        log_info "Please add this public key to Github"
+        log_info "Opening https://github.com/settings/ssh"
+        open https://github.com/settings/ssh
+        read -p "Press [Enter] key after adding the SSH key to Github..."
+    else
+        log_info "SSH key already exists"
+    fi
+}
 
-echo "Cask installation"
-brew cask install iterm2
-brew cask install spectacle
-brew cask install cmake
-brew cask install google-chrome
-#brew cask install mactex
+# Function to setup macOS preferences
+setup_macos_preferences() {
+    log_info "Setting up macOS preferences..."
+    
+    # Disable last login message
+    touch ~/.hushlogin
+    
+    # Set default shell to zsh
+    if [ "$SHELL" != "$(which zsh)" ]; then
+        log_info "Changing default shell to zsh..."
+        sudo dscl . -create "/Users/$USER" UserShell "$(which zsh)"
+    fi
+}
 
-echo "Copying dotfiles from Github"
-cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
-cd ~
+# Function to install Probhat keyboard layout
+install_probhat_keyboard() {
+    log_info "Installing Probhat keyboard layout..."
+    curl https://raw.githubusercontent.com/mdminhazulhaque/probhat-osx/master/install.sh | sudo bash
+    log_info "To configure Probhat keyboard layout, visit: https://github.com/mdminhazulhaque/probhat-osx"
+}
 
-echo "brew cleanup"
-brew cleanup
-brew update
-brew upgrade
-brew cleanup
+# Main installation process
+main() {
+    log_info "Starting macOS setup..."
+    
+    # Install Xcode Command Line Tools
+    log_info "Installing Xcode Command Line Tools..."
+    xcode-select --install
+    
+    # Install Homebrew and packages
+    install_homebrew
+    log_info "Updating Homebrew..."
+    brew update
+    
+    # Install packages
+    install_brew_packages
+    install_python_packages
+    install_cask_applications
+    
+    # Setup Git and SSH
+    setup_ssh
+    setup_git
+    
+    # Setup macOS preferences
+    setup_macos_preferences
+    
+    # Install Probhat keyboard layout
+    install_probhat_keyboard
+    
+    # Install dotfiles
+    log_info "Installing dotfiles..."
+    cd ~
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
+    
+    # Cleanup
+    log_info "Cleaning up..."
+    brew cleanup
+    brew update
+    brew upgrade
+    brew cleanup
+    
+    log_success "Setup completed successfully!"
+    log_info "Please restart your computer to apply all changes."
+}
 
-## Some settings for mac
-##"Setting screenshot format to PNG"
-#defaults write com.apple.screencapture type -string "png"
-
-## for Safari
-##"Hiding Safari's bookmarks bar by default"
-#defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-##"Hiding Safari's sidebar in Top Sites"
-#defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-##"Disabling Safari's thumbnail cache for History and Top Sites"
-#defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-
-##"Enabling Safari's debug menu"
-#defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-##"Making Safari's search banners default to Contains instead of Starts With"
-#defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-##"Removing useless icons from Safari's bookmarks bar"
-#defaults write com.apple.Safari ProxiesInBookmarksBar "()"
-
-##"Allow hitting the Backspace key to go to the previous page in history"
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
-
-##"Enabling the Develop menu and the Web Inspector in Safari"
-#defaults write com.apple.Safari IncludeDevelopMenu -bool true
-#defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-#defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
-
-#killall Finder
-
-# disable last login message in terminal
-touch .hushlogin
-
-echo "Changing Shell..."
-sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
-
-echo "Installing doi2bib..."
-sudo pip3 install bibcure
-
-echo "Git config"
-git config --global user.name "mjonyh"
-git config --global user.email mjonyh@gmail.com
-
-echo "Git Credentials..."
-ssh-add -K ~/.ssh/id_rsa
-
-
-echo "Installing Bangla Keyboard Layout Probhat"
-curl https://raw.githubusercontent.com/mdminhazulhaque/probhat-osx/master/install.sh | sudo bash
-echo "To Configure Go to https://github.com/mdminhazulhaque/probhat-osx"
-echo "To configure beamer theme..."
-echo "md -p Library/texmf/tex/latex/beamer/themes/"
-echo "cp git/lecture/course_template/*.sty Library/texmf/tex/latex/beamer/themes"
-echo "cp -r git/lecture/course_template/AAUgraphics  Library/texmf/tex/latex/beamer/themes"
-read -p "Press [Enter] key after this..."
-echo "Done!"
+# Run main function
+main
 
