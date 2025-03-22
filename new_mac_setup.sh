@@ -64,9 +64,8 @@ install_brew_packages() {
         "svn"
         "mackup"
         "node"
-        "vim"
-        "zsh"
         "neovim"
+        "zsh"
     )
     
     for package in "${packages[@]}"; do
@@ -81,13 +80,9 @@ install_python_packages() {
         "numpy"
         "scipy"
         "matplotlib"
-        "django"
-        "pymysql"
-        "cryptography"
         "unidecode"
         "tmuxp"
         "pynvim"
-        "bibcure"
     )
     
     for package in "${packages[@]}"; do
@@ -100,9 +95,8 @@ install_python_packages() {
 install_cask_applications() {
     local applications=(
         "iterm2"
-        "spectacle"
+        "rectangle"
         "cmake"
-        # "google-chrome"
     )
     
     for app in "${applications[@]}"; do
