@@ -8,7 +8,7 @@
 ## tmux
 ![tmux](screenshots/tmux.png)
 
-This repo contains the config file that I usually use.
+This repo contains my configuration files and setup scripts for macOS and Arch Linux environments.
 
 * zshrc
 	* [zshmarks](https://github.com/jocelynmallon/zshmarks)
@@ -48,26 +48,38 @@ This repo contains the config file that I usually use.
 This script is used to check the powerline font in terminal.
 `$ ./check.sh`
 
-## Setup for zshrc, tmux.conf and vimrc
+## Dotfiles Setup (zshrc, tmux.conf, vimrc, etc.)
 ### via curl
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
 ```
 ### via wget
 ```
-sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh -0 -)"
+sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh -O -)"
 ```
 
-## Script for the New Mac setup
+## Setup Scripts
 
-### via curl
+### macOS Setup
+
+#### via curl
 ```
-sh -c "$(curl -fsSL
-https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh)"
 ```
-### via wget
+#### via wget
 ```
-sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh -0 -)"
+sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_mac_setup.sh -O -)"
+```
+
+### Arch Linux Setup
+
+#### via curl
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_arch_setup.sh)"
+```
+#### via wget
+```
+sh -c "$(wget https://raw.githubusercontent.com/mjonyh/config/master/new_arch_setup.sh -O -)"
 ```
 
 ## Fonts
