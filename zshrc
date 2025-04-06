@@ -363,3 +363,4 @@ if [ -e "$HOME/.local/bin/env" ]; then
 fi
 
 # vim: ft=zsh
+export PATH="$HOME/.local/share/zellij:$PATH"
