@@ -4,6 +4,6 @@ echo "This configuration require lua package"
 
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-ln -s ~/.dotfiles/nvim/init.vim init.vim
-ln -s ~/.dotfiles/nvim/lua lua
+ln -s ~/git/config/nvim/init.lua init.lua
+ln -s ~/git/config/nvim/lua lua
 

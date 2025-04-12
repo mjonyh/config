@@ -282,6 +282,14 @@ setup_agents() {
 setup_agents
 unfunction setup_agents
 
+# # Set up FZF if installed
+# if [ -f ~/.fzf.zsh ]; then
+#   source ~/.fzf.zsh
+# elif [ -f /usr/share/fzf/key-bindings.zsh ] && [ -f /usr/share/fzf/completion.zsh ]; then
+#   source /usr/share/fzf/key-bindings.zsh
+#   source /usr/share/fzf/completion.zsh
+# fi
+
 # Install plugins if needed
 if ! zplug check; then
     printf "Install plugins? [y/N]: "
