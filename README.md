@@ -28,7 +28,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_m
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_arch_setup.sh)"
 ```
 
-**Dotfiles Only:**
+**Enhanced Dotfiles Setup:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symlink-configs.sh | bash
+```
+
+**Legacy Dotfiles Setup:**
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"
 ```
@@ -152,12 +157,29 @@ Pre-configured session layouts for different projects:
 
 ## 🔧 Setup Scripts
 
-### `symdotfiles.sh` - Dotfiles Installer
-**Purpose:** Creates symbolic links for all configuration files
-- Backs up existing configurations
-- Creates appropriate directory structure
+### `symlink-configs.sh` - Enhanced Dotfiles Installer ⭐
+**Purpose:** Advanced symbolic link creator with date-stamped backups
+- **Date-stamped backups** of existing configurations (`~/.config-backups/YYYYMMDD_HHMMSS/`)
+- **Smart conflict resolution** with automatic backup detection
+- **Interactive mode** for selective configuration linking
+- **Comprehensive logging** with detailed operation reports
+- **Platform detection** (macOS/Linux) with appropriate handling
+- **Font installation** (Hack Nerd Font family)
+- **Safety features** with dry-run mode and validation
+
+**Usage Options:**
+```bash
+./symlink-configs.sh           # Full automatic setup
+./symlink-configs.sh -i        # Interactive mode
+./symlink-configs.sh --help    # Show all options
+```
+
+### `symdotfiles.sh` - Legacy Dotfiles Installer
+**Purpose:** Original dotfiles installer (maintained for compatibility)
+- Basic symbolic link creation
+- Simple backup system (`.bak` files)
+- Vim/Tmux plugin installation
 - Links configs to `~/.dotfiles/` directory
-- Safe installation with conflict resolution
 
 ### `new_mac_setup.sh` - macOS Environment Setup
 **Capabilities:**
