@@ -345,17 +345,17 @@ generate_report() {
 
 # List available backups
 list_backups() {
-    log_header "Available Backup Sessions"
+    echo -e "${PURPLE}[HEADER]${NC} Available Backup Sessions"
     
     if [[ ! -d "$BACKUP_ROOT" ]]; then
-        log_warning "No backup directory found: $BACKUP_ROOT"
+        echo -e "${YELLOW}[WARNING]${NC} No backup directory found: $BACKUP_ROOT"
         return 1
     fi
     
     local backups=($(ls -1t "$BACKUP_ROOT" 2>/dev/null | head -10))
     
     if [[ ${#backups[@]} -eq 0 ]]; then
-        log_warning "No backups found in $BACKUP_ROOT"
+        echo -e "${YELLOW}[WARNING]${NC} No backups found in $BACKUP_ROOT"
         return 1
     fi
     
