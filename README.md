@@ -158,7 +158,7 @@ Pre-configured session layouts for different projects:
 ## 🔧 Setup Scripts
 
 ### `symlink-configs.sh` - Enhanced Dotfiles Installer ⭐
-**Purpose:** Advanced symbolic link creator with date-stamped backups
+**Purpose:** Advanced symbolic link creator with date-stamped backups and revert capability
 - **Date-stamped backups** of existing configurations (`~/.config-backups/YYYYMMDD_HHMMSS/`)
 - **Smart conflict resolution** with automatic backup detection
 - **Interactive mode** for selective configuration linking
@@ -166,13 +166,30 @@ Pre-configured session layouts for different projects:
 - **Platform detection** (macOS/Linux) with appropriate handling
 - **Font installation** (Hack Nerd Font family)
 - **Safety features** with dry-run mode and validation
+- **🔄 Revert functionality** - safely undo all changes using backups
 
-**Usage Options:**
+**Setup Usage:**
 ```bash
 ./symlink-configs.sh           # Full automatic setup
 ./symlink-configs.sh -i        # Interactive mode
 ./symlink-configs.sh --help    # Show all options
 ```
+
+**Revert Usage:**
+```bash
+./symlink-configs.sh --revert        # Interactive revert (choose backup)
+./symlink-configs.sh --revert-latest # Revert from most recent backup
+./symlink-configs.sh --list-backups  # List available backups
+./symlink-configs.sh --revert-from ~/.config-backups/20241228_143022  # Specific backup
+```
+
+**Revert Features:**
+- 🛡️ **Safe revert** - Only removes symlinks created by this script
+- 📋 **Interactive selection** - Choose which backup to restore from
+- 🔍 **Backup validation** - Shows what will be restored before confirmation
+- 📝 **Detailed logging** - All revert operations logged with timestamps
+- 🎯 **Selective restoration** - Choose to keep or remove installed fonts
+- ⚡ **Smart detection** - Skips files not managed by the script
 
 ### `symdotfiles.sh` - Legacy Dotfiles Installer
 **Purpose:** Original dotfiles installer (maintained for compatibility)

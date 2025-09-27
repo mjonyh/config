@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Enhanced Dotfiles Symbolic Link Creator with Date-Stamped Backups
+# Enhanced Dotfiles Symbolic Link Creator with Date-Stamped Backups & Revert
 # Author: mjonyh
-# Description: Creates symbolic links for all config files with automatic backup
+# Description: Creates symbolic links for all config files with automatic backup and revert capability
 
 set -euo pipefail
 
@@ -20,12 +20,14 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly BACKUP_DATE=$(date +"%Y%m%d_%H%M%S")
 readonly BACKUP_DIR="$HOME/.config-backups/$BACKUP_DATE"
 readonly LOG_FILE="$BACKUP_DIR/symlink.log"
+readonly BACKUP_ROOT="$HOME/.config-backups"
 
 # Counters
 LINKED_COUNT=0
 BACKED_UP_COUNT=0
 SKIPPED_COUNT=0
 ERROR_COUNT=0
+REVERTED_COUNT=0
 
 # Logging functions
 log_info() {
@@ -64,6 +66,19 @@ init_backup() {
     log_header "Enhanced Dotfiles Symbolic Link Creator"
     log_info "Backup directory created: $BACKUP_DIR"
     log_info "Log file: $LOG_FILE"
+}
+
+# Initialize revert logging
+init_revert_log() {
+    local revert_backup_dir="$1"
+    local revert_log_file="$revert_backup_dir/revert.log"
+    
+    echo "# Symlink Revert Log - $(date)" > "$revert_log_file"
+    echo "# Reverting from backup: $revert_backup_dir" >> "$revert_log_file"
+    echo "# Script: $0" >> "$revert_log_file"
+    echo "" >> "$revert_log_file"
+    
+    echo "$revert_log_file"
 }
 
 # Create backup of existing file/directory
@@ -324,6 +339,258 @@ generate_report() {
     fi
 }
 
+# ============================================================================
+#                              REVERT FUNCTIONALITY
+# ============================================================================
+
+# List available backups
+list_backups() {
+    log_header "Available Backup Sessions"
+    
+    if [[ ! -d "$BACKUP_ROOT" ]]; then
+        log_warning "No backup directory found: $BACKUP_ROOT"
+        return 1
+    fi
+    
+    local backups=($(ls -1t "$BACKUP_ROOT" 2>/dev/null | head -10))
+    
+    if [[ ${#backups[@]} -eq 0 ]]; then
+        log_warning "No backups found in $BACKUP_ROOT"
+        return 1
+    fi
+    
+    echo ""
+    echo "Available backup sessions (most recent first):"
+    echo "=============================================="
+    
+    local count=1
+    for backup in "${backups[@]}"; do
+        local backup_path="$BACKUP_ROOT/$backup"
+        if [[ -d "$backup_path" ]]; then
+            local log_file="$backup_path/symlink.log"
+            local file_count=$(find "$backup_path" -type f ! -name "*.log" 2>/dev/null | wc -l)
+            local backup_size=$(du -sh "$backup_path" 2>/dev/null | cut -f1)
+            
+            echo -e "${CYAN}[$count]${NC} $backup"
+            echo "    Files backed up: $file_count"
+            echo "    Size: $backup_size"
+            
+            if [[ -f "$log_file" ]]; then
+                local created_links=$(grep -c "Created symlink:" "$log_file" 2>/dev/null || echo "0")
+                echo "    Symlinks created: $created_links"
+            fi
+            
+            echo ""
+            ((count++))
+        fi
+    done
+    
+    return 0
+}
+
+# Select backup interactively
+select_backup_interactive() {
+    list_backups || return 1
+    
+    local backups=($(ls -1t "$BACKUP_ROOT" 2>/dev/null | head -10))
+    
+    echo -e "${YELLOW}Select a backup to revert (1-${#backups[@]}) or 'q' to quit:${NC}"
+    read -r selection
+    
+    if [[ "$selection" == "q" ]] || [[ "$selection" == "Q" ]]; then
+        log_info "Revert cancelled by user"
+        return 1
+    fi
+    
+    if ! [[ "$selection" =~ ^[0-9]+$ ]] || [[ "$selection" -lt 1 ]] || [[ "$selection" -gt ${#backups[@]} ]]; then
+        log_error "Invalid selection: $selection"
+        return 1
+    fi
+    
+    local selected_backup="${backups[$((selection-1))]}"
+    echo "$BACKUP_ROOT/$selected_backup"
+}
+
+# Get backup info and confirm
+confirm_revert() {
+    local backup_dir="$1"
+    local backup_name=$(basename "$backup_dir")
+    
+    log_header "Revert Confirmation"
+    log_info "Selected backup: $backup_name"
+    log_info "Backup location: $backup_dir"
+    
+    # Show what will be reverted
+    echo ""
+    echo -e "${CYAN}Files that will be restored:${NC}"
+    find "$backup_dir" -type f ! -name "*.log" | while read -r file; do
+        local relative_path=$(echo "$file" | sed "s|$backup_dir/||")
+        local target_path=$(echo "$relative_path" | sed 's|_|/|g' | sed "s|^|$HOME/|")
+        echo "  $target_path"
+    done
+    
+    echo ""
+    echo -e "${YELLOW}This will:${NC}"
+    echo "  1. Remove current symlinks created by this script"
+    echo "  2. Restore your original configuration files"
+    echo "  3. Remove installed fonts (optional)"
+    echo ""
+    echo -e "${RED}WARNING: This will overwrite current configurations!${NC}"
+    echo ""
+    
+    read -p "Are you sure you want to proceed? [y/N]: " -n 1 -r
+    echo
+    
+    [[ $REPLY =~ ^[Yy]$ ]]
+}
+
+# Revert a single file
+revert_file() {
+    local backup_file="$1"
+    local backup_dir="$2"
+    local revert_log="$3"
+    
+    # Calculate original target path
+    local relative_path=$(echo "$backup_file" | sed "s|$backup_dir/||")
+    local target_path=$(echo "$relative_path" | sed 's|_|/|g' | sed "s|^|$HOME/|")
+    
+    log_step "Reverting: $target_path"
+    
+    # Remove current symlink if it exists and points to our configs
+    if [[ -L "$target_path" ]]; then
+        local link_target=$(readlink "$target_path")
+        if [[ "$link_target" == "$SCRIPT_DIR"* ]]; then
+            log_info "Removing symlink: $target_path"
+            rm "$target_path"
+            echo "Removed symlink: $target_path" >> "$revert_log"
+        else
+            log_warning "Symlink exists but doesn't point to our configs: $target_path -> $link_target"
+            echo "Skipped non-script symlink: $target_path -> $link_target" >> "$revert_log"
+        fi
+    elif [[ -f "$target_path" ]] || [[ -d "$target_path" ]]; then
+        log_warning "Target exists but is not a symlink: $target_path"
+        read -p "Overwrite existing file/directory? [y/N]: " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            log_info "Skipping: $target_path"
+            echo "Skipped (user choice): $target_path" >> "$revert_log"
+            return 0
+        fi
+        rm -rf "$target_path"
+    fi
+    
+    # Create target directory if needed
+    local target_dir=$(dirname "$target_path")
+    mkdir -p "$target_dir"
+    
+    # Restore backup
+    if cp -r "$backup_file" "$target_path"; then
+        log_success "Restored: $target_path"
+        echo "Restored: $target_path" >> "$revert_log"
+        ((REVERTED_COUNT++))
+    else
+        log_error "Failed to restore: $target_path"
+        echo "Failed to restore: $target_path" >> "$revert_log"
+        ((ERROR_COUNT++))
+    fi
+}
+
+# Revert fonts
+revert_fonts() {
+    local revert_log="$1"
+    
+    log_header "Reverting Fonts"
+    
+    case "$(uname)" in
+        "Darwin")
+            local font_dir="$HOME/Library/Fonts"
+            ;;
+        "Linux")
+            local font_dir="$HOME/.local/share/fonts"
+            ;;
+        *)
+            log_warning "Unknown platform: $(uname), skipping font revert"
+            return 0
+            ;;
+    esac
+    
+    echo "Remove installed Hack Nerd Fonts? [y/N]: "
+    read -r -n 1
+    echo
+    
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        local fonts_removed=0
+        for font in "$font_dir"/Hack*.ttf; do
+            if [[ -f "$font" ]]; then
+                log_info "Removing font: $(basename "$font")"
+                rm "$font"
+                echo "Removed font: $font" >> "$revert_log"
+                ((fonts_removed++))
+            fi
+        done
+        
+        if [[ $fonts_removed -gt 0 ]]; then
+            log_success "Removed $fonts_removed Hack Nerd Font files"
+            
+            # Refresh font cache on Linux
+            if [[ "$(uname)" == "Linux" ]] && command -v fc-cache >/dev/null 2>&1; then
+                log_info "Refreshing font cache..."
+                fc-cache -fv
+            fi
+        else
+            log_info "No Hack Nerd Font files found to remove"
+        fi
+    else
+        log_info "Keeping installed fonts"
+        echo "Kept fonts (user choice)" >> "$revert_log"
+    fi
+}
+
+# Main revert function
+revert_changes() {
+    local backup_dir="$1"
+    
+    # Validate backup directory
+    if [[ ! -d "$backup_dir" ]]; then
+        log_error "Backup directory not found: $backup_dir"
+        return 1
+    fi
+    
+    # Initialize revert logging
+    local revert_log=$(init_revert_log "$backup_dir")
+    
+    log_header "Starting Revert Process"
+    log_info "Backup directory: $backup_dir"
+    log_info "Revert log: $revert_log"
+    
+    # Reset counters for revert
+    REVERTED_COUNT=0
+    ERROR_COUNT=0
+    
+    # Process each backup file
+    find "$backup_dir" -type f ! -name "*.log" | while read -r backup_file; do
+        revert_file "$backup_file" "$backup_dir" "$revert_log"
+    done
+    
+    # Handle fonts
+    revert_fonts "$revert_log"
+    
+    # Generate revert report
+    log_header "Revert Summary"
+    log_success "Files reverted: $REVERTED_COUNT"
+    
+    if [[ $ERROR_COUNT -gt 0 ]]; then
+        log_error "Errors encountered: $ERROR_COUNT"
+    fi
+    
+    log_info "Revert log: $revert_log"
+    log_success "Revert completed!"
+    
+    echo ""
+    echo -e "${GREEN}Your original configurations have been restored.${NC}"
+    echo -e "${BLUE}Revert details logged to: $revert_log${NC}"
+}
+
 # Post-installation instructions
 show_next_steps() {
     log_header "Next Steps"
@@ -379,11 +646,11 @@ interactive_mode() {
 # Help function
 show_help() {
     cat << EOF
-Enhanced Dotfiles Symbolic Link Creator
+Enhanced Dotfiles Symbolic Link Creator with Revert Capability
 
 Usage: $0 [OPTIONS]
 
-OPTIONS:
+SETUP OPTIONS:
     -h, --help          Show this help message
     -i, --interactive   Interactive mode - choose which configs to link
     -f, --fonts-only    Only install fonts
@@ -391,18 +658,39 @@ OPTIONS:
     -v, --verbose       Verbose output
     --dry-run          Show what would be done without making changes
 
+REVERT OPTIONS:
+    -r, --revert        Revert changes (interactive backup selection)
+    -R, --revert-from   Revert from specific backup directory
+    -l, --list-backups  List all available backups
+    --revert-latest     Revert from the most recent backup
+
 EXAMPLES:
+    # Setup
     $0                  # Full automatic setup
     $0 -i              # Interactive mode
     $0 --fonts-only    # Only install fonts
     $0 --no-fonts      # Skip fonts, link configs only
+    
+    # Revert
+    $0 -r              # Interactive revert (choose backup)
+    $0 --revert-latest # Revert from most recent backup
+    $0 -l              # List available backups
+    $0 -R ~/.config-backups/20241228_143022  # Revert from specific backup
 
+FEATURES:
 The script will:
 1. Create date-stamped backups of existing configs
 2. Create symbolic links to config files
 3. Install Hack Nerd Fonts
 4. Make scripts executable
 5. Generate a detailed report
+
+REVERT FEATURES:
+- Safe revert with confirmation prompts
+- Only removes symlinks created by this script
+- Restores original configurations from backups
+- Optional font removal during revert
+- Detailed revert logging
 
 All backups are stored in: ~/.config-backups/YYYYMMDD_HHMMSS/
 EOF
@@ -415,6 +703,10 @@ main() {
     local fonts_only=false
     local no_fonts=false
     local dry_run=false
+    local revert_mode=false
+    local revert_from=""
+    local list_backups_only=false
+    local revert_latest=false
     
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -442,6 +734,22 @@ main() {
                 set -x
                 shift
                 ;;
+            -r|--revert)
+                revert_mode=true
+                shift
+                ;;
+            -R|--revert-from)
+                revert_from="$2"
+                shift 2
+                ;;
+            -l|--list-backups)
+                list_backups_only=true
+                shift
+                ;;
+            --revert-latest)
+                revert_latest=true
+                shift
+                ;;
             *)
                 log_error "Unknown option: $1"
                 show_help
@@ -450,6 +758,57 @@ main() {
         esac
     done
     
+    # Handle revert operations
+    if [[ "$list_backups_only" == true ]]; then
+        list_backups
+        exit 0
+    fi
+    
+    if [[ "$revert_latest" == true ]]; then
+        if [[ ! -d "$BACKUP_ROOT" ]]; then
+            log_error "No backup directory found: $BACKUP_ROOT"
+            exit 1
+        fi
+        
+        local latest_backup=$(ls -1t "$BACKUP_ROOT" 2>/dev/null | head -1)
+        if [[ -z "$latest_backup" ]]; then
+            log_error "No backups found"
+            exit 1
+        fi
+        
+        revert_from="$BACKUP_ROOT/$latest_backup"
+        log_info "Using latest backup: $revert_from"
+    fi
+    
+    if [[ "$revert_mode" == true ]] || [[ -n "$revert_from" ]]; then
+        # Handle revert mode
+        if [[ -n "$revert_from" ]]; then
+            # Revert from specific backup
+            if [[ ! -d "$revert_from" ]]; then
+                log_error "Backup directory not found: $revert_from"
+                exit 1
+            fi
+            
+            if confirm_revert "$revert_from"; then
+                revert_changes "$revert_from"
+            else
+                log_info "Revert cancelled by user"
+            fi
+        else
+            # Interactive revert
+            local selected_backup
+            if selected_backup=$(select_backup_interactive); then
+                if confirm_revert "$selected_backup"; then
+                    revert_changes "$selected_backup"
+                else
+                    log_info "Revert cancelled by user"
+                fi
+            fi
+        fi
+        exit 0
+    fi
+    
+    # Normal setup mode (existing code)
     # Initialize
     init_backup
     check_prerequisites
@@ -483,6 +842,9 @@ main() {
     show_next_steps
     
     log_success "Dotfiles setup completed successfully!"
+    echo ""
+    echo -e "${CYAN}To revert these changes later, use:${NC}"
+    echo "  $0 --revert"
 }
 
 # Run main function with all arguments
