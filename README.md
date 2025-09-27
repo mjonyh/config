@@ -1,14 +1,16 @@
-# Configuration files
+# Configuration Files
+
+This repository contains my personal configuration files and setup scripts for macOS and Arch Linux environments.
+
+## Screenshots
 ### zsh
 ![zsh](screenshots/zsh.png)
 
-### vim
+### vim  
 ![vim](screenshots/vim.png)
 
-## tmux
+### tmux
 ![tmux](screenshots/tmux.png)
-
-This repo contains my configuration files and setup scripts for macOS and Arch Linux environments.
 
 * zshrc
 	* [zshmarks](https://github.com/jocelynmallon/zshmarks)

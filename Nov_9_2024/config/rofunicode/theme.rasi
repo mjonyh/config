@@ -1,6 +1,0 @@
-listview {
-  cycle: true;
-  scrollbar: true;
-  columns: 10;
-  lines: 10;
-}

@@ -1,1 +1,35 @@
 nvim/lazy-lock.json
+
+# Cache and temporary files
+*.cache/
+**/Cache/
+**/cache/
+**/.cache/
+**/GPUCache/
+**/Code Cache/
+**/CachedData/
+**/BrowserMetrics/
+**/Crash Reports/
+**/.org.chromium.Chromium.*
+**/leveldb/
+**/databases/
+**/logs/
+**/Session Storage/
+**/Local Storage/
+**/WebStorage/
+**/IndexedDB/
+
+# Backup directories
+*backup*/
+*_backup/
+*_back/
+cfg_backups/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

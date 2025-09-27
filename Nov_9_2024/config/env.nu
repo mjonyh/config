@@ -1,1 +1,0 @@
-../git/dotfiles/nushell/env.nu
