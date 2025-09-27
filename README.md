@@ -209,7 +209,7 @@ Pre-configured session layouts for different projects:
 
 ## 🎨 Utilities & Scripts
 
-### `scripts/` Directory (14 utilities)
+### `scripts/` Directory (13 utilities)
 
 **System Utilities:**
 - `battery_status.sh` - Battery status notifications
@@ -227,7 +227,6 @@ Pre-configured session layouts for different projects:
 
 **Specialized Scripts:**
 - `prothom-alo.py` - Bengali news aggregator
-- `raj.py` - Custom automation script
 - `tor-1337.py` - Tor network utility
 
 ### Additional Utilities
