@@ -28,7 +28,7 @@ return {
               { "--pdf-engine=xelatex" },
               { "--variable=geometry:margin=1in" },
               { "--variable=fontsize=11pt" },
-              { "--syntax-highlighting" },
+              { "--syntax-highlighting=pygments" },
               { "--standalone" }
             }
           },
