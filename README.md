@@ -44,31 +44,109 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 
 ### 🐚 Shell Environment
 
-#### `zshrc` - ZSH Configuration ⚠️ **Performance Issue Detected**
+#### `zshrc` - ZSH Configuration ✅ **Optimized**
+- **Status:** Clean, modern ZSH configuration with performance optimizations
+- **Features:** 
+  - Starship prompt integration
+  - Essential plugins (syntax highlighting, autosuggestions)
+  - Catppuccin Mocha color scheme for `exa`
+  - Optimized aliases and functions
+  - Fast startup time with selective plugin loading
 
-- **Current Status:** 374 lines with 34+ plugins causing slow startup (2-5+ seconds)
-- **Issues:** Synchronous plugin loading, expensive operations on every startup
+#### `starship.toml` - Prompt Configuration
+- **Purpose:** Modern, fast, and customizable prompt
+- **Features:** Git integration, directory info, language detection
+- **Theme:** Minimalist with essential information display
+
+### 🖥️ Terminal Multiplexer
+
+#### `tmux.conf` - Tmux Configuration
+- **Purpose:** Enhanced terminal multiplexer setup
+- **Features:** 
+  - Custom key bindings for productivity
+  - Status bar configuration
+  - Session management
+  - Integration with other tools
+
+#### `tmuxp/` - Tmux Project Configurations
+- **Purpose:** Pre-defined tmux session layouts
+- **Features:** Project-specific window and pane configurations
+
+### ✏️ Editor Configurations
+
+#### `nvim/` - Neovim Configuration
+- **Purpose:** Modern Lua-based Neovim setup
 - **Features:**
-  - Environment variables and PATH configuration
-  - FZF fuzzy finder setup and keybindings
-  - **Modern exa aliases** (replaces ls with colors, icons, git integration)
-  - Custom functions and enhanced aliases
-  - History optimization (100k entries)
-  - Completion system configuration
-- **Dependencies:** `zsh`, `fzf`, `exa`, `zplug`, `oh-my-zsh` plugins
-- **Optimization Available:** Use `optimize-zshrc.sh` for 50-80% faster startup
+  - LSP (Language Server Protocol) support
+  - Syntax highlighting and completion
+  - File explorer and fuzzy finding
+  - Git integration
+  - Plugin management with Lazy.nvim
+  - Catppuccin theme integration
 
-**Performance Optimization Tools:**
+#### `vimrc` - Legacy Vim Configuration
+- **Purpose:** Fallback Vim configuration
+- **Status:** Basic setup for systems without Neovim
 
-- `optimize-zshrc.sh` - ZSH performance optimizer with backup/restore
-- `zshrc-optimized` - Pre-optimized configuration (exa aliases + 6 essential plugins vs 34+)
-- `zsh-performance-test.sh` - Benchmark tool to compare performance
+### 🎨 Color Schemes & Themes
 
-**Quick Fix:**
+#### `catppuccin-mocha-exa.conf` - Exa Color Configuration  
+- **Purpose:** Catppuccin Mocha theme for `exa` file listings
+- **Features:** Beautiful pastel colors for different file types
 
-```bash
-./optimize-zshrc.sh --install    # Install optimized version with backup
-# Includes zsh-syntax-highlighting + autosuggestions + exa aliases by default!
+#### `test-catppuccin-colors.sh` - Color Testing Script
+- **Purpose:** Test and preview Catppuccin colors in terminal
+
+### 🤖 Window Managers
+
+#### `hypr/` - Hyprland Configuration
+- **Purpose:** Wayland compositor configuration
+- **Features:** Modern tiling window manager setup
+
+#### `rc.lua.awesome` - AwesomeWM Configuration  
+- **Purpose:** Lua configuration for Awesome window manager
+
+#### `ghostty/` - Ghostty Terminal Configuration
+- **Purpose:** Configuration for Ghostty terminal emulator
+
+### 📜 Setup Scripts
+
+#### `new_mac_setup.sh` - macOS Setup Script
+- **Purpose:** Automated macOS environment setup
+- **Features:** Installs Homebrew, essential tools, and configures system
+
+#### `new_arch_setup.sh` - Arch Linux Setup Script  
+- **Purpose:** Automated Arch Linux environment setup
+- **Features:** Package installation and system configuration
+
+#### `symlink-configs.sh` - Configuration Linking Script
+- **Purpose:** Creates symbolic links for all config files
+- **Features:** 
+  - Automatic backup of existing configs
+  - Timestamp-based backup naming
+  - Safe overwrite protection
+
+#### `symdotfiles.sh` - Legacy Dotfiles Script
+- **Purpose:** Original dotfiles setup script
+- **Status:** Maintained for compatibility
+
+### 🔧 Utility Scripts
+
+#### `scripts/` - Utility Scripts Directory
+- **Contents:**
+  - `battery_status.sh` - Battery monitoring
+  - `daily_notes.sh` - Daily note management
+  - `list_terminals.sh` - Terminal detection
+  - `notes.sh` - General note management
+  - Various Python scripts for automation
+
+#### `optimize-zshrc.sh` - ZSH Performance Optimizer
+- **Purpose:** Optimize ZSH configuration for faster startup
+- **Features:** Plugin management and performance testing
+
+#### `install-zsh-essentials.sh` - ZSH Plugin Installer
+- **Purpose:** Install essential ZSH plugins
+- **Features:** Automated plugin installation and configuration
 ./optimize-zshrc.sh --test       # Compare performance before/after
 ```
 
