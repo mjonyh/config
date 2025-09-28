@@ -64,6 +64,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 **Quick Fix:**
 ```bash
 ./optimize-zshrc.sh --install    # Install optimized version with backup
+# Includes zsh-syntax-highlighting + autosuggestions by default!
 ./optimize-zshrc.sh --test       # Compare performance before/after
 ```
 

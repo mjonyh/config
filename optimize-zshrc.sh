@@ -45,13 +45,14 @@ show_performance_issues() {
     echo "  • Unused Powerlevel9k functions (conflicts with Starship)"
     echo ""
     echo "⚡ OPTIMIZATION STRATEGIES:"
-    echo "  • Reduced plugins from 20+ to 6 essential ones"
+    echo "  • Reduced plugins from 20+ to 3 core + optional extras"
+    echo "  • ALWAYS includes zsh-syntax-highlighting & zsh-autosuggestions"
     echo "  • Lazy loading for expensive operations"
     echo "  • Conditional plugin loading based on command availability"
     echo "  • Cached completions (24-hour refresh cycle)"
-    echo "  • Deferred syntax highlighting"
+    echo "  • Deferred syntax highlighting for faster startup"
     echo "  • Removed Powerlevel9k/10k remnants (Starship optimized)"
-    echo "  • Optional zplug usage (enable with ZPLUG_ENABLE=1)"
+    echo "  • Optional full plugin mode (enable with ZPLUG_ENABLE=1)"
     echo ""
 }
 
