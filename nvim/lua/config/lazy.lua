@@ -25,8 +25,8 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     { import = "plugins" },
-    -- { import = "plugins.lsp" },
-    -- {
+    { import = "plugins.lsp" }, -- Import LSP configurations
+    {
     --   "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
     --   config = function()
     --       vim.cmd.colorscheme("kanagawa")
@@ -36,8 +36,14 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       opts = {
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+        ensure_installed = { 
+          "c", "lua", "vim", "vimdoc", "query",
+          "javascript", "typescript", "tsx", "json",
+          "html", "css", "python", "bash", "markdown",
+          "yaml", "toml", "regex"
+        },
         highlight = { enable = true },
+        indent = { enable = true },
       },
       config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
