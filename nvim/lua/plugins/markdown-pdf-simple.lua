@@ -24,7 +24,7 @@ return {
         -- Show progress
         vim.notify("🔄 Generating PDF...", vim.log.levels.INFO)
         
-        -- Pandoc command
+        -- Pandoc command (updated to use current syntax)
         local cmd = {
           "pandoc",
           current_file,
@@ -32,7 +32,7 @@ return {
           "--pdf-engine=xelatex",
           "--variable=geometry:margin=1in", 
           "--variable=fontsize=11pt",
-          "--syntax-highlight=github",
+          "--syntax-highlighting",
           "--standalone"
         }
         
@@ -72,7 +72,7 @@ return {
           "-o", output_file,
           "--standalone",
           "--css=https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css",
-          "--syntax-highlight=github"
+          "--syntax-highlighting"
         }
         
         local result = vim.fn.system(cmd)
