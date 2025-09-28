@@ -81,4 +81,6 @@ require("lazy").setup({
   checker = { enabled = true, notify = false },
   -- disable some of the default keymaps
   change_detection = { notify = false },
+  -- Disable luarocks to prevent warnings (you don't need it for most plugins)
+  rocks = { enabled = false },
 })
