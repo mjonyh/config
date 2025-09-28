@@ -136,12 +136,30 @@ setopt append_history           # Append to history file
 setopt inc_append_history       # Append immediately, not at shell exit
 
 # =============================================================================
-#                              Essential Aliases
+#                              Essential Aliases (exa-powered)
 # =============================================================================
-# Core aliases (keep only the most used ones)
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# exa aliases (modern ls replacement with colors, icons, and git integration)
+if (( $+commands[exa] )); then
+    # Basic exa aliases
+    alias ls='exa --color=auto --group-directories-first'
+    alias ll='exa -l --icons --git --group-directories-first'
+    alias la='exa -la --icons --git --group-directories-first'
+    alias l='exa -F --color=auto --group-directories-first'
+    alias lt='exa --tree --level=2 --icons'
+    alias llt='exa -l --tree --level=2 --icons --git'
+    
+    # Advanced exa aliases
+    alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --icons'  # Ultimate listing
+    alias lS='exa -1 --icons --git --group-directories-first'                        # One column
+    alias lr='exa -R --icons --git --group-directories-first'                        # Recursive
+    alias lg='exa -l --git --git-ignore --icons --group-directories-first'           # Git status focused
+    alias tree='exa --tree --icons --git'                                           # Tree view
+else
+    # Fallback to traditional ls if exa not available
+    alias ll='ls -alF'
+    alias la='ls -A'  
+    alias l='ls -CF'
+fi
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

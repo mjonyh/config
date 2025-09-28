@@ -47,24 +47,25 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 #### `zshrc` - ZSH Configuration ⚠️ **Performance Issue Detected**
 - **Current Status:** 374 lines with 34+ plugins causing slow startup (2-5+ seconds)
 - **Issues:** Synchronous plugin loading, expensive operations on every startup
-- **Includes:** 
+- **Features:** 
   - Environment variables and PATH configuration
   - FZF fuzzy finder setup and keybindings
-  - Custom aliases and functions
+  - **Modern exa aliases** (replaces ls with colors, icons, git integration)
+  - Custom functions and enhanced aliases
   - History optimization (100k entries)
   - Completion system configuration
-- **Dependencies:** `zsh`, `fzf`, `zplug`, `oh-my-zsh` plugins
+- **Dependencies:** `zsh`, `fzf`, `exa`, `zplug`, `oh-my-zsh` plugins
 - **Optimization Available:** Use `optimize-zshrc.sh` for 50-80% faster startup
 
 **Performance Optimization Tools:**
 - `optimize-zshrc.sh` - ZSH performance optimizer with backup/restore
-- `zshrc-optimized` - Pre-optimized configuration (6 essential plugins vs 34+)
+- `zshrc-optimized` - Pre-optimized configuration (exa aliases + 6 essential plugins vs 34+)
 - `zsh-performance-test.sh` - Benchmark tool to compare performance
 
 **Quick Fix:**
 ```bash
 ./optimize-zshrc.sh --install    # Install optimized version with backup
-# Includes zsh-syntax-highlighting + autosuggestions by default!
+# Includes zsh-syntax-highlighting + autosuggestions + exa aliases by default!
 ./optimize-zshrc.sh --test       # Compare performance before/after
 ```
 
@@ -260,6 +261,21 @@ Pre-configured session layouts for different projects:
 - `tor-1337.py` - Tor network utility
 
 ### Additional Utilities
+
+#### `exa-aliases-guide.md` - Modern File Listing Guide 📁
+**Purpose:** Documentation for enhanced exa aliases that replace traditional `ls`
+- **16 powerful aliases** using exa's modern features
+- **Tree views:** `lt`, `llt`, `tree` for directory visualization
+- **Git integration:** `lg` shows git status alongside file listings  
+- **Smart sorting:** `recent`, `largest` for quick file discovery
+- **Fallback support** to traditional `ls` if exa unavailable
+
+**Key Features:**
+- 🎨 Colors and icons with Nerd Font support
+- 📁 Directory-first grouping  
+- 🔀 Git status integration
+- 🌳 Tree view capabilities
+- ⚡ Performance optimized for daily use
 
 #### `optimize-zshrc.sh` - ZSH Performance Optimizer ⚡
 **Purpose:** Fixes slow ZSH startup times (reduces 34+ plugins to 6 essential ones)
