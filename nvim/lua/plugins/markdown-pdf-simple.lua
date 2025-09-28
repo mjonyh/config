@@ -32,7 +32,7 @@ return {
           "--pdf-engine=xelatex",
           "--variable=geometry:margin=1in", 
           "--variable=fontsize=11pt",
-          "--highlight-style", "github",
+          "--syntax-highlight=github",
           "--standalone"
         }
         
@@ -72,7 +72,7 @@ return {
           "-o", output_file,
           "--standalone",
           "--css=https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css",
-          "--highlight-style", "github"
+          "--syntax-highlight=github"
         }
         
         local result = vim.fn.system(cmd)

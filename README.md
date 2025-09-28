@@ -1,4 +1,3 @@
-A comprehensive collection of dotfiles and setup scripts for macOS and Arch Linux environments, featuring modern tools and workflows.
 ![Repository Size](https://img.shields.io/github/repo-size/mjonyh/config)
 ![Last Commit](https://img.shields.io/github/last-commit/mjonyh/config)
 ![License](https://img.shields.io/github/license/mjonyh/config)

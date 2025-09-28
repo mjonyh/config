@@ -141,6 +141,16 @@ setopt inc_append_history       # Append immediately, not at shell exit
 # =============================================================================
 #                              Essential Aliases (exa-powered)
 # =============================================================================
+# Catppuccin Mocha colors for exa (if exa is available)
+if (( $+commands[exa] )); then
+    # Load catppuccin colors if config file exists
+    if [[ -f "$HOME/.config/catppuccin-mocha-exa.conf" ]]; then
+        export EXA_COLORS="$(cat "$HOME/.config/catppuccin-mocha-exa.conf")"
+    elif [[ -f "$HOME/git/config/catppuccin-mocha-exa.conf" ]]; then
+        export EXA_COLORS="$(cat "$HOME/git/config/catppuccin-mocha-exa.conf")"
+    fi
+fi
+
 # exa aliases (modern ls replacement with colors, icons, and git integration)
 if (( $+commands[exa] )); then
     # Basic exa aliases
@@ -261,5 +271,22 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Enable vi mode
 bindkey -v
+
+# =============================================================================
+#                         ZSH Plugins (Essential)
+# =============================================================================
+# Load syntax highlighting (if available) - MUST BE AT END
+if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Load autosuggestions (if available)
+if [[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # vim: ft=zsh
