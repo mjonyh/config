@@ -3,8 +3,8 @@ return {
   {
     "nvim-lua/plenary.nvim",
     config = function()
-      -- Enhanced markdown to PDF with Catppuccin Mocha theme
-      local function markdown_to_pdf_catppuccin()
+      -- Enhanced markdown to PDF with dark theme styling
+      local function markdown_to_pdf_dark()
         local current_file = vim.fn.expand("%:p")
         local file_extension = vim.fn.expand("%:e")
         
@@ -15,24 +15,19 @@ return {
         
         local output_file = vim.fn.expand("%:p:r") .. ".pdf"
         vim.cmd("write")
-        vim.notify("🔄 Generating PDF with Catppuccin Mocha theme...", vim.log.levels.INFO)
+        vim.notify("🔄 Generating PDF with dark theme...", vim.log.levels.INFO)
         
-        -- Updated pandoc command with current syntax and Catppuccin-like styling
+        -- Fixed pandoc command with modern syntax
         local cmd = {
           "pandoc",
           current_file,
           "-o", output_file,
           "--pdf-engine=xelatex",
-          "--template=eisvogel",  -- If available, fallback to default
-          "--listings",
-          "--syntax-definition=https://raw.githubusercontent.com/KDE/syntax-highlighting/master/data/syntax/markdown.xml",
-          "--syntax-highlighting=monokai",
+          "--syntax-highlighting=breezedark",  -- Modern syntax
           "--variable=papersize:a4",
-          "--variable=geometry:margin=1in",
+          "--variable=geometry:margin=1in", 
           "--variable=fontsize=11pt",
           "--variable=linestretch=1.15",
-          "--variable=mainfont:SF Pro Text",  -- macOS system font
-          "--variable=monofont:SF Mono",     -- macOS monospace
           "--variable=colorlinks=true",
           "--variable=linkcolor=blue",
           "--variable=urlcolor=blue",
@@ -59,9 +54,9 @@ return {
             current_file,
             "-o", output_file,
             "--pdf-engine=xelatex",
-            "--syntax-highlighting=monokai",
-            "--variable=geometry:a4paper,margin=1in",
-            "--variable=fontsize:11pt",
+            "--syntax-highlighting=pygments",
+            "--variable=geometry:a4,margin=1in",
+            "--variable=fontsize=11pt",
             "--standalone"
           }
           
@@ -78,16 +73,16 @@ return {
       end
       
       -- Create user commands
-      vim.api.nvim_create_user_command("MarkdownToPDFCatppuccin", markdown_to_pdf_catppuccin, {
-        desc = "Convert markdown to PDF with Catppuccin Mocha styling"
+      vim.api.nvim_create_user_command("MarkdownToPDFDark", markdown_to_pdf_dark, {
+        desc = "Convert markdown to PDF with dark theme styling"
       })
       
       -- Keybinding for markdown files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
-          vim.keymap.set("n", "<leader>pdfc", markdown_to_pdf_catppuccin, 
-            { buffer = true, silent = true, desc = "PDF with Catppuccin theme" })
+          vim.keymap.set("n", "<leader>pdfc", markdown_to_pdf_dark, 
+            { buffer = true, silent = true, desc = "PDF with dark theme" })
         end,
       })
     end,
