@@ -1,8 +1,11 @@
--- Professional PDF Generation with Pandoc
+-- DISABLED: Professional PDF Generation with Pandoc (replaced with simple version)
+return {}
+--[[
 return {
-  -- Pandoc Integration for Professional PDF Output
+  -- Pandoc Integration for Professional PDF Output  
   {
     'aspeddro/pandoc.nvim',
+    enabled = false, -- Disabled due to format issues
     ft = "markdown",
     cmd = {
       "PandocCompile",
