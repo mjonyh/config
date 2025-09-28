@@ -294,6 +294,32 @@ process_configurations() {
         # Create symlink
         create_symlink "$source" "$target" "$description"
     done
+    
+    # Special handling for nvim directory symlinks
+    handle_directory_symlinks
+}
+
+# Handle directory symlinks (special case for nvim, etc.)
+handle_directory_symlinks() {
+    log_step "Checking directory symlinks"
+    
+    # Check nvim configuration specifically
+    local nvim_source="$SCRIPT_DIR/nvim"
+    local nvim_target="$HOME/.config/nvim"
+    
+    if [[ -d "$nvim_source" ]]; then
+        if [[ -L "$nvim_target" ]] && [[ "$(readlink "$nvim_target")" == "$nvim_source" ]]; then
+            log_info "✅ Neovim config already correctly symlinked"
+        elif [[ -e "$nvim_target" ]]; then
+            log_warning "⚠️ Neovim config exists but is not properly symlinked"
+            log_info "Run ./fix-nvim-symlink.sh to fix this issue"
+        else
+            log_info "Creating nvim config symlink..."
+            mkdir -p "$(dirname "$nvim_target")"
+            ln -sf "$nvim_source" "$nvim_target"
+            log_success "✅ Created nvim config symlink"
+        fi
+    fi
 }
 
 # Setup additional utilities
