@@ -1,9 +1,66 @@
 return {
+  -- Mason (LSP installer) - Must be loaded first
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+    config = function()
+      -- import mason
+      local mason = require("mason")
+
+      -- import mason-lspconfig
+      local mason_lspconfig = require("mason-lspconfig")
+
+      local mason_tool_installer = require("mason-tool-installer")
+
+      -- enable mason and configure icons
+      mason.setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        },
+      })
+
+      mason_lspconfig.setup({
+        -- list of servers for mason to install
+        ensure_installed = {
+          "ts_ls",        -- TypeScript/JavaScript (formerly tsserver)
+          "html",         -- HTML
+          "cssls",        -- CSS  
+          "tailwindcss",  -- Tailwind CSS
+          "svelte",       -- Svelte
+          "lua_ls",       -- Lua
+          "graphql",      -- GraphQL
+          "emmet_ls",     -- Emmet
+          "prismals",     -- Prisma
+          "pyright",      -- Python
+        },
+      })
+
+      mason_tool_installer.setup({
+        ensure_installed = {
+          "prettier",   -- prettier formatter
+          "stylua",     -- lua formatter
+          "isort",      -- python formatter
+          "black",      -- python formatter
+          "pylint",     -- python linter
+          "eslint_d",   -- js linter
+        },
+      })
+    end,
+  },
   -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim", 
       "hrsh7th/cmp-nvim-lsp",
       { "antosha417/nvim-lsp-file-operations", config = true },
       { "folke/neodev.nvim", opts = {} },
@@ -78,13 +135,16 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      mason_lspconfig.setup_handlers({
-        -- default handler for installed servers
-        function(server_name)
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
+      -- Setup handlers for mason-lspconfig
+      local mason_lspconfig_ok, mason_lspconfig_handlers = pcall(require, "mason-lspconfig")
+      if mason_lspconfig_ok and mason_lspconfig_handlers.setup_handlers then
+        mason_lspconfig_handlers.setup_handlers({
+          -- default handler for installed servers
+          function(server_name)
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
         ["svelte"] = function()
           -- configure svelte server
           lspconfig["svelte"].setup({
@@ -131,62 +191,28 @@ return {
             },
           })
         end,
-      })
-    end,
-  },
-  -- Mason (LSP installer)
-  {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-    },
-    config = function()
-      -- import mason
-      local mason = require("mason")
-
-      -- import mason-lspconfig
-      local mason_lspconfig = require("mason-lspconfig")
-
-      local mason_tool_installer = require("mason-tool-installer")
-
-      -- enable mason and configure icons
-      mason.setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
-      })
-
-      mason_lspconfig.setup({
-        -- list of servers for mason to install
-        ensure_installed = {
-          "tsserver",     -- TypeScript/JavaScript
-          "html",         -- HTML
-          "cssls",        -- CSS  
-          "tailwindcss",  -- Tailwind CSS
-          "svelte",       -- Svelte
-          "lua_ls",       -- Lua
-          "graphql",      -- GraphQL
-          "emmet_ls",     -- Emmet
-          "prismals",     -- Prisma
-          "pyright",      -- Python
-        },
-      })
-
-      mason_tool_installer.setup({
-        ensure_installed = {
-          "prettier",   -- prettier formatter
-          "stylua",     -- lua formatter
-          "isort",      -- python formatter
-          "black",      -- python formatter
-          "pylint",     -- python linter
-          "eslint_d",   -- js linter
-        },
-      })
+        })
+      else
+        -- Fallback: manually configure common servers
+        local servers = { "ts_ls", "html", "cssls", "lua_ls", "pyright" }
+        for _, server in ipairs(servers) do
+          if server == "lua_ls" then
+            lspconfig[server].setup({
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  diagnostics = { globals = { "vim" } },
+                  completion = { callSnippet = "Replace" },
+                },
+              },
+            })
+          else
+            lspconfig[server].setup({
+              capabilities = capabilities,
+            })
+          end
+        end
+      end
     end,
   },
 }

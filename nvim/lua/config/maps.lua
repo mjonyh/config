@@ -36,10 +36,8 @@ map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
 
-
 -- Run python code
 map("n", "<leader>rp", ":w<CR><CMD>!python3 %<CR>")
-
 
 -- Disable arrows keys
 map("n", "<Up>", "dd2kp")
@@ -57,5 +55,6 @@ map("v", "<Down>", "<Nop>")
 map("v", "<Left>", "<Nop>")
 map("v", "<Right>", "<Nop>")
 
-
+-- Note: Neorg keybindings use <leader>n prefix to avoid conflicts
+-- See lua/plugins/neorg.lua for Neorg-specific keybindings
 

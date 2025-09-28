@@ -28,6 +28,40 @@ Clean up the config repository which contained duplicated files, cache data, and
 4. **`copilot_cleaning_summary.pdf`** - Generated content, should not be in version control  
 5. **`scripts/youtube-mp3-rofi.sh`** - Duplicate of `.py` version (kept Python version with better error handling)
 
+### Neovim Configuration Overhaul
+6. **Consolidated 4 markdown plugins into 1**:
+   - Removed: `pandoc-pdf.lua`, `pandoc-simple.lua`, `md-pdf.lua`, `markdown-pdf-simple.lua`
+   - Created: `markdown-comprehensive.lua` with unified functionality
+   - **Features**: 8 different syntax highlighting themes, proper keybindings, error handling
+   - **Fixed**: Syntax errors, deprecated pandoc parameters, conflicting configurations
+
+### Key Improvements Made
+
+#### 🔧 Configuration Issues Fixed
+- **Neovim Plugin Conflicts**: Removed 4 redundant markdown plugins causing syntax errors
+- **Pandoc Integration**: Fixed deprecated `--highlight-style` usage with proper syntax highlighting
+- **Keybinding Conflicts**: Unified markdown PDF generation with comprehensive key mappings:
+  - `<leader>pdf` - Dark theme (breezedark) 
+  - `<leader>pdfl` - Light theme (kate)
+  - `<leader>pdfp` - Pygments theme
+  - `<leader>pdfz` - Zenburn theme
+  - `<leader>pdfe` - Espresso theme
+  - `<leader>pdft` - Tango theme
+  - `<leader>pdfh` - Haddock theme
+  - `<leader>pdfm` - Monochrome theme
+  - `<leader>mp` - Toggle markdown preview
+
+#### ⚡ Performance Optimizations
+- **ZSH Configuration**: Already optimized with lazy loading and minimal plugin count
+- **Repository Size**: Further reduced by removing generated PDFs and duplicates
+- **Neovim Loading**: Eliminated conflicting plugins that could cause startup delays
+
+#### 🛡️ Existing Features Preserved
+- **Symlink Script**: Advanced `symlink-config.sh` with revert capabilities intact
+- **Font Support**: Enhanced `check.sh` for terminal font verification
+- **ZSH Setup**: Clean configuration without powerlevel9k/p10k (uses Starship)
+- **Color Themes**: Catppuccin Mocha integration for exa and terminal
+
 ## 🔍 Analysis Process
 
 ### 1. Repository Assessment

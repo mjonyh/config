@@ -1,4 +1,4 @@
-# [Configuration]( msg_show.echomsg vim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for more information) Repository Cleanup Summary
+# [[Configuration](/Users/mjonyh/.config/nvim/lua/plugins/lsp.lua:139: attempt to call field 'setup_handlers' (a nil value))]( msg_show.echomsg vim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for more information) Repository Cleanup Summary
 
 ## Issues Fixed
 

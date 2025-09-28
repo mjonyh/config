@@ -17,14 +17,14 @@ return {
     {
       "<leader>fe",
       function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
       end,
       desc = "Explorer NeoTree (Root Dir)",
     },
     {
       "<leader>fE",
       function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
       end,
       desc = "Explorer NeoTree (cwd)",
     },
@@ -90,7 +90,8 @@ return {
         },
         ["O"] = {
           function(state)
-            require("lazy.util").open(state.tree:get_node().path, { system = true })
+            local path = state.tree:get_node().path
+            vim.fn.jobstart({"open", path}, {detach = true})
           end,
           desc = "Open with System Application",
         },
@@ -114,7 +115,8 @@ return {
   },
   config = function(_, opts)
     local function on_move(data)
-      LazyVim.lsp.on_rename(data.source, data.destination)
+      -- Simple file rename handling without LazyVim dependency
+      pcall(vim.lsp.util.rename, data.source, data.destination)
     end
 
     local events = require("neo-tree.events")
