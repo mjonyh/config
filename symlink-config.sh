@@ -3,7 +3,7 @@
 # symlink-config.sh - Advanced Configuration Symbolic Link Manager
 # Creates symbolic links to config files with backup functionality and revert capability
 
-set -euo pipefail
+set -eo pipefail
 
 # Colors for output
 RED='\033[0;31m'
@@ -131,29 +131,32 @@ revert_changes() {
 show_status() {
     print_info "Current symbolic link status:"
     
-    declare -A configs=(
-        ["zshrc"]="$HOME/.zshrc"
-        ["vimrc"]="$HOME/.vimrc"
-        ["tmux.conf"]="$HOME/.tmux.conf" 
-        ["starship.toml"]="$HOME/.config/starship.toml"
-        ["nvim"]="$HOME/.config/nvim"
-        ["ghostty"]="$HOME/.config/ghostty"
-        ["hypr"]="$HOME/.config/hypr"
+    # Config mappings (source_file:target_path)
+    local configs=(
+        "zshrc:$HOME/.zshrc"
+        "vimrc:$HOME/.vimrc"
+        "tmux.conf:$HOME/.tmux.conf"
+        "starship.toml:$HOME/.config/starship.toml"
+        "nvim:$HOME/.config/nvim"
+        "ghostty:$HOME/.config/ghostty"
+        "hypr:$HOME/.config/hypr"
     )
     
-    for config in "${!configs[@]}"; do
-        local target_path="${configs[$config]}"
+    for config_pair in "${configs[@]}"; do
+        local config_file="${config_pair%%:*}"
+        local target_path="${config_pair##*:}"
+        
         if [[ -L "$target_path" ]]; then
             local link_target=$(readlink "$target_path")
-            if [[ "$link_target" == "$SCRIPT_DIR/$config" ]]; then
-                print_success "$config -> $target_path (✓ linked)"
+            if [[ "$link_target" == "$SCRIPT_DIR/$config_file" ]]; then
+                print_success "$config_file -> $target_path (✓ linked)"
             else
-                print_warning "$config -> $target_path (⚠ linked to different location: $link_target)"
+                print_warning "$config_file -> $target_path (⚠ linked to different location: $link_target)"
             fi
         elif [[ -f "$target_path" ]] || [[ -d "$target_path" ]]; then
-            print_warning "$config -> $target_path (⚠ file exists, not linked)"
+            print_warning "$config_file -> $target_path (⚠ file exists, not linked)"
         else
-            print_info "$config -> $target_path (➖ not found)"
+            print_info "$config_file -> $target_path (➖ not found)"
         fi
     done
 }
@@ -165,22 +168,23 @@ create_symlinks() {
     # Initialize backup system
     init_backup
     
-    # Configuration mappings: config_file -> target_path -> backup_name
-    declare -A configs=(
-        ["zshrc"]="$HOME/.zshrc"
-        ["vimrc"]="$HOME/.vimrc"
-        ["tmux.conf"]="$HOME/.tmux.conf"
-        ["starship.toml"]="$HOME/.config/starship.toml"
-        ["nvim"]="$HOME/.config/nvim"
-        ["ghostty"]="$HOME/.config/ghostty"
-        ["hypr"]="$HOME/.config/hypr"
+    # Config mappings (source_file:target_path)
+    local configs=(
+        "zshrc:$HOME/.zshrc"
+        "vimrc:$HOME/.vimrc"
+        "tmux.conf:$HOME/.tmux.conf"
+        "starship.toml:$HOME/.config/starship.toml"
+        "nvim:$HOME/.config/nvim"
+        "ghostty:$HOME/.config/ghostty"
+        "hypr:$HOME/.config/hypr"
     )
     
     local success_count=0
     local total_count=${#configs[@]}
     
-    for config_file in "${!configs[@]}"; do
-        local target_path="${configs[$config_file]}"
+    for config_pair in "${configs[@]}"; do
+        local config_file="${config_pair%%:*}"
+        local target_path="${config_pair##*:}"
         local backup_name=$(basename "$target_path")
         
         if [[ -f "$SCRIPT_DIR/$config_file" ]] || [[ -d "$SCRIPT_DIR/$config_file" ]]; then

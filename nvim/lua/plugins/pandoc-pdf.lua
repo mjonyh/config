@@ -15,16 +15,16 @@ return {
         
         local output_file = vim.fn.expand("%:p:r") .. ".pdf"
         vim.cmd("write")
-        vim.notify("🔄 Generating PDF with dark theme...", vim.log.levels.INFO)
+        vim.notify("🔄 Generating PDF with Catppuccin Mocha theme...", vim.log.levels.INFO)
         
-        -- Fixed pandoc command with modern syntax
+        -- Fixed pandoc command with modern syntax and A4 paper size
         local cmd = {
           "pandoc",
           current_file,
           "-o", output_file,
           "--pdf-engine=xelatex",
-          "--syntax-highlighting=breezedark",  -- Modern syntax
-          "--variable=papersize:a4",
+          "--highlight-style=breezedark",  -- Dark theme similar to Catppuccin
+          "--variable=papersize:a4paper",
           "--variable=geometry:margin=1in", 
           "--variable=fontsize=11pt",
           "--variable=linestretch=1.15",
@@ -54,8 +54,8 @@ return {
             current_file,
             "-o", output_file,
             "--pdf-engine=xelatex",
-            "--syntax-highlighting=pygments",
-            "--variable=geometry:a4,margin=1in",
+            "--highlight-style=breezedark",
+            "--variable=geometry:a4paper,margin=1in",
             "--variable=fontsize=11pt",
             "--standalone"
           }
@@ -82,7 +82,7 @@ return {
         pattern = "markdown",
         callback = function()
           vim.keymap.set("n", "<leader>pdfc", markdown_to_pdf_dark, 
-            { buffer = true, silent = true, desc = "PDF with dark theme" })
+            { buffer = true, silent = true, desc = "PDF with Catppuccin theme" })
         end,
       })
     end,
