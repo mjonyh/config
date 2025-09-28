@@ -26,7 +26,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
     { import = "plugins.lsp" }, -- Import LSP configurations
-    {
+    -- {
     --   "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
     --   config = function()
     --       vim.cmd.colorscheme("kanagawa")
