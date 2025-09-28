@@ -134,11 +134,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 
 #### `scripts/` - Utility Scripts Directory
 - **Contents:**
-  - `battery_status.sh` - Battery monitoring
-  - `daily_notes.sh` - Daily note management
-  - `list_terminals.sh` - Terminal detection
-  - `notes.sh` - General note management
-  - Various Python scripts for automation
+  - `battery_status.sh` - Battery monitoring for status bars
+  - `daily_notes.sh` - Daily note management system
+  - `list_terminals.sh` - Terminal emulator detection
+  - `list_updates.sh` - System update checker
+  - `notes.sh` - General note-taking utility
+  - `prothom-alo.py` - News aggregation script
+  - `tor-1337.py` - Tor network utility
+  - `youtube-mp3-rofi.py` - YouTube to MP3 converter with Rofi
+  - `youtube-mp3-rofi.sh` - Shell wrapper for YouTube converter
+  - `zoxide_tmux.sh` - Zoxide integration for Tmux
+  - `zoxide_zellij.sh` - Zoxide integration for Zellij
 
 #### `optimize-zshrc.sh` - ZSH Performance Optimizer
 - **Purpose:** Optimize ZSH configuration for faster startup
