@@ -1,35 +1,8 @@
 -- DISABLED: Professional PDF Generation with Pandoc (replaced with simple version)
+-- This plugin was causing "file format pandoc not supported" errors
+-- Replaced with simple reliable functions in markdown-pdf-simple.lua
+
 return {}
---[[
-return {
-  -- Pandoc Integration for Professional PDF Output  
-  {
-    'aspeddro/pandoc.nvim',
-    enabled = false, -- Disabled due to format issues
-    ft = "markdown",
-    cmd = {
-      "PandocCompile",
-      "PandocCompileAndOpen", 
-      "PandocOpen",
-      "PandocClean"
-    },
-    keys = {
-      {
-        "<leader>pdf",
-        "<cmd>PandocCompileAndOpen<cr>",
-        desc = "Compile to PDF and Open",
-      },
-      {
-        "<leader>pdc",
-        "<cmd>PandocCompile<cr>",
-        desc = "Compile with Pandoc",
-      },
-      {
-        "<leader>pdo",
-        "<cmd>PandocOpen<cr>",
-        desc = "Open Pandoc Output",
-      },
-    },
     config = function()
       require('pandoc').setup({
         default = {
