@@ -23,7 +23,7 @@ return {
           "--pdf-engine=xelatex",
           "--variable=geometry:letterpaper",
           "--variable=fontsize:11pt",
-          "--highlight-style", "github"
+--syntax-highlighting
         }
       })
     end,
