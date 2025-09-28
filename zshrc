@@ -51,6 +51,8 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1" 2>/dev/null || find "$1" -type d 2>/dev/null
 }
 
+ZPLUG_ENABLE=1
+
 # =============================================================================
 #                              Essential Plugins Only
 # =============================================================================
@@ -59,30 +61,55 @@ if [[ ! -d ~/.zplug ]] && [[ -n "$ZPLUG_ENABLE" ]]; then
     git clone https://github.com/zplug/zplug ~/.zplug
 fi
 
-# Only load zplug if explicitly enabled and directory exists
-if [[ -n "$ZPLUG_ENABLE" ]] && [[ -d ~/.zplug ]]; then
+# Essential plugins that are always loaded for good UX
+# These 3 plugins are critical for modern shell experience
+if [[ -d ~/.zplug ]] || [[ -n "$ZPLUG_ENABLE" ]]; then
+    # Ensure zplug exists
+    [[ ! -d ~/.zplug ]] && git clone https://github.com/zplug/zplug ~/.zplug
     source ~/.zplug/init.zsh
     
-    # Essential plugins only (reduced from 20+ to core essentials)
+    # ALWAYS load these essential plugins (fast mode)
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
     zplug "zsh-users/zsh-autosuggestions"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
-    zplug "Aloxaf/fzf-tab"
     
-    # OS-specific (only if commands exist)
-    if [[ $OSTYPE == darwin* ]] && (( $+commands[brew] )); then
-        zplug "plugins/brew", from:oh-my-zsh
+    # Additional plugins only when explicitly enabled
+    if [[ -n "$ZPLUG_ENABLE" ]]; then
+        zplug "Aloxaf/fzf-tab"
+        
+        # OS-specific (only if commands exist)
+        if [[ $OSTYPE == darwin* ]] && (( $+commands[brew] )); then
+            zplug "plugins/brew", from:oh-my-zsh
+        fi
+        
+        # Essential oh-my-zsh plugins
+        zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
+        zplug "plugins/extract", from:oh-my-zsh
     fi
-    
-    # Essential oh-my-zsh plugins
-    zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
-    zplug "plugins/extract", from:oh-my-zsh
     
     # Load plugins (with timeout to prevent hanging)
     if ! zplug check --verbose; then
-        echo "Missing plugins detected. Install with: ZPLUG_ENABLE=1 zsh"
+        echo "Missing plugins detected. Run: zplug install"
     else
         zplug load
+    fi
+else
+    # Fallback: Manual syntax highlighting setup if zplug not available
+    if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    elif [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    elif [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
+    
+    # Fallback: Manual autosuggestions if available
+    if [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    elif [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+        source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    elif [[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+        source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     fi
 fi
 

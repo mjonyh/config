@@ -93,21 +93,52 @@ if [[ -d ~/.zplug ]] || [[ -n "$ZPLUG_ENABLE" ]]; then
     fi
 else
     # Fallback: Manual syntax highlighting setup if zplug not available
-    if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    echo "🔧 Loading plugins from system/manual installation..."
+    
+    # Try Homebrew first (macOS)
+    if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] 2>/dev/null; then
+        source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "✅ Loaded zsh-syntax-highlighting (Homebrew)"
     elif [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
         source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "✅ Loaded zsh-syntax-highlighting (Homebrew M1)"
     elif [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
         source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "✅ Loaded zsh-syntax-highlighting (Homebrew Intel)"
+    elif [[ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "✅ Loaded zsh-syntax-highlighting (manual)"
+    elif [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "✅ Loaded zsh-syntax-highlighting (system)"
+    else
+        echo "⚠️  zsh-syntax-highlighting not found. Install with:"
+        echo "   brew install zsh-syntax-highlighting  # macOS"
+        echo "   sudo apt install zsh-syntax-highlighting  # Ubuntu"
+        echo "   Or run: ./install-zsh-essentials.sh"
     fi
     
-    # Fallback: Manual autosuggestions if available
-    if [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # Try autosuggestions
+    if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] 2>/dev/null; then
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "✅ Loaded zsh-autosuggestions (Homebrew)"
     elif [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
         source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "✅ Loaded zsh-autosuggestions (Homebrew M1)"
     elif [[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
         source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "✅ Loaded zsh-autosuggestions (Homebrew Intel)"
+    elif [[ -f ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+        source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "✅ Loaded zsh-autosuggestions (manual)"
+    elif [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "✅ Loaded zsh-autosuggestions (system)"
+    else
+        echo "⚠️  zsh-autosuggestions not found. Install with:"
+        echo "   brew install zsh-autosuggestions  # macOS"
+        echo "   sudo apt install zsh-autosuggestions  # Ubuntu"
+        echo "   Or run: ./install-zsh-essentials.sh"
     fi
 fi
 
