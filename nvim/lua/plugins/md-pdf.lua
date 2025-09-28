@@ -21,7 +21,7 @@ return {
         -- passed to the end of the pandoc command
         pandoc_user_args = {
           "--pdf-engine=xelatex",
-          "--variable=geometry:letterpaper",
+          "--variable=geometry:a4paper",
           "--variable=fontsize:11pt",
           "--syntax-highlighting=pygments"
         }

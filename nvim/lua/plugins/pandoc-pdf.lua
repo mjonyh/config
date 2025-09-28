@@ -1,6 +1,95 @@
--- DISABLED: Professional PDF Generation with Pandoc (replaced with simple version)
--- This plugin was causing "file format pandoc not supported" errors  
--- Replaced with simple reliable functions in markdown-pdf-simple.lua
-
--- This file is intentionally disabled to prevent conflicts
-return {}
+-- Professional PDF Generation with Pandoc - FIXED
+return {
+  {
+    "nvim-lua/plenary.nvim",
+    config = function()
+      -- Enhanced markdown to PDF with Catppuccin Mocha theme
+      local function markdown_to_pdf_catppuccin()
+        local current_file = vim.fn.expand("%:p")
+        local file_extension = vim.fn.expand("%:e")
+        
+        if file_extension ~= "md" and file_extension ~= "markdown" then
+          vim.notify("❌ Not a markdown file!", vim.log.levels.ERROR)
+          return
+        end
+        
+        local output_file = vim.fn.expand("%:p:r") .. ".pdf"
+        vim.cmd("write")
+        vim.notify("🔄 Generating PDF with Catppuccin Mocha theme...", vim.log.levels.INFO)
+        
+        -- Updated pandoc command with current syntax and Catppuccin-like styling
+        local cmd = {
+          "pandoc",
+          current_file,
+          "-o", output_file,
+          "--pdf-engine=xelatex",
+          "--template=eisvogel",  -- If available, fallback to default
+          "--listings",
+          "--syntax-definition=https://raw.githubusercontent.com/KDE/syntax-highlighting/master/data/syntax/markdown.xml",
+          "--syntax-highlighting=monokai",
+          "--variable=papersize:a4",
+          "--variable=geometry:margin=1in",
+          "--variable=fontsize=11pt",
+          "--variable=linestretch=1.15",
+          "--variable=mainfont:SF Pro Text",  -- macOS system font
+          "--variable=monofont:SF Mono",     -- macOS monospace
+          "--variable=colorlinks=true",
+          "--variable=linkcolor=blue",
+          "--variable=urlcolor=blue",
+          "--variable=toccolor=black",
+          "--table-of-contents",
+          "--number-sections",
+          "--standalone"
+        }
+        
+        local result = vim.fn.system(cmd)
+        local exit_code = vim.v.shell_error
+        
+        if exit_code == 0 then
+          vim.notify("✅ PDF generated: " .. vim.fn.fnamemodify(output_file, ":t"), vim.log.levels.INFO)
+          if vim.fn.has("mac") == 1 then
+            vim.fn.system("open '" .. output_file .. "'")
+          end
+        else
+          -- Fallback to simpler command if advanced features fail
+          vim.notify("⚠️ Advanced PDF failed, trying simple mode...", vim.log.levels.WARN)
+          
+          local simple_cmd = {
+            "pandoc",
+            current_file,
+            "-o", output_file,
+            "--pdf-engine=xelatex",
+            "--syntax-highlighting=monokai",
+            "--variable=geometry:a4paper,margin=1in",
+            "--variable=fontsize:11pt",
+            "--standalone"
+          }
+          
+          local simple_result = vim.fn.system(simple_cmd)
+          if vim.v.shell_error == 0 then
+            vim.notify("✅ Simple PDF generated successfully!", vim.log.levels.INFO)
+            if vim.fn.has("mac") == 1 then
+              vim.fn.system("open '" .. output_file .. "'")
+            end
+          else
+            vim.notify("❌ PDF generation failed: " .. simple_result, vim.log.levels.ERROR)
+          end
+        end
+      end
+      
+      -- Create user commands
+      vim.api.nvim_create_user_command("MarkdownToPDFCatppuccin", markdown_to_pdf_catppuccin, {
+        desc = "Convert markdown to PDF with Catppuccin Mocha styling"
+      })
+      
+      -- Keybinding for markdown files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.keymap.set("n", "<leader>pdfc", markdown_to_pdf_catppuccin, 
+            { buffer = true, silent = true, desc = "PDF with Catppuccin theme" })
+        end,
+      })
+    end,
+  },
+}

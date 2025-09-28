@@ -30,8 +30,8 @@ return {
           current_file,
           "-o", output_file,
           "--pdf-engine=xelatex",
-          "--variable=geometry:margin=1in", 
-          "--variable=fontsize=11pt",
+          "--variable=geometry:a4paper,margin=1in", 
+          "--variable=fontsize:11pt",
           "--syntax-highlighting=pygments",
           "--standalone"
         }
