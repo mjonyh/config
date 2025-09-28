@@ -181,14 +181,14 @@ fi
 [[ -e "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
 # =============================================================================
-#                              Prompt Setup (Last)
+#                              Prompt Setup (Starship Only)
 # =============================================================================
-# Initialize starship prompt (fastest prompt option)
+# Initialize starship prompt (optimized for fast startup)
 if (( $+commands[starship] )); then
     eval "$(starship init zsh)"
 else
-    # Fallback simple prompt if starship not available
-    PS1='%F{blue}%n@%m%f:%F{green}%~%f$ '
+    # Lightweight fallback prompt if starship not available
+    PS1='%F{cyan}%n@%m%f:%F{green}%~%f$ '
 fi
 
 # =============================================================================

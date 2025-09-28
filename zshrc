@@ -17,24 +17,8 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
 
 # =============================================================================
-#                                   Functions
+#                                   Functions  
 # =============================================================================
-# Random color generator for prompt
-powerlevel9k_random_color() {
-    local code
-    code=$[${RANDOM}%211+20]    # random between 20-230
-    printf "%03d" $code
-}
-
-# WiFi signal strength indicator
-zsh_wifi_signal() {
-    local signal=$(nmcli -t device wifi | grep '^*' | awk -F':' '{print $6}')
-    local color="yellow"
-    [[ $signal -gt 75 ]] && color="green"
-    [[ $signal -lt 50 ]] && color="red"
-    echo -n "%F{$color}\uf1eb" 
-}
-
 # FZF completion generators
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"

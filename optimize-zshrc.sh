@@ -42,6 +42,7 @@ show_performance_issues() {
     echo "  • Multiple source operations without lazy loading"
     echo "  • Expensive dircolors evaluation"
     echo "  • Git clone check on every startup"
+    echo "  • Unused Powerlevel9k functions (conflicts with Starship)"
     echo ""
     echo "⚡ OPTIMIZATION STRATEGIES:"
     echo "  • Reduced plugins from 20+ to 6 essential ones"
@@ -49,6 +50,7 @@ show_performance_issues() {
     echo "  • Conditional plugin loading based on command availability"
     echo "  • Cached completions (24-hour refresh cycle)"
     echo "  • Deferred syntax highlighting"
+    echo "  • Removed Powerlevel9k/10k remnants (Starship optimized)"
     echo "  • Optional zplug usage (enable with ZPLUG_ENABLE=1)"
     echo ""
 }
@@ -97,9 +99,15 @@ install_optimized_zshrc() {
 
 create_usage_guide() {
     cat > "$HOME/.zshrc-optimization-guide.md" << 'EOF'
-# ZSH Optimization Guide
+# ZSH Optimization Guide (Starship Compatible)
 
 ## What Was Optimized
+
+### Starship Prompt Compatibility
+- **Removed:** Powerlevel9k/10k remnant functions and configurations
+- **Ensured:** Clean Starship initialization without conflicts
+- **Optimized:** Prompt setup only loads if Starship is available
+- **Fallback:** Lightweight prompt if Starship missing
 
 ### Plugin Reduction
 - **Before:** 20+ plugins loaded synchronously
@@ -130,12 +138,32 @@ ZPLUG_ENABLE=1 zsh  # Enables all plugins
 
 ### Fast Mode (default)
 ```bash
-zsh  # Minimal plugins, maximum speed
+zsh  # Minimal plugins, maximum speed, Starship ready
 ```
 
 ### Restore Original
 ```bash
 cp ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
+```
+
+## Starship Integration
+
+The optimized config is specifically tuned for Starship:
+- No prompt conflicts or theme interference
+- Fast initialization that doesn't delay Starship loading
+- Clean environment for Starship's modules to work properly
+
+### Starship Configuration Tips
+Your `starship.toml` will work perfectly with the optimized zshrc. Consider these optimizations:
+
+```toml
+# Add to your starship.toml for even faster prompts
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[cmd_duration]
+min_time = 500  # Only show for commands > 500ms
 ```
 
 ## Performance Comparison
@@ -149,6 +177,7 @@ Expected improvements:
 - 50-80% faster startup time
 - Reduced memory usage
 - Smoother shell experience
+- No conflicts with Starship prompt
 
 ## Customization
 
@@ -156,7 +185,7 @@ The optimized config includes:
 - Essential aliases and functions
 - Git integration (when available)
 - FZF integration (lazy loaded)
-- Starship prompt (fastest option)
+- Starship prompt (optimized initialization)
 - Vi mode keybindings
 
 Add custom configurations to:
@@ -165,10 +194,10 @@ Add custom configurations to:
 - `~/.zsh_exports` - Environment variables
 - `~/.zsh_rclocal` - Local customizations
 
-These files are sourced automatically if they exist.
+These files are sourced automatically if they exist and won't interfere with Starship.
 EOF
 
-    log_success "Created optimization guide: ~/.zshrc-optimization-guide.md"
+    log_success "Created Starship-optimized guide: ~/.zshrc-optimization-guide.md"
 }
 
 revert_optimization() {
