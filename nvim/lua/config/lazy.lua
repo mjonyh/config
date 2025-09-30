@@ -26,53 +26,6 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
     { import = "plugins.lsp" }, -- Import LSP configurations
-    -- {
-    --   "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
-    --   config = function()
-    --       vim.cmd.colorscheme("kanagawa")
-    --   end,
-    -- },
-    {
-      "nvim-treesitter/nvim-treesitter",
-      build = ":TSUpdate",
-      opts = {
-        ensure_installed = { 
-          "c", "lua", "vim", "vimdoc", "query",
-          "javascript", "typescript", "tsx", "json",
-          "html", "css", "python", "bash", "markdown",
-          "yaml", "toml", "regex"
-        },
-        highlight = { enable = true },
-        indent = { enable = true },
-      },
-      config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-      end,
-    },
-    {
-      "nvim-neorg/neorg",
-      lazy = false,
-      version = "*",
-      config = function()
-        require("neorg").setup {
-          load = {
-            ["core.defaults"] = {},
-            ["core.concealer"] = {},
-            ["core.dirman"] = {
-              config = {
-                workspaces = {
-                  notes = "~/notes",
-                },
-                default_workspace = "notes",
-              },
-            },
-          },
-        }
-  
-        vim.wo.foldlevel = 99
-        vim.wo.conceallevel = 2
-      end,
-    },   -- import your plugins
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -81,6 +34,6 @@ require("lazy").setup({
   checker = { enabled = true, notify = false },
   -- disable some of the default keymaps
   change_detection = { notify = false },
-  -- Disable luarocks to prevent warnings (you don't need it for most plugins)
-  rocks = { enabled = false },
+  -- Enable luarocks
+  rocks = { enabled = true },
 })

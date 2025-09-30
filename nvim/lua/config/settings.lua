@@ -39,3 +39,4 @@ vim.o.wrap = true
 vim.o.linebreak = true -- breaks by word rather than character
 
 vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
+vim.g.python3_host_prog = vim.fn.expand('~/.config/nvim/venv/bin/python')
