@@ -67,7 +67,5 @@ return { "catppuccin/nvim", name = "catppuccin", priority = 1000,
   -- setup must be called before loading
   vim.o.termguicolors = true
   vim.cmd.colorscheme "catppuccin"
-    -- -- load the colorscheme here
-    -- vim.cmd([[colorscheme catppuccin]])
   end,
 }

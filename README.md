@@ -26,13 +26,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_m
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/new_arch_setup.sh)"
 ```
 
-**Enhanced Dotfiles Setup:**
+**Recommended Dotfiles Setup:**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symlink-configs.sh | bash
 ```
 
-**Legacy Dotfiles Setup:**
+**Legacy Dotfiles Setup (use only if `symlink-configs.sh` fails or for specific needs):**
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdotfiles.sh)"

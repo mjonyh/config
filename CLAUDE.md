@@ -3,9 +3,9 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Setup and Installation
-- `./symdotfiles.sh` - Install/configure dotfiles
-- `./nvim.sh` - Set up Neovim configuration
+- `./symlink-configs.sh` - Install/configure dotfiles (recommended)
 - `./new_mac_setup.sh` - Set up a new macOS environment
+- `./new_arch_setup.sh` - Set up a new Arch Linux environment
 
 ## Code Style Guidelines
 

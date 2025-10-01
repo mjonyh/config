@@ -5,7 +5,7 @@ windows:
   options: {}
   panes:
   - focus: 'true'
-    shell_command: nvim general_settings.vim
+    shell_command: nvim
   - gst
   start_directory: ~/.dotfiles/nvim
   window_name: nvim

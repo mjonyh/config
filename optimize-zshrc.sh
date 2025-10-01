@@ -89,12 +89,12 @@ backup_current_zshrc() {
 }
 
 install_optimized_zshrc() {
-    if [[ ! -f "$SCRIPT_DIR/zshrc-optimized" ]]; then
-        log_error "Optimized zshrc not found: $SCRIPT_DIR/zshrc-optimized"
+    if [[ ! -f "$SCRIPT_DIR/zshrc" ]]; then
+        log_error "Optimized zshrc not found: $SCRIPT_DIR/zshrc"
         return 1
     fi
     
-    cp "$SCRIPT_DIR/zshrc-optimized" "$HOME/.zshrc"
+    cp "$SCRIPT_DIR/zshrc" "$HOME/.zshrc"
     log_success "Installed optimized zshrc"
 }
 

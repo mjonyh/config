@@ -21,7 +21,7 @@ echo -n "Testing optimized zshrc (5 runs): "
 total_time=0
 for i in {1..5}; do
     start_time=$(date +%s%N)
-    ZDOTDIR=/tmp zsh -c 'cp ~/git/config/zshrc-optimized ~/.zshrc; source ~/.zshrc; exit' 2>/dev/null
+    ZDOTDIR=/tmp zsh -c 'cp ~/git/config/zshrc ~/.zshrc; source ~/.zshrc; exit' 2>/dev/null
     end_time=$(date +%s%N)
     duration=$((($end_time - $start_time) / 1000000))  # Convert to milliseconds
     total_time=$(($total_time + duration))

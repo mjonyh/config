@@ -48,7 +48,7 @@ return {
 
 		vim.cmd([[
       set completeopt=menuone,noinsert,noselect
-      highlight! default link CmpItemKind CmpItemMenuDefault
+      highlight! default link CmpItemKind CmpItemMenu
     ]])
 	end,
 }

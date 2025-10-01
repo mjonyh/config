@@ -27,7 +27,7 @@
 - **Current Status**: Repository is well-organized with logical file structure
 - **Key Files**:
   - `zshrc` - Main shell configuration with optimizations
-  - `zshrc-optimized` - Performance-optimized version
+  - `zshrc` - Performance-optimized version (the main zshrc file)
   - `nvim/` - Complete Neovim configuration with LSP and plugins
   - `symlink-configs.sh` - Automated setup script with backup/revert functionality
 

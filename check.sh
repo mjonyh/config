@@ -46,11 +46,11 @@ test_basic_unicode() {
 test_powerline() {
     print_section "Powerline Font Symbols"
     echo -n "Powerline arrows: "
-    echo "       "
+    echo "               "
     echo -n "Branch symbol: "
-    echo " "
+    echo ""
     echo -n "Lock symbol: "
-    echo " "
+    echo ""
     echo
 }
 
