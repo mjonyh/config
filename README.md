@@ -45,8 +45,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 ### 🐚 Shell Environment
 
 #### `zshrc` - ZSH Configuration ✅ **Optimized**
+
 - **Status:** Clean, modern ZSH configuration with performance optimizations
-- **Features:** 
+- **Features:**
   - Starship prompt integration
   - Essential plugins (syntax highlighting, autosuggestions)
   - Catppuccin Mocha color scheme for `exa`
@@ -54,6 +55,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
   - Fast startup time with selective plugin loading
 
 #### `starship.toml` - Prompt Configuration
+
 - **Purpose:** Modern, fast, and customizable prompt
 - **Features:** Git integration, directory info, language detection
 - **Theme:** Minimalist with essential information display
@@ -61,20 +63,23 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
 ### 🖥️ Terminal Multiplexer
 
 #### `tmux.conf` - Tmux Configuration
+
 - **Purpose:** Enhanced terminal multiplexer setup
-- **Features:** 
+- **Features:**
   - Custom key bindings for productivity
   - Status bar configuration
   - Session management
   - Integration with other tools
 
 #### `tmuxp/` - Tmux Project Configurations
+
 - **Purpose:** Pre-defined tmux session layouts
 - **Features:** Project-specific window and pane configurations
 
 ### ✏️ Editor Configurations
 
 #### `nvim/` - Neovim Configuration
+
 - **Purpose:** Modern Lua-based Neovim setup
 - **Features:**
   - LSP (Language Server Protocol) support
@@ -85,54 +90,65 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
   - Catppuccin theme integration
 
 #### `vimrc` - Legacy Vim Configuration
+
 - **Purpose:** Fallback Vim configuration
 - **Status:** Basic setup for systems without Neovim
 
 ### 🎨 Color Schemes & Themes
 
-#### `catppuccin-mocha-exa.conf` - Exa Color Configuration  
+#### `catppuccin-mocha-exa.conf` - Exa Color Configuration
+
 - **Purpose:** Catppuccin Mocha theme for `exa` file listings
 - **Features:** Beautiful pastel colors for different file types
 
 #### `test-catppuccin-colors.sh` - Color Testing Script
+
 - **Purpose:** Test and preview Catppuccin colors in terminal
 
 ### 🤖 Window Managers
 
 #### `hypr/` - Hyprland Configuration
+
 - **Purpose:** Wayland compositor configuration
 - **Features:** Modern tiling window manager setup
 
-#### `rc.lua.awesome` - AwesomeWM Configuration  
+#### `rc.lua.awesome` - AwesomeWM Configuration
+
 - **Purpose:** Lua configuration for Awesome window manager
 
 #### `ghostty/` - Ghostty Terminal Configuration
+
 - **Purpose:** Configuration for Ghostty terminal emulator
 
 ### 📜 Setup Scripts
 
 #### `new_mac_setup.sh` - macOS Setup Script
+
 - **Purpose:** Automated macOS environment setup
 - **Features:** Installs Homebrew, essential tools, and configures system
 
-#### `new_arch_setup.sh` - Arch Linux Setup Script  
+#### `new_arch_setup.sh` - Arch Linux Setup Script
+
 - **Purpose:** Automated Arch Linux environment setup
 - **Features:** Package installation and system configuration
 
 #### `symlink-configs.sh` - Configuration Linking Script
+
 - **Purpose:** Creates symbolic links for all config files
-- **Features:** 
+- **Features:**
   - Automatic backup of existing configs
   - Timestamp-based backup naming
   - Safe overwrite protection
 
 #### `symdotfiles.sh` - Legacy Dotfiles Script
+
 - **Purpose:** Original dotfiles setup script
 - **Status:** Maintained for compatibility
 
 ### 🔧 Utility Scripts
 
 #### `scripts/` - Utility Scripts Directory
+
 - **Contents:**
   - `battery_status.sh` - Battery monitoring for status bars
   - `daily_notes.sh` - Daily note management system
@@ -147,14 +163,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjonyh/config/master/symdo
   - `zoxide_zellij.sh` - Zoxide integration for Zellij
 
 #### `optimize-zshrc.sh` - ZSH Performance Optimizer
+
 - **Purpose:** Optimize ZSH configuration for faster startup
 - **Features:** Plugin management and performance testing
 
 #### `install-zsh-essentials.sh` - ZSH Plugin Installer
+
 - **Purpose:** Install essential ZSH plugins
 - **Features:** Automated plugin installation and configuration
-./optimize-zshrc.sh --test       # Compare performance before/after
-```
+  ./optimize-zshrc.sh --test # Compare performance before/after
+
+````
 
 #### `starship.toml` - Cross-Shell Prompt
 
@@ -292,7 +311,7 @@ Pre-configured session layouts for different projects:
 ./symlink-configs.sh           # Full automatic setup
 ./symlink-configs.sh -i        # Interactive mode
 ./symlink-configs.sh --help    # Show all options
-```
+````
 
 **Revert Usage:**
 
