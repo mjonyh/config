@@ -179,16 +179,79 @@ alias ....='cd ../../..'
 
 # Git aliases (if git exists)
 if (( $+commands[git] )); then
+    alias g='git'
     alias gs='git status'
     alias ga='git add'
-    alias gc='git commit'
+    alias gaa='git add .'
+    alias gc='git commit -v'
+    alias gca='git commit -v -a'
+    alias gco='git checkout'
+    alias gb='git branch'
+    alias gba='git branch -a'
+    alias gd='git diff'
+    alias gds='git diff --staged'
     alias gp='git push'
     alias gl='git pull'
+    alias gr='git remote -v'
+    alias glog='git log --oneline --decorate --graph --all'
+    alias gcl='git clone'
+fi
+
+# Tmux
+alias t='tmux_sessionizer' # Custom function below
+alias ta='tmux attach -t main || tmux new -s main' # Attach or create 'main' session
+alias tn='tmux new -s' # Create new named session
+alias tl='tmux list-sessions'
+alias tk='tmux kill-session -t' # Kill named session
+alias tks='tmux kill-server' # Kill all tmux list-sessions
+
+# Python
+alias py='python3'
+alias pip='pip3'
+alias venv_create='python3 -m venv .venv' # Create a virtual environment
+alias venv_act='activate_venv'             # Activate virtual environment (custom function)
+alias venv_deact='deactivate'              # Deactivate virtual environment
+
+# Markdown / LaTeX / Pandoc
+alias mdview='pandoc -s -t html -o /tmp/temp.html && open /tmp/temp.html' # View markdown in browser
+alias mdpdf='pandoc -s --pdf-engine=xelatex -o' # Markdown to PDF using xelatex
+alias latexmk='latexmk -pdf -shell-escape' # Compile LaTeX with latexmk
+alias bibtex='bibtex' # For bibliography compilation
+
+# System Updates (adjust for your OS)
+if [[ "$(uname)" == "Linux" ]]; then
+  if command -v apt 1>/dev/null 2>&1; then
+    alias sysup='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y' # Debian/Ubuntu
+  elif command -v dnf 1>/dev/null 2>&1; then
+    alias sysup='sudo dnf update -y' # Fedora
+  elif command -v pacman 1>/dev/null 2>&1; then
+    alias sysup='sudo pacman -Syu' # Arch Linux
+  fi
+elif [[ "$(uname)" == "Darwin" ]]; then
+  alias sysup='brew update && brew upgrade && brew cleanup && sudo softwareupdate -i -a' # macOS Homebrew
 fi
 
 # Editor aliases
 alias vim='nvim'
 alias vi='nvim'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias cp='cp -i' # Interactive copy
+alias mv='mv -i' # Interactive move
+alias rm='rm -i' # Interactive remove (be careful, remove -i for force)
+alias mkdir='mkdir -p' # Create parent directories as needed
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias cl='clear'
+alias df='df -h' # Human-readable disk space
+alias du='du -h' # Human-readable disk usage
+alias top='htop' # Use htop if available
+alias cat='bat --paging=never --style=header,grid --color=always' # Use bat if available, otherwise 'cat'
+
+
 
 # =============================================================================
 #                              Lazy Loading Setup
@@ -290,3 +353,48 @@ elif [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; t
 fi
 
 # vim: ft=zsh
+# ------------------------------------------------------------------------------
+# 7. Functions
+#    More complex or reusable logic.
+# ------------------------------------------------------------------------------
+
+# mkcd: Make a directory and change into it
+function mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# tmux_sessionizer: Attach to an existing tmux session or create a new one
+# based on the current directory name.
+function tmux_sessionizer() {
+  if [[ -n "$TMUX" ]]; then
+    echo "Already in a tmux session."
+    return 0
+  fi
+
+  local session_name
+  if [[ -n "$1" ]]; then
+    session_name="$1"
+  else
+    # Sanitize current directory name for tmux session (replace dots with underscores)
+    session_name=$(basename "$(pwd)" | tr . _)
+  fi
+
+  if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux new-session -s "$session_name" -d
+    echo "Created new tmux session: $session_name"
+  fi
+  tmux attach-session -t "$session_name"
+}
+
+# activate_venv: Activates a Python virtual environment in ./.venv or ./venv
+function activate_venv() {
+  if [[ -d ".venv" ]]; then
+    source .venv/bin/activate
+    echo "Activated virtual environment in ./.venv"
+  elif [[ -d "venv" ]]; then
+    source venv/bin/activate
+    echo "Activated virtual environment in ./venv"
+  else
+    echo "No virtual environment found (looking for .venv or venv)."
+  fi
+}
