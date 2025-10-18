@@ -250,6 +250,7 @@ alias df='df -h' # Human-readable disk space
 alias du='du -h' # Human-readable disk usage
 alias top='htop' # Use htop if available
 alias cat='bat --paging=never --style=header,grid --color=always' # Use bat if available, otherwise 'cat'
+alias ts='tmux-session.sh'
 
 
 
