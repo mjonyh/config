@@ -398,3 +398,6 @@ function activate_venv() {
     echo "No virtual environment found (looking for .venv or venv)."
   fi
 }
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L/usr/local/opt/libtiff/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/libtiff/include $CPPFLAGS"
