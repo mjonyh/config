@@ -402,3 +402,6 @@ function activate_venv() {
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 export LDFLAGS="-L/usr/local/opt/libtiff/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/libtiff/include $CPPFLAGS"
+source "$HOME/.cargo/env"
+eval "$(zoxide init zsh)"
+
