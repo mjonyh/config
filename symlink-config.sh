@@ -3,7 +3,7 @@
 # symlink-config.sh - Advanced Configuration Symbolic Link Manager
 # Creates symbolic links to config files with backup functionality and revert capability
 
-set -eo pipefail
+# set -eo pipefail # Disabled to allow continuing on error with proper reporting
 
 # Colors for output
 RED='\033[0;31m'
@@ -140,6 +140,7 @@ show_status() {
         "nvim:$HOME/.config/nvim"
         "ghostty:$HOME/.config/ghostty"
         "hypr:$HOME/.config/hypr"
+        "config/wofi:$HOME/.config/wofi"
     )
     
     for config_pair in "${configs[@]}"; do
@@ -177,6 +178,9 @@ create_symlinks() {
         "nvim:$HOME/.config/nvim"
         "ghostty:$HOME/.config/ghostty"
         "hypr:$HOME/.config/hypr"
+        "config/wofi:$HOME/.config/wofi"
+        "termite:$HOME/.config/termite"
+        "rc.lua.awesome:$HOME/.config/awesome/rc.lua"
     )
     
     local success_count=0
@@ -187,11 +191,15 @@ create_symlinks() {
         local target_path="${config_pair##*:}"
         local backup_name=$(basename "$target_path")
         
+        # Check if source exists before attempting to link
         if [[ -f "$SCRIPT_DIR/$config_file" ]] || [[ -d "$SCRIPT_DIR/$config_file" ]]; then
+            # Special handling for deep directories like awesome/rc.lua
+            mkdir -p "$(dirname "$target_path")"
+            
             create_symlink "$config_file" "$target_path" "$backup_name"
             ((success_count++))
         else
-            print_warning "Config file not found: $SCRIPT_DIR/$config_file"
+            print_warning "Config source not found, skipping: $SCRIPT_DIR/$config_file"
         fi
     done
     
