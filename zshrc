@@ -54,7 +54,7 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1" 2>/dev/null || find "$1" -type d 2>/dev/null
 }
 
-# ZPLUG_ENABLE=1 # Removed for fast mode by default
+ZPLUG_ENABLE=1 # Removed for fast mode by default
 
 # =============================================================================
 #                              Essential Plugins Only
@@ -402,6 +402,9 @@ function activate_venv() {
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 export LDFLAGS="-L/usr/local/opt/libtiff/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/libtiff/include $CPPFLAGS"
-source "$HOME/.cargo/env"
+# Source cargo env if it exists
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
 eval "$(zoxide init zsh)"
 
