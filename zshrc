@@ -402,3 +402,10 @@ function activate_venv() {
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 export LDFLAGS="-L/usr/local/opt/libtiff/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/libtiff/include $CPPFLAGS"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by Antigravity
+export PATH="/Users/mjonyh/.antigravity/antigravity/bin:$PATH"
