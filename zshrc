@@ -423,3 +423,4 @@ eval "$(zoxide init zsh)"
 
 # Added by Antigravity
 export PATH="/Users/mjonyh/.antigravity/antigravity/bin:$PATH"
+# source "$HOME/.cargo/env"
