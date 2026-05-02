@@ -406,7 +406,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Cargo binaries
+export PATH="$HOME/.cargo/bin:$PATH"
+eval "$(zoxide init zsh)"
+
 # Added by Antigravity
 export PATH="/Users/mjonyh/.antigravity/antigravity/bin:$PATH"
-source "$HOME/.cargo/env"
-eval "$(zoxide init zsh)"
