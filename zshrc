@@ -408,3 +408,9 @@ if [[ -f "$HOME/.cargo/env" ]]; then
 fi
 eval "$(zoxide init zsh)"
 
+
+# # Added by Gemini to configure NVIDIA HPC SDK
+# export MODULEPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/25.11/compilers/modulefiles:$MODULEPATH
+# (( ${+functions[module]} )) || source /etc/modules/init/zsh
+# module load nvhpc
+
