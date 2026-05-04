@@ -406,7 +406,6 @@ export CPPFLAGS="-I/usr/local/opt/libtiff/include $CPPFLAGS"
 if [[ -f "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
 fi
-eval "$(zoxide init zsh)"
 
 
 # # Added by Gemini to configure NVIDIA HPC SDK
@@ -414,3 +413,13 @@ eval "$(zoxide init zsh)"
 # (( ${+functions[module]} )) || source /etc/modules/init/zsh
 # module load nvhpc
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Cargo binaries
+export PATH="$HOME/.cargo/bin:$PATH"
+eval "$(zoxide init zsh)"
+
+# Added by Antigravity
+export PATH="/Users/mjonyh/.antigravity/antigravity/bin:$PATH"
