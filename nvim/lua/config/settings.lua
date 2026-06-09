@@ -1,43 +1,50 @@
-local global = vim.g
+-- Neovim base options and globals
+-- This file sets up essential Neovim settings for the configuration.
+-- It contains no LazyVim-specific settings (this is a plain lazy.nvim setup).
+
+-- Global variables
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Core Neovim options
 local o = vim.opt
 
-o.scrolloff = 5
 o.number = true
 o.relativenumber = true
-o.clipboard = "unnamedplus"
-o.syntax = "on"
-o.autoindent = true
-o.cursorline = true
 o.expandtab = true
 o.shiftwidth = 2
 o.tabstop = 2
-o.encoding = "UTF-8"
-o.ruler = true
--- o.mouse = "a"
-o.title = true
-o.hidden = true
-o.ttimeoutlen = 0
-o.wildmenu = true
-o.showcmd = true
-o.showmatch = true
-o.inccommand = "split"
-o.splitright = true
-o.splitbelow = true
-o.termguicolors = true
-o.undofile = true
-o.undodir = vim.fn.stdpath("data") .. "/undodir"
+o.smartindent = true
+o.autoindent = true
+o.wrap = true
+o.linebreak = true
+o.scrolloff = 5
+o.sidescrolloff = 5
+o.cursorline = true
 o.hlsearch = true
 o.incsearch = true
 o.ignorecase = true
 o.smartcase = true
-o.smartindent = true
--- o.wrap = false
-
-vim.o.textwidth = 0
-vim.o.wrapmargin = 0
--- visual wrap (no real line cutting is made)
-vim.o.wrap = true
-vim.o.linebreak = true -- breaks by word rather than character
-
-vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
-vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python")
+o.splitbelow = true
+o.splitright = true
+o.termguicolors = true
+o.clipboard = "unnamedplus"
+o.undofile = true
+o.undodir = vim.fn.stdpath("data") .. "/undodir"
+o.mouse = "a"
+o.hidden = true
+o.showmode = false
+o.showcmd = true
+o.wildmenu = true
+o.completeopt = "menu,menuone,noselect"
+o.updatetime = 250
+o.timeoutlen = 300
+o.signcolumn = "yes"
+o.encoding = "utf-8"
+o.fileencoding = "utf-8"
+o.list = false
+o.conceallevel = 0
+o.autoread = true
+o.backup = false
+o.writebackup = false
+o.swapfile = false

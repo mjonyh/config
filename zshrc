@@ -424,3 +424,40 @@ eval "$(zoxide init zsh)"
 # Added by Antigravity
 export PATH="/Users/mjonyh/.antigravity/antigravity/bin:$PATH"
 # source "$HOME/.cargo/env"
+
+# User-local npm global installs (no sudo needed)
+export PATH="$HOME/.bin/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/mjonyh/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Modern CLI Tool Aliases
+# Ripgrep (rg)
+if (( $+commands[rg] )); then
+    alias grep='rg'
+fi
+
+# Bottom (btm)
+if (( $+commands[btm] )); then
+    alias top='btm'
+fi
+
+# Procs
+if (( $+commands[procs] )); then
+    alias ps='procs'
+fi
+
+# Zellij
+if (( $+commands[zellij] )); then
+    alias zj='zellij'
+fi
+
+# Lazygit
+if (( $+commands[lazygit] )); then
+    alias lg='lazygit'
+fi
+
+# Delta (Git pager config)
+if (( $+commands[delta] )); then
+    export GIT_PAGER="delta"
+fi
