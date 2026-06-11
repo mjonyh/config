@@ -9,7 +9,7 @@ nvim/lazy-lock.json
 **/Code Cache/
 **/CachedData/
 **/BrowserMetrics/
-**/Crash Reports/
+**/.Crash Reports/
 **/.org.chromium.Chromium.*
 **/leveldb/
 **/databases/
@@ -33,3 +33,8 @@ cfg_backups/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Repo-specific
+copilot_cleanup_summary*.md
+copilot_cleanup_summary*.pdf
+zshrc_backup_*
