@@ -257,4 +257,5 @@ main() {
 # Check if script is being run directly
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     main "$@"
-fi
+fi# Additional managed configs added during reorganization
+# alacritty, bat, fish, mpv, zellij, htop, himalaya, catppuccin-mocha-eza.conf

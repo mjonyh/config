@@ -461,3 +461,8 @@ fi
 if (( $+commands[delta] )); then
     export GIT_PAGER="delta"
 fi
+export HERMES_MAX_TOKENS=8192
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/mjonyh/.local/bin:$PATH"
